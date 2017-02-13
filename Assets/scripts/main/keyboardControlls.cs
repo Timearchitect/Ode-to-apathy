@@ -77,6 +77,8 @@ public class keyboardControlls : MonoBehaviour {
 				if (kcode ==  KeyCode.K) {
 					print ("toggle lowpass");
 					//a.GetComponent<AudioSource> ().bypassEffects
+					a.GetComponent<AudioSource>().volume= (a.GetComponent<AudioSource>().bypassEffects)?0.1f:1;
+
 					a.GetComponent<AudioSource>().bypassEffects = !a.GetComponent<AudioSource>().bypassEffects;
 					}
 					//a.GetComponent<AudioSource> ().GetComponents <AudioLowPassFilter>().
