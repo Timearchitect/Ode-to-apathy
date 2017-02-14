@@ -65,24 +65,17 @@ public class keyboardControlls : MonoBehaviour {
 				if(!a.GetComponent<AudioSource> ().isPlaying) a.GetComponent<AudioSource> ().Play();
 
 				print(a.GetComponent<AudioSource> ().loop);
-				//AudioSource	as = a.GetComponent<AudioSource>();
-				//as.loop.set ((count%2==1)?true:false);
+			
 
-				//GameObject.FindGameObjectWithTag("debug")
-				//	.GetComponent<Text> ().Pause ()
-				//	GameObject newGO = new GameObject("myTextGO");
-				//newGO.transform.SetParent(this.transform);
-				//newGO.AddComponent(Text);
-
-				if (kcode ==  KeyCode.K) {
+				/*if (kcode ==  KeyCode.K) {
 					print ("toggle lowpass");
 					//a.GetComponent<AudioSource> ().bypassEffects
 					a.GetComponent<AudioSource>().volume= (a.GetComponent<AudioSource>().bypassEffects)?0.1f:1;
-
 					a.GetComponent<AudioSource>().bypassEffects = !a.GetComponent<AudioSource>().bypassEffects;
 					}
 					//a.GetComponent<AudioSource> ().GetComponents <AudioLowPassFilter>().
-				}
+				}*/
 			}
 		}
 	}
+}

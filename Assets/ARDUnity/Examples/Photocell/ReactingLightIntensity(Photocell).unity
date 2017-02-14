@@ -314,12 +314,12 @@ MonoBehaviour:
       height: 18
     updated: 1
   foundDevices:
-  - name: COM39
-    address: //./COM39
+  - name: COM5
+    address: //./COM5
     args: []
   device:
-    name: COM39
-    address: //./COM39
+    name: COM5
+    address: //./COM5
     args: []
   OnOpen:
     m_PersistentCalls:
@@ -438,7 +438,7 @@ MonoBehaviour:
   txPin: 0
   pwmResolution: 256
   adcResolution: 1024
-  autoConnect: 0
+  autoConnect: 1
   debug: 0
   OnConnected:
     m_PersistentCalls:
@@ -880,7 +880,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.10894311}
+  m_AnchoredPosition: {x: 0, y: 0.16296783}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &290194527
@@ -1764,6 +1764,7 @@ GameObject:
   - component: {fileID: 1452721053}
   - component: {fileID: 1452721055}
   - component: {fileID: 1452721054}
+  - component: {fileID: 1452721056}
   m_Layer: 0
   m_Name: Audio Source
   m_TagString: bgm
@@ -1926,7 +1927,7 @@ AudioLowPassFilter:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0.082772724
+      value: 0.087409094
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1942,6 +1943,96 @@ AudioHighPassFilter:
   m_Enabled: 0
   m_CutoffFrequency: 100
   m_HighpassResonanceQ: 10
+--- !u!114 &1452721056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1452721051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c828f51c2200f4eac9ebfbd4a7b0adcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  windowRect:
+    serializedVersion: 2
+    x: 786
+    y: 132
+    width: 152
+    height: 133
+  nodes:
+  - name: ReactingTarget
+    text: Audio Source
+    nodeType: 0
+    objectTarget: {fileID: 0}
+    tooltip: Reacting Target
+    rect:
+      serializedVersion: 2
+      x: 786
+      y: 152
+      width: 152
+      height: 18
+    updated: 1
+  - name: play
+    text: Play
+    nodeType: 2
+    objectTarget: {fileID: 0}
+    tooltip: Input<bool>
+    rect:
+      serializedVersion: 2
+      x: 786
+      y: 170
+      width: 152
+      height: 18
+    updated: 1
+  - name: playOnly
+    text: Play Only
+    nodeType: 2
+    objectTarget: {fileID: 0}
+    tooltip: Input<Trigger>
+    rect:
+      serializedVersion: 2
+      x: 786
+      y: 188
+      width: 152
+      height: 18
+    updated: 1
+  - name: setVolume
+    text: Set Volume
+    nodeType: 2
+    objectTarget: {fileID: 0}
+    tooltip: Input<float>
+    rect:
+      serializedVersion: 2
+      x: 786
+      y: 206
+      width: 152
+      height: 18
+    updated: 1
+  - name: setBypassFilter
+    text: Set Bypass
+    nodeType: 2
+    objectTarget: {fileID: 1737641606}
+    tooltip: Input<bool>
+    rect:
+      serializedVersion: 2
+      x: 786
+      y: 224
+      width: 152
+      height: 18
+    updated: 1
+  - name: AudioSourceReactor
+    text: AudioSourceReactor
+    nodeType: 1
+    objectTarget: {fileID: 0}
+    tooltip: AudioSourceReactor
+    rect:
+      serializedVersion: 2
+      x: 786
+      y: 242
+      width: 152
+      height: 18
+    updated: 1
 --- !u!1 &1494513657
 GameObject:
   m_ObjectHideFlags: 0
@@ -2018,7 +2109,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 374584111}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9995966
+  m_Size: 0.9420614
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2390,8 +2481,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   windowRect:
     serializedVersion: 2
-    x: 435
-    y: 36
+    x: 454
+    y: 33
     width: 116
     height: 79
   nodes:
@@ -2402,8 +2493,8 @@ MonoBehaviour:
     tooltip: AnalogInput
     rect:
       serializedVersion: 2
-      x: 435
-      y: 56
+      x: 454
+      y: 53
       width: 116
       height: 18
     updated: 1
@@ -2414,8 +2505,8 @@ MonoBehaviour:
     tooltip: Input<float>
     rect:
       serializedVersion: 2
-      x: 435
-      y: 74
+      x: 454
+      y: 71
       width: 116
       height: 18
     updated: 1
@@ -2426,17 +2517,17 @@ MonoBehaviour:
     tooltip: InputFilter
     rect:
       serializedVersion: 2
-      x: 435
-      y: 92
+      x: 454
+      y: 89
       width: 116
       height: 18
     updated: 1
   invert: 0
   amplify: 1
-  minValue: 0.281
-  maxValue: 1
+  minValue: 0.3
+  maxValue: 0.9
   smooth: 1
-  sensitivity: 0.5
+  sensitivity: 0.6
 --- !u!1 &1767250111
 GameObject:
   m_ObjectHideFlags: 0
@@ -2706,8 +2797,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   windowRect:
     serializedVersion: 2
-    x: 620
-    y: 37
+    x: 730
+    y: 0
     width: 157
     height: 133
   nodes:
@@ -2718,8 +2809,8 @@ MonoBehaviour:
     tooltip: Reacting Target
     rect:
       serializedVersion: 2
-      x: 620
-      y: 57
+      x: 730
+      y: 20
       width: 157
       height: 18
     updated: 1
@@ -2730,8 +2821,8 @@ MonoBehaviour:
     tooltip: Input<bool>
     rect:
       serializedVersion: 2
-      x: 620
-      y: 75
+      x: 730
+      y: 38
       width: 157
       height: 18
     updated: 1
@@ -2742,8 +2833,8 @@ MonoBehaviour:
     tooltip: Output<bool>
     rect:
       serializedVersion: 2
-      x: 620
-      y: 93
+      x: 730
+      y: 56
       width: 157
       height: 18
     updated: 1
@@ -2754,8 +2845,8 @@ MonoBehaviour:
     tooltip: Input<float>
     rect:
       serializedVersion: 2
-      x: 620
-      y: 111
+      x: 730
+      y: 74
       width: 157
       height: 18
     updated: 1
@@ -2766,8 +2857,8 @@ MonoBehaviour:
     tooltip: Output<float>
     rect:
       serializedVersion: 2
-      x: 620
-      y: 129
+      x: 730
+      y: 92
       width: 157
       height: 18
     updated: 1
@@ -2778,8 +2869,8 @@ MonoBehaviour:
     tooltip: LightIntensityReactor
     rect:
       serializedVersion: 2
-      x: 620
-      y: 147
+      x: 730
+      y: 110
       width: 157
       height: 18
     updated: 1
