@@ -1,0 +1,171 @@
+fileFormatVersion: 2
+guid: 00f6aaf1a970b410d9e5e4f0513ac4c0
+timeCreated: 1487320530
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Camera
+    100002: Camera.target
+    100004: Mesh01
+    100006: Mesh02
+    100008: Mesh03
+    100010: Mesh04
+    100012: Model
+    100014: shelf1
+    100016: shelf10
+    100018: shelf11
+    100020: shelf12
+    100022: shelf2
+    100024: shelf3
+    100026: shelf4
+    100028: shelf5
+    100030: shelf6
+    100032: shelf7
+    100034: shelf8
+    100036: shelf9
+    100038: //RootNode
+    100040: wheels1
+    400000: Camera
+    400002: Camera.target
+    400004: Mesh01
+    400006: Mesh02
+    400008: Mesh03
+    400010: Mesh04
+    400012: Model
+    400014: shelf1
+    400016: shelf10
+    400018: shelf11
+    400020: shelf12
+    400022: shelf2
+    400024: shelf3
+    400026: shelf4
+    400028: shelf5
+    400030: shelf6
+    400032: shelf7
+    400034: shelf8
+    400036: shelf9
+    400038: //RootNode
+    400040: wheels1
+    2300000: Mesh01
+    2300002: Mesh02
+    2300004: Mesh03
+    2300006: Mesh04
+    2300008: Model
+    2300010: shelf1
+    2300012: shelf10
+    2300014: shelf11
+    2300016: shelf12
+    2300018: shelf2
+    2300020: shelf3
+    2300022: shelf4
+    2300024: shelf5
+    2300026: shelf6
+    2300028: shelf7
+    2300030: shelf8
+    2300032: shelf9
+    2300034: wheels1
+    3300000: Mesh01
+    3300002: Mesh02
+    3300004: Mesh03
+    3300006: Mesh04
+    3300008: Model
+    3300010: shelf1
+    3300012: shelf10
+    3300014: shelf11
+    3300016: shelf12
+    3300018: shelf2
+    3300020: shelf3
+    3300022: shelf4
+    3300024: shelf5
+    3300026: shelf6
+    3300028: shelf7
+    3300030: shelf8
+    3300032: shelf9
+    3300034: wheels1
+    4300000: shelf1
+    4300002: shelf10
+    4300004: shelf11
+    4300006: shelf12
+    4300008: shelf2
+    4300010: shelf3
+    4300012: shelf4
+    4300014: shelf5
+    4300016: shelf6
+    4300018: shelf7
+    4300020: shelf8
+    4300022: shelf9
+    4300024: wheels1
+    4300026: Mesh01
+    4300028: Mesh03
+    4300030: Mesh04
+    4300032: Mesh02
+    4300034: Model
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
