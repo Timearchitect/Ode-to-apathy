@@ -66,6 +66,8 @@ public class keyboardControlls : MonoBehaviour {
 				UnityEngine.UI.Text t = debugContent.GetComponent<UnityEngine.UI.Text> ();
 				t.text=t.text.ToString()+kcode;
 				t.GraphicUpdateComplete();
+
+				Canvas.ForceUpdateCanvases();
 				foreach(var component in debugContent.GetComponents<Component>())
 				{
 					Debug.Log (component.GetType() +" child");
