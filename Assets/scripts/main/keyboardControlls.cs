@@ -15,8 +15,6 @@ public class keyboardControlls : MonoBehaviour {
 		 
 		a =GameObject.FindGameObjectWithTag ("bgm");
 		duration = 0.5f;
-	
-			
 
 		//audio.volume = 1;
 		//audio.Play ();
@@ -80,7 +78,6 @@ public class keyboardControlls : MonoBehaviour {
 				if(!a.GetComponent<AudioSource> ().isPlaying) a.GetComponent<AudioSource> ().Play();
 
 				print(a.GetComponent<AudioSource> ().loop);
-			
 
 				/*if (kcode ==  KeyCode.K) {
 					print ("toggle lowpass");
