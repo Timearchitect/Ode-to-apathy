@@ -35,6 +35,7 @@ ModelImporter:
     2300010: Mesh05
     2300012: Mesh06
     2300014: Model
+    2300016: //RootNode
     3300000: bulb1
     3300002: Mesh01
     3300004: Mesh02
@@ -43,6 +44,7 @@ ModelImporter:
     3300010: Mesh05
     3300012: Mesh06
     3300014: Model
+    3300016: //RootNode
     4300000: Mesh03
     4300002: Mesh04
     4300004: Mesh05
