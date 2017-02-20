@@ -5,35 +5,42 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 	GameObject go;
 	GameObject player;
+	Vector3 offset = new Vector3(0,70,-80);
+	Vector3 finishpos;
+	float lerpSpeed=0.06f;
 	// Use this for initialization
 	void Start () {
-		go = GameObject.FindGameObjectWithTag("Player");
+		player = GameObject.FindGameObjectWithTag("Player");
+		go = this.gameObject;
 	}
 	// Update is called once per frame
-	void Update () {
+	void LateUpdate () {
 		float hVal = Input.GetAxis ("Horizontal"); 
 		float vVal = Input.GetAxis ("Vertical"); 
 		if (hVal < 0) {
 			//print ("left:" + hVal);
-			go.transform.position -= new Vector3(1,0,0);
+			player.transform.position -= new Vector3(1,0,0);
 
 			//go.rigidbody.transform.position;
 		}
 		if (vVal < 0) {
 			//print("down:"+vVal);
-			go.transform.position -= new Vector3(0,1,0);
+			player.transform.position -= new Vector3(0,1,0);
 
 			//go.rigidbody.transform.position.
 		}
 		if (hVal >0) {
 			//print ("right:" + hVal);
-			go.transform.position += new Vector3(1,0,0);
+			player.transform.position += new Vector3(1,0,0);
 
 		}
 		if (vVal > 0) {
 			//print("up:"+vVal);
-			go.transform.position += new Vector3(0,1,0);
+			player.transform.position += new Vector3(0,1,0);
 		
 		}
+		finishpos = player.transform.position+ offset;
+		go.transform.position = Vector3.Lerp (go.transform.position, finishpos, lerpSpeed);
+
 	}
 }
