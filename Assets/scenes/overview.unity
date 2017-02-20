@@ -915,7 +915,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'word count: '
+  m_Text: 'word count: zxczczxczxcz'
 --- !u!222 &290194528
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1036,7 +1036,7 @@ GameObject:
   - component: {fileID: 372054943}
   m_Layer: 5
   m_Name: Slider
-  m_TagString: Untagged
+  m_TagString: progressBar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1257,6 +1257,8 @@ GameObject:
   - component: {fileID: 660475251}
   - component: {fileID: 660475250}
   - component: {fileID: 660475249}
+  - component: {fileID: 660475253}
+  - component: {fileID: 660475254}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1336,6 +1338,8 @@ RectTransform:
   - {fileID: 264997582}
   - {fileID: 314649881}
   - {fileID: 1767250112}
+  - {fileID: 2065249035}
+  - {fileID: 695274864}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1344,6 +1348,28 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &660475253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 660475248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d612ea8d44d73024c886dc21fd5c5c97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &660475254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 660475248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 345cde8fb4a3ac640bd889a957479692, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &687157100
 Prefab:
   m_ObjectHideFlags: 0
@@ -1406,6 +1432,129 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d5ca7b1bc6e099d498b66e35740c47e8, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &695274863
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 695274864}
+  - component: {fileID: 695274866}
+  - component: {fileID: 695274865}
+  - component: {fileID: 695274867}
+  m_Layer: 5
+  m_Name: rightEye
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &695274864
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 695274863}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 660475252}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 289.5, y: 0}
+  m_SizeDelta: {x: 579, y: 600}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &695274865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 695274863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &695274866
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 695274863}
+--- !u!114 &695274867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 695274863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50151ad7c5a4acf41ab53b5957c96fa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  windowRect:
+    serializedVersion: 2
+    x: 773
+    y: 392
+    width: 157
+    height: 79
+  nodes:
+  - name: ReactingTarget
+    text: rightEye
+    nodeType: 0
+    objectTarget: {fileID: 0}
+    tooltip: Reacting Target
+    rect:
+      serializedVersion: 2
+      x: 773
+      y: 412
+      width: 157
+      height: 18
+    updated: 1
+  - name: setAlpha
+    text: Set Alpha
+    nodeType: 2
+    objectTarget: {fileID: 1737641607}
+    tooltip: Input<float>
+    rect:
+      serializedVersion: 2
+      x: 773
+      y: 430
+      width: 157
+      height: 18
+    updated: 1
+  - name: ImageSourceReactor
+    text: ImageSourceReactor
+    nodeType: 1
+    objectTarget: {fileID: 0}
+    tooltip: ImageSourceReactor
+    rect:
+      serializedVersion: 2
+      x: 773
+      y: 448
+      width: 157
+      height: 18
+    updated: 1
 --- !u!1 &830772876
 GameObject:
   m_ObjectHideFlags: 0
@@ -1769,7 +1918,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugContent: {fileID: 0}
-  count: 0
   timer: 0
   duration: 1000
   a: {fileID: 0}
@@ -3800,3 +3948,126 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2065249034
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2065249035}
+  - component: {fileID: 2065249037}
+  - component: {fileID: 2065249036}
+  - component: {fileID: 2065249038}
+  m_Layer: 5
+  m_Name: leftEye
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2065249035
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2065249034}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 660475252}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -289.5, y: 3.75}
+  m_SizeDelta: {x: 579, y: 607.5}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2065249036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2065249034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &2065249037
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2065249034}
+--- !u!114 &2065249038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2065249034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50151ad7c5a4acf41ab53b5957c96fa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  windowRect:
+    serializedVersion: 2
+    x: 773
+    y: 298
+    width: 157
+    height: 79
+  nodes:
+  - name: ReactingTarget
+    text: leftEye
+    nodeType: 0
+    objectTarget: {fileID: 0}
+    tooltip: Reacting Target
+    rect:
+      serializedVersion: 2
+      x: 773
+      y: 318
+      width: 157
+      height: 18
+    updated: 1
+  - name: setAlpha
+    text: Set Alpha
+    nodeType: 2
+    objectTarget: {fileID: 1737641607}
+    tooltip: Input<float>
+    rect:
+      serializedVersion: 2
+      x: 773
+      y: 336
+      width: 157
+      height: 18
+    updated: 1
+  - name: ImageSourceReactor
+    text: ImageSourceReactor
+    nodeType: 1
+    objectTarget: {fileID: 0}
+    tooltip: ImageSourceReactor
+    rect:
+      serializedVersion: 2
+      x: 773
+      y: 354
+      width: 157
+      height: 18
+    updated: 1

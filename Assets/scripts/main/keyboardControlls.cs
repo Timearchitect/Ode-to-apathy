@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 public class keyboardControlls : MonoBehaviour {
 	public GameObject debugContent ;
-	public int count=0;
+	public static int wordCount=0;
 	public float timer=0,duration;
 	public GameObject a;
 	// Use this for initialization
@@ -56,8 +56,8 @@ public class keyboardControlls : MonoBehaviour {
 		foreach(KeyCode kcode in Enum.GetValues(typeof(KeyCode)))
 		{
 			if (Input.GetKeyDown (kcode)) {
-				Debug.Log ("KeyCode down: " + kcode+ " count: "+count +"  time:"+timer );
-				count++;
+				Debug.Log ("KeyCode down: " + kcode+ " count: "+wordCount +"  time:"+timer );
+				wordCount++;
 			/*	Debug.Log (debugContent.name +"  "+debugContent.GetType() );
 				RectTransform r= debugContent.GetComponent<RectTransform>();
 				Debug.Log (r.name);*/
