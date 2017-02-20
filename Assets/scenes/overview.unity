@@ -1259,6 +1259,7 @@ GameObject:
   - component: {fileID: 660475249}
   - component: {fileID: 660475253}
   - component: {fileID: 660475254}
+  - component: {fileID: 660475255}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1370,6 +1371,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345cde8fb4a3ac640bd889a957479692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &660475255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 660475248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2df8194b0c8689b418ce05fce3f06479, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 30
 --- !u!1001 &687157100
 Prefab:
   m_ObjectHideFlags: 0
@@ -1445,7 +1458,7 @@ GameObject:
   - component: {fileID: 695274867}
   m_Layer: 5
   m_Name: rightEye
-  m_TagString: Untagged
+  m_TagString: rightEye
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1480,7 +1493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.25}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1514,8 +1527,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   windowRect:
     serializedVersion: 2
-    x: 773
-    y: 392
+    x: 713
+    y: 387
     width: 157
     height: 79
   nodes:
@@ -1526,8 +1539,8 @@ MonoBehaviour:
     tooltip: Reacting Target
     rect:
       serializedVersion: 2
-      x: 773
-      y: 412
+      x: 713
+      y: 407
       width: 157
       height: 18
     updated: 1
@@ -1538,8 +1551,8 @@ MonoBehaviour:
     tooltip: Input<float>
     rect:
       serializedVersion: 2
-      x: 773
-      y: 430
+      x: 713
+      y: 425
       width: 157
       height: 18
     updated: 1
@@ -1550,11 +1563,12 @@ MonoBehaviour:
     tooltip: ImageSourceReactor
     rect:
       serializedVersion: 2
-      x: 773
-      y: 448
+      x: 713
+      y: 443
       width: 157
       height: 18
     updated: 1
+  _imageSource: {fileID: 0}
 --- !u!1 &830772876
 GameObject:
   m_ObjectHideFlags: 0
@@ -3961,7 +3975,7 @@ GameObject:
   - component: {fileID: 2065249038}
   m_Layer: 5
   m_Name: leftEye
-  m_TagString: Untagged
+  m_TagString: leftEye
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3996,7 +4010,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.25}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4030,8 +4044,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   windowRect:
     serializedVersion: 2
-    x: 773
-    y: 298
+    x: 717
+    y: 295
     width: 157
     height: 79
   nodes:
@@ -4042,8 +4056,8 @@ MonoBehaviour:
     tooltip: Reacting Target
     rect:
       serializedVersion: 2
-      x: 773
-      y: 318
+      x: 717
+      y: 315
       width: 157
       height: 18
     updated: 1
@@ -4054,8 +4068,8 @@ MonoBehaviour:
     tooltip: Input<float>
     rect:
       serializedVersion: 2
-      x: 773
-      y: 336
+      x: 717
+      y: 333
       width: 157
       height: 18
     updated: 1
@@ -4066,8 +4080,9 @@ MonoBehaviour:
     tooltip: ImageSourceReactor
     rect:
       serializedVersion: 2
-      x: 773
-      y: 354
+      x: 717
+      y: 351
       width: 157
       height: 18
     updated: 1
+  _imageSource: {fileID: 0}

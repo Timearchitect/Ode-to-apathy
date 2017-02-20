@@ -9,6 +9,8 @@ TagManager:
   - cafe
   - timer
   - progressBar
+  - rightEye
+  - leftEye
   layers:
   - Default
   - TransparentFX

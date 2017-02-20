@@ -12,25 +12,31 @@ namespace Ardunity
 		private IWireInput<bool> _digitalInput;
 		private IWireInput<Trigger> _triggerInput;
 		private IWireInput<float> _analogInput;
-		private Image _imageSource;
-
+		public Image _imageSource;
+		const float maxDarkness=0.25f;
 		protected override void Awake ()
 		{
 			base.Awake ();
-            
+			print ("yo awake image");
+
 			_imageSource = GetComponent<Image> ();
 		}
 	
 		// Use this for initialization
 		void Start ()
 		{
-		
+			print ("yo start Image");
+
+			_imageSource = GetComponent<Image> ();
+
 		}
 
 		void OnEnable ()
 		{
-			if (_analogInput != null)
-				_imageSource.color = new Color(0,0,0,_analogInput.input);
+			if (_analogInput != null) {
+				print ("yo enabled image "+ _imageSource.name);
+				_imageSource.color = new Color (0, 0, 0, _analogInput.input);
+			}
 		}
 		
 		// Update is called once per frame
@@ -55,6 +61,8 @@ namespace Ardunity
 
 		private void OnAnalogInputChanged (float value)
 		{			
+			print ("yo analogin image"+ _imageSource.name);
+
 			_imageSource.color = new Color(0,0,0,value);
 		}
 
@@ -68,23 +76,53 @@ namespace Ardunity
 
 		protected override void UpdateNode (Node node)
 		{
+			//print ("yo update image: "+node.name);
 
 			 if (node.name.Equals ("setAlpha")) {
 				node.updated = true;
-				if (node.objectTarget == null && _analogInput == null)
-					return;
+				//print ("yo inside: ");
 
+				if (node.objectTarget == null && _analogInput == null) {
+					print ("yo no Node for targeted image!!! ");
+					return;
+				}
 				if (node.objectTarget != null) {
 					
-					if (node.objectTarget.Equals (_analogInput))
+					/*if (node.objectTarget.Equals (_analogInput)) {
+						print ("same value of the alpha as arduino LDR");
 						return;
+					}*/
+					/*if (((Image)node.objectTarget).color.a == _analogInput.input) {
+						print ("same value of the alpha as arduino LDR");
+						return;
+					}*/
 				}
 
 				if (_analogInput != null)
 					_analogInput.OnWireInputChanged -= OnAnalogInputChanged;
 				
 				_analogInput = node.objectTarget as IWireInput<float>;
+
 				if (_analogInput != null) {
+
+					/*if (_analogInput.input <= 0.6f) {
+						Debug.Log ("DARKNESS!");
+					}*/
+						GameObject.FindGameObjectWithTag ("leftEye").GetComponent<Image> ().color = new Color(0,0,0,Mathf.Clamp(1-_analogInput.input,0,maxDarkness));
+						GameObject.FindGameObjectWithTag ("rightEye").GetComponent<Image> ().color = new Color(0,0,0,Mathf.Clamp(1-_analogInput.input,0,maxDarkness));
+
+				//AudioSource[] aS = (AudioSource[])GameObject.FindObjectsOfType (typeof(AudioSource));
+				//print ();
+						//GameObject.FindGameObjectWithTag("leftEye").GetComponent<Image>().color = new Color (0, 0, 0, _analogInput.input);
+						//GameObject.FindGameObjectWithTag ("rightEye").GetComponent<Image>().color = new Color (0, 0, 0, _analogInput.input);
+
+						print(_analogInput.input + "  A1 VALUE Image : " );
+
+
+
+				
+					
+
 					/*print (_analogInput.input + "  A0 VALUE");
 					GameObject.FindGameObjectWithTag ("cafe").GetComponent<Image> ().volume = _analogInput.input * .04F;
 					AudioSource[] aS = (AudioSource[])GameObject.FindObjectsOfType (typeof(AudioSource));

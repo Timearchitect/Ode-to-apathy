@@ -159,6 +159,7 @@ namespace Ardunity
             }
             else if(node.name.Equals("getIntensity"))
             {
+				
                 node.updated = true;
                 if(node.objectTarget == null && _analogOutput == null)
                     return;
