@@ -10,17 +10,39 @@ ModelImporter:
     100004: Chris1
     100006: Model
     100008: //RootNode
+    100010: Model1
+    100012: skp8tUife1
+    100014: Model1_1
+    100016: skpIyusq7_
     400000: Camera
     400002: Camera.target
     400004: Chris1
     400006: Model
     400008: //RootNode
+    400010: Model1
+    400012: skp8tUife1
+    400014: Model1_1
+    400016: skpIyusq7_
     2300000: Chris1
     2300002: Model
+    2300004: Model1
+    2300006: skp8tUife1
+    2300008: //RootNode
+    2300010: Model1_1
+    2300012: skpIyusq7_
     3300000: Chris1
     3300002: Model
+    3300004: Model1
+    3300006: skp8tUife1
+    3300008: //RootNode
+    3300010: Model1_1
+    3300012: skpIyusq7_
     4300000: Chris1
     4300002: Model
+    4300004: skp8tUife1
+    4300006: Model1
+    4300008: skpIyusq7_
+    4300010: Model1_1
   materials:
     importMaterials: 1
     materialName: 0

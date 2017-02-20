@@ -10,17 +10,29 @@ ModelImporter:
     100004: Group1
     100006: Model
     100008: //RootNode
+    100010: Group1_1
+    100012: skp7UWC9p1
     400000: Camera
     400002: Camera.target
     400004: Group1
     400006: Model
     400008: //RootNode
+    400010: Group1_1
+    400012: skp7UWC9p1
     2300000: Group1
     2300002: Model
+    2300004: Group1_1
+    2300006: skp7UWC9p1
+    2300008: //RootNode
     3300000: Group1
     3300002: Model
+    3300004: Group1_1
+    3300006: skp7UWC9p1
+    3300008: //RootNode
     4300000: Group1
     4300002: Model
+    4300004: skp7UWC9p1
+    4300006: Group1_1
   materials:
     importMaterials: 1
     materialName: 0
