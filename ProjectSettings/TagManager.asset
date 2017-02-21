@@ -5,12 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - debug
-  - bgm
-  - cafe
-  - timer
   - progressBar
-  - rightEye
+  - cafe
+  - bgm
   - leftEye
+  - rightEye
   layers:
   - Default
   - TransparentFX
