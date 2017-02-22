@@ -146,7 +146,7 @@ namespace Ardunity
 				
 				_analogInput = node.objectTarget as IWireInput<float>;
 				if (_analogInput != null) {
-					//print (_analogInput.input + "  A0 VALUE");
+					print (_analogInput.input + "  A0 VALUE audio");
 					GameObject.FindGameObjectWithTag ("cafe").GetComponent<AudioSource> ().volume = _analogInput.input * .04F;
 					AudioSource[] aS = (AudioSource[])GameObject.FindObjectsOfType (typeof(AudioSource));
 					if (_analogInput.input <= 0.6f) {

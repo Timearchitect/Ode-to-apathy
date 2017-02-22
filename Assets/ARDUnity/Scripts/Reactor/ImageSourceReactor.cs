@@ -116,7 +116,7 @@ namespace Ardunity
 						//GameObject.FindGameObjectWithTag("leftEye").GetComponent<Image>().color = new Color (0, 0, 0, _analogInput.input);
 						//GameObject.FindGameObjectWithTag ("rightEye").GetComponent<Image>().color = new Color (0, 0, 0, _analogInput.input);
 
-						print(_analogInput.input + "  A1 VALUE Image : " );
+						//print(_analogInput.input + "  A1 VALUE Image : " );
 
 
 

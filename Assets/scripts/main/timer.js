@@ -1,6 +1,6 @@
 ﻿#pragma strict
 
-var timer  : float = 90.0;
+static var timer  : float = 90.0;
 var minutes : int =0;
 var seconds : int =0;
 function Update () {
