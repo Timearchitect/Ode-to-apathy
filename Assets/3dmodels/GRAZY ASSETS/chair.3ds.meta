@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7852ca49622cc45cd97b167a4213dd06
+guid: c273c2c55e0914520814aa52de25a6fe
 timeCreated: 1487320546
 licenseType: Free
 ModelImporter:
@@ -17,6 +17,13 @@ ModelImporter:
     100018: Mesh05
     100020: Mesh06
     100022: Model
+    100024: Group1_1
+    100026: Mesh01_1
+    100028: Mesh02_1
+    100030: Mesh03_1
+    100032: Mesh04_1
+    100034: Mesh06_1
+    100036: skpJhHazU1
     400000: Camera
     400002: Camera.target
     400004: //RootNode
@@ -29,6 +36,13 @@ ModelImporter:
     400018: Mesh05
     400020: Mesh06
     400022: Model
+    400024: Group1_1
+    400026: Mesh01_1
+    400028: Mesh02_1
+    400030: Mesh03_1
+    400032: Mesh04_1
+    400034: Mesh06_1
+    400036: skpJhHazU1
     2300000: Chris1
     2300002: Group1
     2300004: Mesh01
@@ -38,6 +52,14 @@ ModelImporter:
     2300012: Mesh05
     2300014: Mesh06
     2300016: Model
+    2300018: //RootNode
+    2300020: Group1_1
+    2300022: Mesh01_1
+    2300024: Mesh02_1
+    2300026: Mesh03_1
+    2300028: Mesh04_1
+    2300030: Mesh06_1
+    2300032: skpJhHazU1
     3300000: Chris1
     3300002: Group1
     3300004: Mesh01
@@ -47,6 +69,14 @@ ModelImporter:
     3300012: Mesh05
     3300014: Mesh06
     3300016: Model
+    3300018: //RootNode
+    3300020: Group1_1
+    3300022: Mesh01_1
+    3300024: Mesh02_1
+    3300026: Mesh03_1
+    3300028: Mesh04_1
+    3300030: Mesh06_1
+    3300032: skpJhHazU1
     4300000: Chris1
     4300002: Group1
     4300004: Mesh01
@@ -56,6 +86,13 @@ ModelImporter:
     4300012: Mesh05
     4300014: Mesh06
     4300016: Model
+    4300018: Group1_1
+    4300020: Mesh01_1
+    4300022: Mesh02_1
+    4300024: Mesh03_1
+    4300026: Mesh04_1
+    4300028: Mesh06_1
+    4300030: skpJhHazU1
   materials:
     importMaterials: 1
     materialName: 0

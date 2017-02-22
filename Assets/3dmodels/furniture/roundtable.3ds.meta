@@ -1,31 +1,40 @@
 fileFormatVersion: 2
-guid: d90f390c83bd8402888dd61da1d1a826
-timeCreated: 1487320597
+guid: 70d39ee14055e4782bd002c528017d9f
+timeCreated: 1487773388
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: Camera
-    100002: Camera.target
-    100004: Chris1
-    100006: Component_
-    100008: //RootNode
-    100010: Model
-    400000: Camera
-    400002: Camera.target
-    400004: Chris1
-    400006: Component_
-    400008: //RootNode
-    400010: Model
-    2300000: Chris1
-    2300002: Component_
-    2300004: Model
-    3300000: Chris1
-    3300002: Component_
-    3300004: Model
-    4300000: Chris1
-    4300002: Component_
-    4300004: Model
+    100000: Group1
+    100002: Mesh01
+    100004: Mesh02
+    100006: Mesh03
+    100008: Mesh04
+    100010: //RootNode
+    400000: Group1
+    400002: Mesh01
+    400004: Mesh02
+    400006: Mesh03
+    400008: Mesh04
+    400010: //RootNode
+    2300000: Group1
+    2300002: Mesh01
+    2300004: Mesh02
+    2300006: Mesh03
+    2300008: Mesh04
+    2300010: //RootNode
+    3300000: Group1
+    3300002: Mesh01
+    3300004: Mesh02
+    3300006: Mesh03
+    3300008: Mesh04
+    3300010: //RootNode
+    4300000: Model
+    4300002: Group1
+    4300004: Mesh01
+    4300006: Mesh02
+    4300008: Mesh03
+    4300010: Mesh04
   materials:
     importMaterials: 1
     materialName: 0

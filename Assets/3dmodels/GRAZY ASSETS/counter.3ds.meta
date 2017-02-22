@@ -1,31 +1,15 @@
 fileFormatVersion: 2
-guid: d90f390c83bd8402888dd61da1d1a826
-timeCreated: 1487320597
+guid: ec3745aea75b64496a8932fdc4f87a8b
+timeCreated: 1487773390
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: Camera
-    100002: Camera.target
-    100004: Chris1
-    100006: Component_
-    100008: //RootNode
-    100010: Model
-    400000: Camera
-    400002: Camera.target
-    400004: Chris1
-    400006: Component_
-    400008: //RootNode
-    400010: Model
-    2300000: Chris1
-    2300002: Component_
-    2300004: Model
-    3300000: Chris1
-    3300002: Component_
-    3300004: Model
-    4300000: Chris1
-    4300002: Component_
-    4300004: Model
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Model
   materials:
     importMaterials: 1
     materialName: 0
