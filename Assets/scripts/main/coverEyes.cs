@@ -16,11 +16,11 @@ public class coverEyes : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//alpha += 0.01f;
-
 		//   leftEye.GetComponent<Image> ().color = new Color(0,0,0,alphaL);
 		//rightEye.GetComponent<Image> ().color = new Color(0,0,0,alphaR);
 
 		//if (alpha >= 1)
 		//	alpha = 0;
 	}
+
 }

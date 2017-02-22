@@ -20,24 +20,20 @@ public class PlayerMovement : MonoBehaviour {
 		if (hVal < 0) {
 			//print ("left:" + hVal);
 			player.transform.position -= new Vector3(1,0,0);
-
 			//go.rigidbody.transform.position;
 		}
 		if (vVal < 0) {
 			//print("down:"+vVal);
 			player.transform.position -= new Vector3(0,1,0);
-
 			//go.rigidbody.transform.position.
 		}
 		if (hVal >0) {
 			//print ("right:" + hVal);
 			player.transform.position += new Vector3(1,0,0);
-
 		}
 		if (vVal > 0) {
 			//print("up:"+vVal);
 			player.transform.position += new Vector3(0,1,0);
-		
 		}
 		finishpos = player.transform.position+ offset;
 		go.transform.position = Vector3.Lerp (go.transform.position, finishpos, lerpSpeed);

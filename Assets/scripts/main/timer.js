@@ -15,6 +15,7 @@ function Update () {
 
 function OnGUI(){
 //"" + timer.ToString("0")
- 	GUI.Box(new Rect(10, 10, 50, 20), " "+ minutes.ToString("00") +":"+seconds.ToString("00") );
- 	
+
+ 	GUI.Box(new Rect(10, 10, 50, 20), " "+ minutes.ToString("00") +":"+seconds.ToString("00"));
+
 }
