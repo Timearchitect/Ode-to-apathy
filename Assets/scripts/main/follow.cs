@@ -8,6 +8,7 @@ public class follow : MonoBehaviour {
 	public float reachDist=20;
 	public int currentPoint;
 	public bool loop=true; 
+	public bool pause;
 	// Use this for initialization
 	void Start () {
 		
@@ -15,18 +16,19 @@ public class follow : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		float dist = Vector3.Distance (point [currentPoint].position, this.transform.position);
+		if (!pause) {
+			float dist = Vector3.Distance (point [currentPoint].position, this.transform.position);
 
-		this.transform.position = Vector3.MoveTowards(transform.position,point[currentPoint].position,Time.deltaTime*speed);
+			this.transform.position = Vector3.MoveTowards (transform.position, point [currentPoint].position, Time.deltaTime * speed);
 
-		if (dist <= reachDist) {
-			currentPoint++;
-			if (currentPoint >= point.Length) {
-				currentPoint = 0;
+			if (dist <= reachDist) {
+				currentPoint++;
+				if (currentPoint >= point.Length) {
+					currentPoint = 0;
+				}
 			}
-		}
 	
-
+		}
 	}
 
 
@@ -34,5 +36,9 @@ public class follow : MonoBehaviour {
 		foreach (Transform p in point) {
 			Gizmos.DrawSphere (p.position,reachDist);
 		}
+	}
+	void paue(){
+		pause = true;
+
 	}
 }
