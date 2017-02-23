@@ -5,6 +5,7 @@ using UnityEngine;
 public class events : MonoBehaviour {
 	public GameObject [] enemies;
 	private GameObject remotePlayer;
+	public follow followScript;
 	// Use this for initialization
 	void Start () {
 		enemies=GameObject.FindGameObjectsWithTag ("enemy");
@@ -12,10 +13,14 @@ public class events : MonoBehaviour {
 	
 	// Update is called once per frame
 	void LateUpdate () {
-		
 
 		if (Input.GetKeyDown ("space")) {
+
+
 			 remotePlayer =(GameObject)Instantiate(GameObject.FindGameObjectWithTag("enemy"));
+
+			followScript = remotePlayer.GetComponent<follow>() ;
+			followScript.Pause ();
 			//(GameObject)Instantiate(GameObject.FindGameObjectWithTag("enemy"), new Vector3(0,0,0), Quaternion.identity);
 			//remotePlayer.transform.position = new Vector3 (0,0,0);
 			//Instantiate(GameObject.FindGameObjectWithTag("enemy"));
