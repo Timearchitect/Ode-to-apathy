@@ -8,12 +8,13 @@ public class keyboardControlls : MonoBehaviour {
 	public GameObject debugContent ;
 	public static int wordCount=0;
 	public float timer=0,duration;
-	public GameObject a;
+	public AudioSource a;
+	private UnityEngine.UI.Text t;
 	// Use this for initialization
 	void Start () {
 		debugContent = GameObject.FindGameObjectWithTag("debug");
-		 
-		a =GameObject.FindGameObjectWithTag ("bgm");
+		t = debugContent.GetComponent<UnityEngine.UI.Text> ();
+		a =GameObject.FindGameObjectWithTag ("bgm").GetComponent<AudioSource> ();
 		duration = 0.5f;
 
 		//audio.volume = 1;
@@ -44,8 +45,8 @@ public class keyboardControlls : MonoBehaviour {
 		}
 		detectPressedKeyOrButton ();
 		if (timer + duration < Time.time) {
-			if (a.GetComponent<AudioSource> ().isPlaying) {
-				a.GetComponent<AudioSource> ().Pause ();
+			if (a.isPlaying) {
+				a.Pause ();
 			}
 		}
 	}
@@ -56,28 +57,28 @@ public class keyboardControlls : MonoBehaviour {
 		foreach(KeyCode kcode in Enum.GetValues(typeof(KeyCode)))
 		{
 			if (Input.GetKeyDown (kcode)) {
-				Debug.Log ("KeyCode down: " + kcode+ " count: "+wordCount +"  time:"+timer );
+				//Debug.Log ("KeyCode down: " + kcode+ " count: "+wordCount +"  time:"+timer );
 				wordCount++;
 			/*	Debug.Log (debugContent.name +"  "+debugContent.GetType() );
 				RectTransform r= debugContent.GetComponent<RectTransform>();
 				Debug.Log (r.name);*/
-				UnityEngine.UI.Text t = debugContent.GetComponent<UnityEngine.UI.Text> ();
+				//UnityEngine.UI.Text t = debugContent.GetComponent<UnityEngine.UI.Text> ();
 				t.text=t.text.ToString()+kcode;
 				t.GraphicUpdateComplete();
-
 				Canvas.ForceUpdateCanvases();
-				foreach(var component in debugContent.GetComponents<Component>())
+
+				/*foreach(var component in debugContent.GetComponents<Component>())
 				{
 					Debug.Log (component.GetType() +" child");
-				}
+				}*/
 
 				//AudioSource a =(AudioSource)GameObject.FindGameObjectWithTag ("bgm");
 				//((GUIContent)debugContent).text="hello world";
 				//+((ScrollRect)debugContent).GetType()
 				timer = Time.time;
-				if(!a.GetComponent<AudioSource> ().isPlaying) a.GetComponent<AudioSource> ().Play();
+				if(!a.isPlaying) a.Play();
 
-				print(a.GetComponent<AudioSource> ().loop);
+				//print(a.loop);
 
 				/*if (kcode ==  KeyCode.K) {
 					print ("toggle lowpass");

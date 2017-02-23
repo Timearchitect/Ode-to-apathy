@@ -13,18 +13,18 @@ namespace Ardunity
 		private IWireInput<Trigger> _triggerInput;
 		private IWireInput<float> _analogInput;
 		private AudioSource _audioSource;
-
+		private AudioSource[] aS;
+		private AudioSource bgm;
 		protected override void Awake ()
 		{
 			base.Awake ();
-            
 			_audioSource = GetComponent<AudioSource> ();
 		}
 	
 		// Use this for initialization
 		void Start ()
 		{
-		
+
 		}
 
 		void OnEnable ()
@@ -61,7 +61,6 @@ namespace Ardunity
 		protected override void AddNode (List<Node> nodes)
 		{
 			base.AddNode (nodes);
-			
 			nodes.Add (new Node ("play", "Play", typeof(IWireInput<bool>), NodeType.WireFrom, "Input<bool>"));
 			nodes.Add (new Node ("playOnly", "Play Only", typeof(IWireInput<Trigger>), NodeType.WireFrom, "Input<Trigger>"));
 			nodes.Add (new Node ("setVolume", "Set Volume", typeof(IWireInput<float>), NodeType.WireFrom, "Input<float>"));
@@ -128,15 +127,13 @@ namespace Ardunity
 					_analogInput.OnWireInputChanged += OnAnalogInputChanged;
 				else
 					node.objectTarget = null;
-                
 				return;
+
 			} else if (node.name.Equals ("setBypassFilter")) {
 				node.updated = true;
 				if (node.objectTarget == null && _analogInput == null)
 					return;
-
 				if (node.objectTarget != null) {
-					
 					if (node.objectTarget.Equals (_analogInput))
 						return;
 				}
@@ -146,22 +143,21 @@ namespace Ardunity
 				
 				_analogInput = node.objectTarget as IWireInput<float>;
 				if (_analogInput != null) {
-					print (_analogInput.input + "  A0 VALUE audio");
-					GameObject.FindGameObjectWithTag ("cafe").GetComponent<AudioSource> ().volume = _analogInput.input * .04F;
-					AudioSource[] aS = (AudioSource[])GameObject.FindObjectsOfType (typeof(AudioSource));
+					if (aS == null || bgm == null) {
+						aS = (AudioSource[])GameObject.FindObjectsOfType (typeof(AudioSource));
+						bgm = GameObject.FindGameObjectWithTag ("cafe").GetComponent<AudioSource> ();
+					}
+					//print (_analogInput.input + "  A0 VALUE audio");
+					bgm.volume = _analogInput.input * .04F;
+					//AudioSource[] aS = (AudioSource[])GameObject.FindObjectsOfType (typeof(AudioSource));
 					if (_analogInput.input <= 0.6f) {
 						foreach (AudioSource a in aS) {
 							a.GetComponent<AudioSource> ().bypassEffects = false;
 						}
-						//GameObject.FindGameObjectWithTag ("cafe").GetComponent<AudioSource> ().bypassEffects = false;
-						//GameObject.FindGameObjectWithTag ("bgm").GetComponent<AudioSource> ().bypassEffects = false;
 					} else {
 						foreach (AudioSource a in aS) {
 							a.GetComponent<AudioSource> ().bypassEffects = true;
 						}
-						//GameObject.FindObjectOfType<AudioSource>().GetComponent<AudioSource>().bypassEffects=false;
-						//GameObject.FindGameObjectWithTag ("cafe").GetComponent<AudioSource> ().bypassEffects = true;
-						//GameObject.FindGameObjectWithTag ("bgm").GetComponent<AudioSource> ().bypassEffects = true;
 					}
 					_analogInput.OnWireInputChanged += OnAnalogInputChanged;
 				} else

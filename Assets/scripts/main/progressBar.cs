@@ -4,13 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class progressBar : MonoBehaviour {
-	GameObject go;
+	private GameObject go;
 	float val=0.0f;
-	Slider progress;
+	private Slider progress;
 	int maxWordCount=50;
 	// Use this for initialization
 	void Start () {
-		
 		//go = this.gameObject;
 		go= GameObject.FindGameObjectWithTag("progressBar");
 		Debug.Log(go.name);
@@ -31,8 +30,8 @@ public class progressBar : MonoBehaviour {
 			Debug.Log (maxWordCount+ " of " + keyboardControlls.wordCount +" %"+val);
 			if (val >= 1) {
 				print ("LEVEL CLEAR!!!");   
-				coverEyes.alphaL = 1;
-				coverEyes.alphaR = 0;
+				//coverEyes.alphaL = 1;
+				//coverEyes.alphaR = 0;
 			}
 			progress.value = val;
 	

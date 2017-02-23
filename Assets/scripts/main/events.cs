@@ -4,20 +4,18 @@ using UnityEngine;
 
 public class events : MonoBehaviour {
 	public GameObject [] enemies;
-
+	private GameObject remotePlayer;
 	// Use this for initialization
 	void Start () {
-
+		enemies=GameObject.FindGameObjectsWithTag ("enemy");
 	}
 	
 	// Update is called once per frame
 	void LateUpdate () {
-		enemies=GameObject.FindGameObjectsWithTag ("enemy");
-		if (enemies!=null && enemies.Length != 0) {
-			print (enemies.Length + " enemies on screen");
-		}
+		
+
 		if (Input.GetKeyDown ("space")) {
-			GameObject remotePlayer =(GameObject)Instantiate(GameObject.FindGameObjectWithTag("enemy"));
+			 remotePlayer =(GameObject)Instantiate(GameObject.FindGameObjectWithTag("enemy"));
 			//(GameObject)Instantiate(GameObject.FindGameObjectWithTag("enemy"), new Vector3(0,0,0), Quaternion.identity);
 			//remotePlayer.transform.position = new Vector3 (0,0,0);
 			//Instantiate(GameObject.FindGameObjectWithTag("enemy"));
@@ -26,6 +24,9 @@ public class events : MonoBehaviour {
 				remotePlayer.transform.position.y,
 				remotePlayer.transform.position.z
 			);
+			if (enemies!=null && enemies.Length != 0) {
+				print (enemies.Length + " enemies on screen");
+			}
 		}
 	}
 }
