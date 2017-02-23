@@ -13,7 +13,7 @@ namespace Ardunity
 		private IWireInput<Trigger> _triggerInput;
 		private IWireInput<float> _analogInput;
 		public Image _imageSource;
-		const float maxDarkness=0.25f;
+		const float maxDarkness=0.4f;
 		protected override void Awake ()
 		{
 			base.Awake ();
@@ -25,7 +25,7 @@ namespace Ardunity
 		// Use this for initialization
 		void Start ()
 		{
-			print ("yo start Image");
+			//print ("yo start Image");
 
 			_imageSource = GetComponent<Image> ();
 
@@ -34,7 +34,7 @@ namespace Ardunity
 		void OnEnable ()
 		{
 			if (_analogInput != null) {
-				print ("yo enabled image "+ _imageSource.name);
+				//print ("yo enabled image "+ _imageSource.name);
 				_imageSource.color = new Color (0, 0, 0, _analogInput.input);
 			}
 		}
@@ -100,16 +100,19 @@ namespace Ardunity
 
 				if (_analogInput != null)
 					_analogInput.OnWireInputChanged -= OnAnalogInputChanged;
-				
+
 				_analogInput = node.objectTarget as IWireInput<float>;
 
 				if (_analogInput != null) {
-
+					if (_imageSource != null) {
+						print (_imageSource.name + " changing");
+					_imageSource.color= new Color(0,0,0,Mathf.Clamp(1-_analogInput.input,0,maxDarkness));
+					}
 					/*if (_analogInput.input <= 0.6f) {
 						Debug.Log ("DARKNESS!");
 					}*/
-						GameObject.FindGameObjectWithTag ("leftEye").GetComponent<Image> ().color = new Color(0,0,0,Mathf.Clamp(1-_analogInput.input,0,maxDarkness));
-						GameObject.FindGameObjectWithTag ("rightEye").GetComponent<Image> ().color = new Color(0,0,0,Mathf.Clamp(1-_analogInput.input,0,maxDarkness));
+						//GameObject.FindGameObjectWithTag ("leftEye").GetComponent<Image> ().color = new Color(0,0,0,Mathf.Clamp(1-_analogInput.input,0,maxDarkness));
+						//GameObject.FindGameObjectWithTag ("rightEye").GetComponent<Image> ().color = new Color(0,0,0,Mathf.Clamp(1-_analogInput.input,0,maxDarkness));
 
 				//AudioSource[] aS = (AudioSource[])GameObject.FindObjectsOfType (typeof(AudioSource));
 				//print ();
