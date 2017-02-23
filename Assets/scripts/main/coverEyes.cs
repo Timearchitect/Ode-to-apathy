@@ -13,7 +13,7 @@ public class coverEyes : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		animation = GameObject.FindGameObjectWithTag ("Player").GetComponent<Animation>();
-		coverAnim= animation.GetClip ("Cover_Ears");
+		//coverAnim= animation.GetClip ("Cover_Ears");
 		leftEye = GameObject.Find ("leftEye");
 		rightEye = GameObject.Find ("rightEye");
 		enemies = GameObject.FindGameObjectsWithTag ("enemy");
@@ -28,7 +28,7 @@ public class coverEyes : MonoBehaviour {
 		print(leftEye.GetComponent<Image> ().color.a + "   blackness");
 		print(rightEye.GetComponent<Image> ().color.a + "   blackness");
 		if (leftEye.GetComponent<Image> ().color.a > 0.25f || rightEye.GetComponent<Image> ().color.a > 0.25f) {
-			animation.Play (coverAnim.name);
+		//	animation.Play (coverAnim.name);
 			foreach (GameObject e in enemies) {
 				e.GetComponent<SpriteRenderer> ().color = new Color (1f, 1f, 1f, 0.3f);
 			}
