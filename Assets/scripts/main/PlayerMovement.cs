@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 	GameObject go;
 	GameObject player;
-	Vector3 offset = new Vector3(0,70,-80);
+	Vector3 offset = new Vector3(0,90,-200);
 	Vector3 finishpos;
 	float lerpSpeed=0.06f;
 	// Use this for initialization

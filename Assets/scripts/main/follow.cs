@@ -7,7 +7,7 @@ public class follow : MonoBehaviour {
 	public float speed=50.0f;
 	public float reachDist=20;
 	public int currentPoint;
-	public int stopDistance= 1500;
+	public int stopDistance= 2500;
 	public bool loop=true; 
 	private GameObject player;
 	private bool pause;

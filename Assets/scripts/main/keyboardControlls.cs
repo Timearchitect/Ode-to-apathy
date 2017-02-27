@@ -10,8 +10,14 @@ public class keyboardControlls : MonoBehaviour {
 	public float timer=0,duration;
 	public AudioSource a;
 	private UnityEngine.UI.Text t;
+	private Animation animation;
+	private AnimationClip typing;
 	// Use this for initialization
 	void Start () {
+		animation = GameObject.FindGameObjectWithTag ("Player").GetComponent<Animation>();
+		print (animation.name +" found");
+		typing= animation.GetClip ("Typing");
+		//animation.Play (typing.name);
 		debugContent = GameObject.FindGameObjectWithTag("debug");
 		t = debugContent.GetComponent<UnityEngine.UI.Text> ();
 		a =GameObject.FindGameObjectWithTag ("bgm").GetComponent<AudioSource> ();
@@ -66,7 +72,7 @@ public class keyboardControlls : MonoBehaviour {
 				t.text=t.text.ToString()+kcode;
 				t.GraphicUpdateComplete();
 				Canvas.ForceUpdateCanvases();
-
+				animation.Play (typing.name);
 				/*foreach(var component in debugContent.GetComponents<Component>())
 				{
 					Debug.Log (component.GetType() +" child");
