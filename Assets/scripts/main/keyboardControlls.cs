@@ -12,6 +12,7 @@ public class keyboardControlls : MonoBehaviour {
 	private UnityEngine.UI.Text t;
 	private Animation animation;
 	private AnimationClip typing;
+	Vector3 pastMousePos = new Vector3();
 	// Use this for initialization
 	void Start () {
 		animation = GameObject.FindGameObjectWithTag ("Player").GetComponent<Animation>();
@@ -55,6 +56,12 @@ public class keyboardControlls : MonoBehaviour {
 				a.Pause ();
 			}
 		}
+		//print (Input.mousePosition,pastMousePos);
+		if (Vector3.Distance(Input.mousePosition,pastMousePos)>5) {
+			wordCount++;
+			pastMousePos = Input.mousePosition;
+		}
+		//pastMousePos = Input.mousePosition;
 	}
 
 
@@ -83,7 +90,7 @@ public class keyboardControlls : MonoBehaviour {
 				//+((ScrollRect)debugContent).GetType()
 				timer = Time.time;
 				if(!a.isPlaying) a.Play();
-
+				print (this.name);
 				//print(a.loop);
 
 				/*if (kcode ==  KeyCode.K) {

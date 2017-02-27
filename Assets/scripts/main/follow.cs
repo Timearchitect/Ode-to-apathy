@@ -10,15 +10,17 @@ public class follow : MonoBehaviour {
 	public int stopDistance= 2500;
 	public bool loop=true; 
 	private GameObject player;
-	private bool pause;
+	public bool pause;
+	enemy enemyscript;
 	// Use this for initialization
 	void Start () {
 		player = GameObject.FindGameObjectWithTag ("Player");
+		enemyscript = GetComponent ("enemy")as enemy;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (!pause) {
+		if (!pause || enemyscript.satisfied) {
 			float dist = Vector3.Distance (point [currentPoint].position, this.transform.position);
 
 			this.transform.position = Vector3.MoveTowards (transform.position, point [currentPoint].position, Time.deltaTime * speed);
@@ -27,14 +29,17 @@ public class follow : MonoBehaviour {
 				pause = true;
 				print ("STOP!!");
 			}
+
 			if (dist <= reachDist) {
 				currentPoint++;
 				if (currentPoint >= point.Length) {
 					currentPoint = 0;
+					enemyscript.satisfied = false;
 				}
 			}
 	
 		}
+
 		if (Vector3.Distance (player.transform.position, this.transform.position) < stopDistance) {
 			pause = true;
 			print ("STOP!!");

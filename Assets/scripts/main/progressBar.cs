@@ -7,8 +7,9 @@ public class progressBar : MonoBehaviour {
 	private GameObject go;
 	float val=0.0f;
 	private Slider progress;
-	int maxWordCount=50;
+	int maxWordCount=500;
 	// Use this for initialization
+
 	void Start () {
 		//go = this.gameObject;
 		go= GameObject.FindGameObjectWithTag("progressBar");
@@ -21,9 +22,7 @@ public class progressBar : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
 		//val += 0.05f; 
-
 		//val=(keyboardControlls.wordCount*0.001f);
 		if (keyboardControlls.wordCount != 0) {
 			val = ( (float)keyboardControlls.wordCount / maxWordCount);
@@ -32,10 +31,11 @@ public class progressBar : MonoBehaviour {
 				print ("LEVEL CLEAR!!!");   
 				//coverEyes.alphaL = 1;
 				//coverEyes.alphaR = 0;
+				//progress.GetComponents<Fill>
 			}
 			progress.value = val;
-	
 		}
 
 	}
+
 }

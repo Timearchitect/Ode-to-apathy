@@ -9,13 +9,18 @@ function Update () {
 	 seconds = Mathf.Ceil(timer % 60);
 	if(timer <= 0){
 	 timer = 0;
+	 seconds=0;
+	 minutes=0;
+	 print("finished");
 	 // Förlust
 	}
 }
 
 function OnGUI(){
 //"" + timer.ToString("0")
+     var timeStyle : GUIStyle = new GUIStyle("box");
+     timeStyle.fontSize = Screen.height*.025f;
 
- 	GUI.Box(new Rect(10, 10, 50, 20), " "+ minutes.ToString("00") +":"+seconds.ToString("00"));
+ 	GUI.Box(new Rect(Screen.width*.5f, Screen.height*.02f, 80, Screen.height*.04f), " "+ minutes.ToString("00") +":"+seconds.ToString("00"),timeStyle);
 
 }

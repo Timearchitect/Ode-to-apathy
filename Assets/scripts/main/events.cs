@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class events : MonoBehaviour {
 	public GameObject [] enemies;
 	private GameObject remotePlayer;

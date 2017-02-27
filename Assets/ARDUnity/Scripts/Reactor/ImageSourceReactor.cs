@@ -121,10 +121,7 @@ namespace Ardunity
 
 						//print(_analogInput.input + "  A1 VALUE Image : " );
 
-
-
-				
-					
+			
 
 					/*print (_analogInput.input + "  A0 VALUE");
 					GameObject.FindGameObjectWithTag ("cafe").GetComponent<Image> ().volume = _analogInput.input * .04F;

@@ -7,12 +7,12 @@ public class coverEyes : MonoBehaviour {
 	GameObject leftEye,rightEye;
 	//public static float alphaL;
 	//public static float alphaR=1.0f;
-	private Animation animation;
+	//private Animation animation;
 	private AnimationClip coverAnim;
 	private GameObject[] enemies;
 	// Use this for initialization
 	void Start () {
-		animation = GameObject.FindGameObjectWithTag ("Player").GetComponent<Animation>();
+		//animation = GameObject.FindGameObjectWithTag ("Player").GetComponent<Animation>();
 		//coverAnim= animation.GetClip ("Cover_Ears");
 		leftEye = GameObject.Find ("leftEye");
 		rightEye = GameObject.Find ("rightEye");
@@ -22,23 +22,22 @@ public class coverEyes : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		//alpha += 0.01f;
-		//   leftEye.GetComponent<Image> ().color = new Color(0,0,0,alphaL);
-		//rightEye.GetComponent<Image> ().color = new Color(0,0,0,alphaR);
-		print(leftEye.GetComponent<Image> ().color.a + "   blackness");
-		print(rightEye.GetComponent<Image> ().color.a + "   blackness");
-		if (leftEye.GetComponent<Image> ().color.a > 0.25f || rightEye.GetComponent<Image> ().color.a > 0.25f) {
+		//print(leftEye.GetComponent<Image> ().color.a + "   blackness");
+		//print(rightEye.GetComponent<Image> ().color.a + "   blackness");
+		if (leftEye.GetComponent<Image> ().color.a > 0.25f || rightEye.GetComponent<Image> ().color.a > 0.25f) { // transparent effect
 		//	animation.Play (coverAnim.name);
 			foreach (GameObject e in enemies) {
-				e.GetComponent<SpriteRenderer> ().color = new Color (1f, 1f, 1f, 0.3f);
+				e.GetComponent<SpriteRenderer> ().color = new Color (e.GetComponent<SpriteRenderer> ().color.r, e.GetComponent<SpriteRenderer> ().color.g, e.GetComponent<SpriteRenderer> ().color.b, 0.3f);			
+				//e.GetComponent<SpriteRenderer> ().color.a=0.3f;
 			}
 		} else {
 			foreach (GameObject e in enemies) {
-				e.GetComponent<SpriteRenderer> ().color = new Color(1f,1f,1f,1f);
+				e.GetComponent<SpriteRenderer> ().color = new Color (e.GetComponent<SpriteRenderer> ().color.r, e.GetComponent<SpriteRenderer> ().color.g, e.GetComponent<SpriteRenderer> ().color.b, 1f);			
+				//e.GetComponent<SpriteRenderer> ().color = new Color(1f,1f,1f,1f);
+				//e.GetComponent<SpriteRenderer> ().color.a=1f;
 			}
 		}
 			//animation.Stop (coverAnim.name);
-
 
 		//if (alpha >= 1)
 		//	alpha = 0;
