@@ -37,7 +37,6 @@ public class follow : MonoBehaviour {
 					enemyscript.satisfied = false;
 				}
 			}
-	
 		}
 
 		if (Vector3.Distance (player.transform.position, this.transform.position) < stopDistance) {

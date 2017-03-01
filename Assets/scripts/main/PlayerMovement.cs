@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		player = GameObject.FindGameObjectWithTag("Player");
+
 		go = this.gameObject;
 	}
 	// Update is called once per frame
@@ -20,12 +21,10 @@ public class PlayerMovement : MonoBehaviour {
 		if (hVal < 0) {
 			//print ("left:" + hVal);
 			player.transform.position -= new Vector3(1,0,0);
-			//go.rigidbody.transform.position;
 		}
 		if (vVal < 0) {
 			//print("down:"+vVal);
 			player.transform.position -= new Vector3(0,1,0);
-			//go.rigidbody.transform.position.
 		}
 		if (hVal >0) {
 			//print ("right:" + hVal);

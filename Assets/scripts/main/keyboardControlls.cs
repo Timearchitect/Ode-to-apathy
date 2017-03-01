@@ -5,13 +5,15 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class keyboardControlls : MonoBehaviour {
-	public GameObject debugContent ;
+	public GameObject debugContent ,leftEye,rightEye;
 	public static int wordCount=0;
 	public float timer=0,duration;
-	public AudioSource a;
+	public AudioSource bgm,cafe;
 	private UnityEngine.UI.Text t;
 	private Animation animation;
 	private AnimationClip typing;
+	public AudioSource[] aS;
+
 	Vector3 pastMousePos = new Vector3();
 	// Use this for initialization
 	void Start () {
@@ -21,11 +23,16 @@ public class keyboardControlls : MonoBehaviour {
 		//animation.Play (typing.name);
 		debugContent = GameObject.FindGameObjectWithTag("debug");
 		t = debugContent.GetComponent<UnityEngine.UI.Text> ();
-		a =GameObject.FindGameObjectWithTag ("bgm").GetComponent<AudioSource> ();
-		duration = 0.5f;
+		bgm =GameObject.FindGameObjectWithTag ("bgm").GetComponent<AudioSource> ();
+		cafe = GameObject.FindGameObjectWithTag ("cafe").GetComponent<AudioSource> ();
 
+		duration = 0.5f;
 		//audio.volume = 1;
 		//audio.Play ();
+		leftEye = GameObject.Find ("leftEye");
+		rightEye = GameObject.Find ("rightEye");	
+		aS = (AudioSource[])GameObject.FindObjectsOfType (typeof(AudioSource));
+	
 	}
 
 	// Update is called once per frame
@@ -35,25 +42,20 @@ public class keyboardControlls : MonoBehaviour {
 
 		if (hVal < 0) {
 			print ("left:" + hVal);
-
 		}
 		if (vVal < 0) {
 			print("down:"+vVal);
-
 		}
-
 		if (hVal >0) {
 			print ("right:" + hVal);
-
 		}
 		if (vVal > 0) {
 			print("up:"+vVal);
-
 		}
 		detectPressedKeyOrButton ();
 		if (timer + duration < Time.time) {
-			if (a.isPlaying) {
-				a.Pause ();
+			if (bgm.isPlaying) {
+				bgm.Pause ();
 			}
 		}
 		//print (Input.mousePosition,pastMousePos);
@@ -65,11 +67,28 @@ public class keyboardControlls : MonoBehaviour {
 	}
 
 
-	public void detectPressedKeyOrButton()
-	{
-		foreach(KeyCode kcode in Enum.GetValues(typeof(KeyCode)))
-		{
+	public void detectPressedKeyOrButton(){
+		
+		foreach(KeyCode kcode in Enum.GetValues(typeof(KeyCode))){
+
 			if (Input.GetKeyDown (kcode)) {
+
+				if (Input.GetKeyDown (KeyCode.LeftControl)) {
+					leftEye.GetComponent<Image> ().color = new Color (0f, 0f, 0f, 0.35f); 
+				}
+
+				if (Input.GetKeyDown (KeyCode.RightControl)) {
+					rightEye.GetComponent<Image> ().color = new Color (0f, 0f, 0f, 0.35f);
+				}
+
+				if (Input.GetKeyDown (KeyCode.LeftShift) && cafe.bypassEffects ) {
+					coverEars();
+				}
+
+				if (Input.GetKeyDown (KeyCode.RightShift)&& cafe.bypassEffects) {
+					coverEars ();
+				}
+
 				//Debug.Log ("KeyCode down: " + kcode+ " count: "+wordCount +"  time:"+timer );
 				wordCount++;
 			/*	Debug.Log (debugContent.name +"  "+debugContent.GetType() );
@@ -84,24 +103,56 @@ public class keyboardControlls : MonoBehaviour {
 				{
 					Debug.Log (component.GetType() +" child");
 				}*/
-
 				//AudioSource a =(AudioSource)GameObject.FindGameObjectWithTag ("bgm");
 				//((GUIContent)debugContent).text="hello world";
 				//+((ScrollRect)debugContent).GetType()
 				timer = Time.time;
-				if(!a.isPlaying) a.Play();
+				if(!bgm.isPlaying) bgm.Play();
 				print (this.name);
 				//print(a.loop);
-
 				/*if (kcode ==  KeyCode.K) {
 					print ("toggle lowpass");
 					//a.GetComponent<AudioSource> ().bypassEffects
-					a.GetComponent<AudioSource>().volume= (a.GetComponent<AudioSource>().bypassEffects)?0.1f:1;
-					a.GetComponent<AudioSource>().bypassEffects = !a.GetComponent<AudioSource>().bypassEffects;
+						a.GetComponent<AudioSource>().volume= (a.GetComponent<AudioSource>().bypassEffects)?0.1f:1;
+						a.GetComponent<AudioSource>().bypassEffects = !a.GetComponent<AudioSource>().bypassEffects;
 					}
 					//a.GetComponent<AudioSource> ().GetComponents <AudioLowPassFilter>().
 				}*/
 			}
+			if (Input.GetKeyUp (KeyCode.LeftControl)) {
+				leftEye.GetComponent<Image> ().color = new Color (0f, 0f, 0f, 0.0f); 
+			}
+			if (Input.GetKeyUp (KeyCode.RightControl)) {
+				rightEye.GetComponent<Image> ().color = new Color (0f, 0f, 0f, 0.0f);
+			}
+			if (Input.GetKeyUp (KeyCode.LeftShift)) {
+				openEars();
+			}
+			if (Input.GetKeyUp (KeyCode.RightShift)) {
+				openEars ();
+			}
 		}
+
 	}
+
+	public void coverEars(){
+		cafe.volume = 0.0f;
+		bgm.volume = 0.0f;
+			foreach (AudioSource a in aS) {
+				a.GetComponent<AudioSource> ().bypassEffects = false;
+			}
+
+		//print ("closed");
+	}
+	public void openEars(){
+		cafe.volume = 0.1f;
+		bgm.volume = 1f;
+
+		foreach (AudioSource a in aS) {
+			a.GetComponent<AudioSource> ().bypassEffects = true;
+		}
+		//print ("open");
+
+	}
+
 }

@@ -16,10 +16,8 @@ public class events : MonoBehaviour {
 	void LateUpdate () {
 
 		if (Input.GetKeyDown ("space")) {
-
-
-			 remotePlayer =(GameObject)Instantiate(GameObject.FindGameObjectWithTag("enemy"));
-
+			remotePlayer =(GameObject)Instantiate(GameObject.FindGameObjectWithTag("enemy"));
+	
 			followScript = remotePlayer.GetComponent<follow>() ;
 			followScript.Pause ();
 			//(GameObject)Instantiate(GameObject.FindGameObjectWithTag("enemy"), new Vector3(0,0,0), Quaternion.identity);
