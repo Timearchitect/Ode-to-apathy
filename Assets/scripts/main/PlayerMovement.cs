@@ -58,6 +58,12 @@ public class PlayerMovement : MonoBehaviour {
 		finishpos = player.transform.position+ offset;
 		go.transform.position = Vector3.Lerp (go.transform.position, finishpos, lerpSpeed);
 
+		body.transform.rotation =Quaternion.RotateTowards(body.transform.rotation, player.transform.rotation, 0.3f);
+
+
+		//body.transform.rotation= new Vector3(0f,0f,body.transform.rotation.z*.95f);
+		//body.transform.rotation.Set( body.transform.rotation.x , body.transform.rotation.y , body.transform.rotation.z*.95f,0 );
+
 		//body.transform.rotation= new Vector3(0f,0f,body.transform.rotation.z*.95f);
 		//body.transform.rotation.Set( body.transform.rotation.x , body.transform.rotation.y , body.transform.rotation.z*.95f,0 );
 		//head.transform.Rotate (Vector3.up *1,Space.World);
