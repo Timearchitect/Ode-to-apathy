@@ -26,9 +26,11 @@ public class follow : MonoBehaviour {
 			move();
 		}
 		if (Vector3.Distance (player.transform.position, this.transform.position) < stopDistance) {
+			if(Stats.wordCount>=0)Stats.wordCount+=Stats.distractionPenalty;
 			if (!pause) {
 				pause = true;
 				print ("STOP!! " + Time.fixedTime);
+
 			}
 		} else {
 			pause = false;
