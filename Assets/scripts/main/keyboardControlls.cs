@@ -5,8 +5,9 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class keyboardControlls : MonoBehaviour {
-	public GameObject debugContent ,leftEye,rightEye;
-	public static int wordCount=0;
+	public GameObject debugContent;
+	public Image leftEyeOverlay,rightEyeOverlay;
+	//public static float wordCount=0f;
 	public float timer=0,duration;
 	public AudioSource bgm,cafe;
 	private UnityEngine.UI.Text t;
@@ -29,8 +30,8 @@ public class keyboardControlls : MonoBehaviour {
 		duration = 0.5f;
 		//audio.volume = 1;
 		//audio.Play ();
-		leftEye = GameObject.Find ("leftEye");
-		rightEye = GameObject.Find ("rightEye");	
+		leftEyeOverlay = GameObject.Find ("leftEye").GetComponent<Image> ();
+		rightEyeOverlay = GameObject.Find ("rightEye").GetComponent<Image> ();	
 		aS = (AudioSource[])GameObject.FindObjectsOfType (typeof(AudioSource));
 	
 	}
@@ -60,7 +61,7 @@ public class keyboardControlls : MonoBehaviour {
 		}
 		//print (Input.mousePosition,pastMousePos);
 		if (Vector3.Distance(Input.mousePosition,pastMousePos)>5) {
-			wordCount++;
+			Stats.wordCount+=Stats.penSpeed;
 			pastMousePos = Input.mousePosition;
 		}
 		//pastMousePos = Input.mousePosition;
@@ -74,11 +75,11 @@ public class keyboardControlls : MonoBehaviour {
 			if (Input.GetKeyDown (kcode)) {
 
 				if (Input.GetKeyDown (KeyCode.LeftControl)) {
-					leftEye.GetComponent<Image> ().color = new Color (0f, 0f, 0f, 0.35f); 
+					leftEyeOverlay.color = new Color (0f, 0f, 0f, 0.35f); 
 				}
 
 				if (Input.GetKeyDown (KeyCode.RightControl)) {
-					rightEye.GetComponent<Image> ().color = new Color (0f, 0f, 0f, 0.35f);
+					rightEyeOverlay.color = new Color (0f, 0f, 0f, 0.35f);
 				}
 
 				if (Input.GetKeyDown (KeyCode.LeftShift) && cafe.bypassEffects ) {
@@ -90,40 +91,23 @@ public class keyboardControlls : MonoBehaviour {
 				}
 
 				//Debug.Log ("KeyCode down: " + kcode+ " count: "+wordCount +"  time:"+timer );
-				wordCount++;
-			/*	Debug.Log (debugContent.name +"  "+debugContent.GetType() );
-				RectTransform r= debugContent.GetComponent<RectTransform>();
-				Debug.Log (r.name);*/
-				//UnityEngine.UI.Text t = debugContent.GetComponent<UnityEngine.UI.Text> ();
+				Stats.wordCount+=Stats.typeSpeed;
+			
 				t.text=t.text.ToString()+kcode;
 				t.GraphicUpdateComplete();
 				Canvas.ForceUpdateCanvases();
 				animation.Play (typing.name);
-				/*foreach(var component in debugContent.GetComponents<Component>())
-				{
-					Debug.Log (component.GetType() +" child");
-				}*/
-				//AudioSource a =(AudioSource)GameObject.FindGameObjectWithTag ("bgm");
-				//((GUIContent)debugContent).text="hello world";
-				//+((ScrollRect)debugContent).GetType()
+
 				timer = Time.time;
 				if(!bgm.isPlaying) bgm.Play();
 				print (this.name);
-				//print(a.loop);
-				/*if (kcode ==  KeyCode.K) {
-					print ("toggle lowpass");
-					//a.GetComponent<AudioSource> ().bypassEffects
-						a.GetComponent<AudioSource>().volume= (a.GetComponent<AudioSource>().bypassEffects)?0.1f:1;
-						a.GetComponent<AudioSource>().bypassEffects = !a.GetComponent<AudioSource>().bypassEffects;
-					}
-					//a.GetComponent<AudioSource> ().GetComponents <AudioLowPassFilter>().
-				}*/
+	
 			}
 			if (Input.GetKeyUp (KeyCode.LeftControl)) {
-				leftEye.GetComponent<Image> ().color = new Color (0f, 0f, 0f, 0.0f); 
+				leftEyeOverlay.color = new Color (0f, 0f, 0f, 0.0f); 
 			}
 			if (Input.GetKeyUp (KeyCode.RightControl)) {
-				rightEye.GetComponent<Image> ().color = new Color (0f, 0f, 0f, 0.0f);
+				rightEyeOverlay.color = new Color (0f, 0f, 0f, 0.0f);
 			}
 			if (Input.GetKeyUp (KeyCode.LeftShift)) {
 				openEars();
@@ -136,18 +120,16 @@ public class keyboardControlls : MonoBehaviour {
 	}
 
 	public void coverEars(){
-		cafe.volume = 0.0f;
-		bgm.volume = 0.0f;
+		cafe.volume = 0.008f;
+		bgm.volume = 0.01f;
 			foreach (AudioSource a in aS) {
 				a.GetComponent<AudioSource> ().bypassEffects = false;
 			}
-
 		//print ("closed");
 	}
 	public void openEars(){
 		cafe.volume = 0.1f;
 		bgm.volume = 1f;
-
 		foreach (AudioSource a in aS) {
 			a.GetComponent<AudioSource> ().bypassEffects = true;
 		}
