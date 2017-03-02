@@ -20,7 +20,7 @@ public class follow : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		player = GameObject.FindGameObjectWithTag ("Player");
-		stopPoint_cafe = GameObject.FindGameObjectWithTag ("cafe");
+		stopPoint_cafe = GameObject.FindGameObjectWithTag ("stopPointCafe");
 
 		enemyscript = this.GetComponent ("enemy")as enemy;
 		enemyscript.satisfied = false;
@@ -32,11 +32,8 @@ public class follow : MonoBehaviour {
 			move();
 		}
 	//Check stoppoints
-		print("debug 1");
 		stopPoint_player ();
-		print("debug 2");
 		stopPoint_cafeCounter ();
-		print("debug 3");
 	}
 
 	void stopPoint_player(){

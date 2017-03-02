@@ -13,6 +13,7 @@ TagManager:
   - enemy
   - star
   - reviewPanel
+  - stopPointCafe
   layers:
   - Default
   - TransparentFX

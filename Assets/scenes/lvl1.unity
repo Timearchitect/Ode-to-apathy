@@ -1693,7 +1693,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000030517578}
+  m_AnchoredPosition: {x: 0, y: 299.99997}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &290194527
@@ -2305,8 +2305,8 @@ GameObject:
   m_Component:
   - component: {fileID: 567808237}
   m_Layer: 0
-  m_Name: point (2)
-  m_TagString: cafe
+  m_Name: stopPointCafe
+  m_TagString: stopPointCafe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
