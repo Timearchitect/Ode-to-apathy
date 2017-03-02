@@ -6,9 +6,11 @@ public class PlayerMovement : MonoBehaviour {
 	GameObject go;
 	GameObject player;
 	private SpriteRenderer head;
+	private SpriteRenderer body;
 	//Component playerHead;
 	Vector3 offset = new Vector3(0,90,-220); // camera offset
 	Vector3 finishpos;
+	float angle;
 	float lerpSpeed=0.06f;
 	private float hVal,vVal;
 
@@ -19,6 +21,8 @@ public class PlayerMovement : MonoBehaviour {
 
 		go = this.gameObject;
 		head = GameObject.Find("Head").GetComponent<SpriteRenderer>();
+		body = GameObject.Find("Body").GetComponent<SpriteRenderer>();
+
 		/*foreach (SpriteRenderer s in sprites) {
 			print ( s);
 		}*/
@@ -32,6 +36,7 @@ public class PlayerMovement : MonoBehaviour {
 			//print ("left:" + hVal);
 			player.transform.position -= new Vector3(1,0,0);
 			head.sprite= Resources.Load<Sprite> ("head_left") as Sprite;
+			angle += 1f;
 		}
 		if (vVal < 0) {
 			//print("down:"+vVal);
@@ -42,6 +47,8 @@ public class PlayerMovement : MonoBehaviour {
 			//print ("right:" + hVal);
 			player.transform.position += new Vector3(1,0,0);
 			head.sprite= Resources.Load<Sprite> ("head_right") as Sprite;
+			angle -= 1f;
+
 		}
 		if (vVal > 0) {
 			//print("up:"+vVal);
@@ -50,6 +57,9 @@ public class PlayerMovement : MonoBehaviour {
 		}
 		finishpos = player.transform.position+ offset;
 		go.transform.position = Vector3.Lerp (go.transform.position, finishpos, lerpSpeed);
+
+		//body.transform.Rotate (0,0,1,Space.World);
+		//head.transform.Rotate (Vector3.up *1,Space.World);
 
 	}
 

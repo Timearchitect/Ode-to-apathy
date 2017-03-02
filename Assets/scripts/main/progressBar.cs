@@ -25,6 +25,7 @@ public class progressBar : MonoBehaviour {
 			Debug.Log (Stats.maxWordCount+ " of " + Stats.wordCount +" %"+val);
 			if (val >= 1) {
 				print ("LEVEL CLEAR!!!");   
+				Game.end();
 			}
 			progress.value = val;
 		}

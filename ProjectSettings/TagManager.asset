@@ -12,6 +12,7 @@ TagManager:
   - rightEye
   - enemy
   - star
+  - reviewPanel
   layers:
   - Default
   - TransparentFX

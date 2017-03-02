@@ -2272,11 +2272,11 @@ GameObject:
   - component: {fileID: 595412001}
   m_Layer: 5
   m_Name: ReviewPanel
-  m_TagString: Untagged
+  m_TagString: reviewPanel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &595411998
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2299,7 +2299,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1102, y: -176.2}
+  m_AnchoredPosition: {x: 326, y: 148}
   m_SizeDelta: {x: 446.9, y: 142.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &595411999
@@ -2361,7 +2361,7 @@ GameObject:
   - component: {fileID: 660475253}
   - component: {fileID: 660475255}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: GUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3780,7 +3780,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1319047475}
   m_LocalRotation: {x: -0.03759621, y: -0.0010793806, z: -0.028677694, w: 0.99888086}
-  m_LocalPosition: {x: 14.6, y: 107.8, z: 2.1}
+  m_LocalPosition: {x: 14.9, y: 113.2, z: 1.8}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 581996725}
