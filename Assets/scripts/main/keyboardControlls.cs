@@ -33,7 +33,7 @@ public class keyboardControlls : MonoBehaviour {
 		leftEyeOverlay = GameObject.Find ("leftEye").GetComponent<Image> ();
 		rightEyeOverlay = GameObject.Find ("rightEye").GetComponent<Image> ();	
 		aS = (AudioSource[])GameObject.FindObjectsOfType (typeof(AudioSource));
-	
+
 	}
 
 	// Update is called once per frame

@@ -8,14 +8,20 @@ public class follow : MonoBehaviour {
 	public float reachDist=20;
 	public int currentPoint;
 	public static int stopDistance= 150;
-	public bool loop=true; 
+	public static int stopDistanceCafe= 30;
+	public bool loop=true;
+
+	//stopPoints
 	private GameObject player;
+	private GameObject stopPoint_cafe;
 	public bool pause=false;
 	public float dist;
 	enemy enemyscript;
 	// Use this for initialization
 	void Start () {
 		player = GameObject.FindGameObjectWithTag ("Player");
+		stopPoint_cafe = GameObject.FindGameObjectWithTag ("cafe");
+
 		enemyscript = this.GetComponent ("enemy")as enemy;
 		enemyscript.satisfied = false;
 	}
@@ -25,6 +31,15 @@ public class follow : MonoBehaviour {
 		if (!pause || enemyscript.satisfied) {
 			move();
 		}
+	//Check stoppoints
+		print("debug 1");
+		stopPoint_player ();
+		print("debug 2");
+		stopPoint_cafeCounter ();
+		print("debug 3");
+	}
+
+	void stopPoint_player(){
 		if (Vector3.Distance (player.transform.position, this.transform.position) < stopDistance) {
 			if(Stats.wordCount>=0)Stats.wordCount+=Stats.distractionPenalty;
 			if (!pause) {
@@ -35,6 +50,21 @@ public class follow : MonoBehaviour {
 		} else {
 			pause = false;
 		}
+
+	}
+
+	void stopPoint_cafeCounter(){
+		if (Vector3.Distance (stopPoint_cafe.transform.position, this.transform.position) < stopDistanceCafe) {
+			if(Stats.wordCount>=0)Stats.wordCount+=Stats.distractionPenalty;
+			if (!pause) {
+				pause = true;
+				print ("STOP!! " + Time.fixedTime);
+
+			}
+		} else {
+			pause = false;
+		}
+
 	}
 
 
