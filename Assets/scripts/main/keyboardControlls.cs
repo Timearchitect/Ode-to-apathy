@@ -12,7 +12,7 @@ public class keyboardControlls : MonoBehaviour {
 	public AudioSource bgm,cafe;
 	private UnityEngine.UI.Text t;
 	private Animation animation;
-	private AnimationClip typing;
+	private AnimationClip typing,drawing;
 	public AudioSource[] aS;
 
 	Vector3 pastMousePos = new Vector3();
@@ -21,6 +21,7 @@ public class keyboardControlls : MonoBehaviour {
 		animation = GameObject.FindGameObjectWithTag ("Player").GetComponent<Animation>();
 		print (animation.name +" found");
 		typing= animation.GetClip ("Typing");
+		drawing= animation.GetClip ("Drawing");
 		//animation.Play (typing.name);
 		debugContent = GameObject.FindGameObjectWithTag("debug");
 		t = debugContent.GetComponent<UnityEngine.UI.Text> ();
@@ -60,9 +61,10 @@ public class keyboardControlls : MonoBehaviour {
 			}
 		}
 		//print (Input.mousePosition,pastMousePos);
-		if (Vector3.Distance(Input.mousePosition,pastMousePos)>5) {
+		if (Vector3.Distance(Input.mousePosition,pastMousePos)>10) {
 			Stats.wordCount+=Stats.penSpeed;
 			pastMousePos = Input.mousePosition;
+			animation.Play (drawing.name);
 		}
 		//pastMousePos = Input.mousePosition;
 	}
@@ -96,6 +98,9 @@ public class keyboardControlls : MonoBehaviour {
 				t.text=t.text.ToString()+kcode;
 				t.GraphicUpdateComplete();
 				Canvas.ForceUpdateCanvases();
+				if (animation.IsPlaying (drawing.name))
+					
+					animation.Rewind (drawing.name);
 				animation.Play (typing.name);
 
 				timer = Time.time;
