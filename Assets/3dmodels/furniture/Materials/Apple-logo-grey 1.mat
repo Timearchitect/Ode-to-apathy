@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: macbook_air_laptop_key_13_keyboard
+  m_Name: Apple-logo-grey 1
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
@@ -43,14 +43,14 @@ Material:
         name: _EmissionMap
       second:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 0.07, y: 0.11}
-        m_Offset: {x: 0, y: 30}
+        m_Scale: {x: 0.07, y: 0.1}
+        m_Offset: {x: 0, y: 0}
     - first:
         name: _MainTex
       second:
-        m_Texture: {fileID: 2800000, guid: e34eeb2f34a6445538fd4c308d25cabc, type: 3}
-        m_Scale: {x: 0.07, y: 0.11}
-        m_Offset: {x: 0, y: 30}
+        m_Texture: {fileID: 2800000, guid: 1e2461cdd2e124dc3a79721362d6567a, type: 3}
+        m_Scale: {x: 0.07, y: 0.1}
+        m_Offset: {x: 0, y: 0}
     - first:
         name: _MetallicGlossMap
       second:
