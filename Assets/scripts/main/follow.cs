@@ -21,7 +21,6 @@ public class follow : MonoBehaviour {
 	void Start () {
 		player = GameObject.FindGameObjectWithTag ("Player");
 		stopPoint_cafe = GameObject.FindGameObjectWithTag ("stopPointCafe");
-
 		enemyscript = this.GetComponent ("enemy")as enemy;
 		enemyscript.satisfied = false;
 	}
@@ -33,7 +32,10 @@ public class follow : MonoBehaviour {
 		}
 	//Check stoppoints
 		stopPoint_player ();
-		stopPoint_cafeCounter ();
+
+		if (stopPoint_cafe != null) {
+			stopPoint_cafeCounter ();
+		}
 	}
 
 	void stopPoint_player(){

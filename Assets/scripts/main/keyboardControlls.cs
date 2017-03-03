@@ -9,6 +9,7 @@ public class keyboardControlls : MonoBehaviour {
 	public Image leftEyeOverlay,rightEyeOverlay;
 	//public static float wordCount=0f;
 	public float timer=0,duration;
+	private bool vacant=true;
 	public AudioSource bgm,cafe;
 	private UnityEngine.UI.Text t;
 	private Animation animation;
@@ -54,7 +55,9 @@ public class keyboardControlls : MonoBehaviour {
 		if (vVal > 0) {
 			print("up:"+vVal);
 		}
+
 		detectPressedKeyOrButton ();
+		detectReleasedKeyOrButton ();
 		if (timer + duration < Time.time) {
 			if (bgm.isPlaying) {
 				bgm.Pause ();
@@ -69,6 +72,18 @@ public class keyboardControlls : MonoBehaviour {
 		//pastMousePos = Input.mousePosition;
 	}
 
+	public void detectReleasedKeyOrButton(){
+		vacant = true;
+		/*foreach (KeyCode kcode in Enum.GetValues(typeof(KeyCode))) {
+
+			if (Input.GetKeyDown (kcode)) {
+				vacant = false;
+				print (kcode);
+
+			}
+		}*/
+	
+	}
 
 	public void detectPressedKeyOrButton(){
 		
@@ -93,14 +108,16 @@ public class keyboardControlls : MonoBehaviour {
 				}
 
 				//Debug.Log ("KeyCode down: " + kcode+ " count: "+wordCount +"  time:"+timer );
-				Stats.wordCount+=Stats.typeSpeed;
+				if (vacant) {
+					Stats.wordCount += Stats.typeSpeed;
 			
-				t.text=t.text.ToString()+kcode;
-				t.GraphicUpdateComplete();
-				Canvas.ForceUpdateCanvases();
-				if (animation.IsPlaying (drawing.name))
-					
-					animation.Rewind (drawing.name);
+					t.text = t.text.ToString () + kcode;
+					t.GraphicUpdateComplete ();
+					Canvas.ForceUpdateCanvases ();
+
+					vacant = false;
+				}
+				if (animation.IsPlaying (drawing.name))animation.Stop (drawing.name);
 				animation.Play (typing.name);
 
 				timer = Time.time;

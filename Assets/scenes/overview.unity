@@ -4495,6 +4495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 0}
+  dialog: {fileID: 0}
   satisfied: 0
 --- !u!212 &1382854731
 SpriteRenderer:
@@ -4597,6 +4598,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 0}
+  dialog: {fileID: 0}
   satisfied: 0
 --- !u!212 &1383116710
 SpriteRenderer:
@@ -7419,7 +7421,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
+    m_FontSize: 16
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -7872,6 +7874,7 @@ GameObject:
   - component: {fileID: 2066443319}
   - component: {fileID: 2066443318}
   - component: {fileID: 2066443317}
+  - component: {fileID: 2066443321}
   m_Layer: 5
   m_Name: dialogCanvas
   m_TagString: Untagged
@@ -7952,9 +7955,20 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -184, y: 187.6}
+  m_AnchoredPosition: {x: -107.2, y: 187.6}
   m_SizeDelta: {x: 239.8, y: 98.1}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2066443321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2066443316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d38957574badb034db4d651fd0ca6035, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2091271378
 GameObject:
   m_ObjectHideFlags: 0
@@ -8033,6 +8047,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 0}
+  dialog: {fileID: 0}
   satisfied: 0
 --- !u!114 &2091271382
 MonoBehaviour:
