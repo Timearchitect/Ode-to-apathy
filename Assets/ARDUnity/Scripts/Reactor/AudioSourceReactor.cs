@@ -7,14 +7,18 @@ namespace Ardunity
 	[AddComponentMenu ("ARDUnity/Reactor/Effect/AudioSourceReactor")]
 	[HelpURL ("https://sites.google.com/site/ardunitydoc/references/reactor/audiosourcereactor")]
 	[RequireComponent (typeof(AudioSource))]
-	public class AudioSourceReactor : ArdunityReactor
+
+
+	public class AudioSourceReactor : ArdunityReactor// , MonoBehaviour 
 	{
 		private IWireInput<bool> _digitalInput;
 		private IWireInput<Trigger> _triggerInput;
 		private IWireInput<float> _analogInput;
 		private AudioSource _audioSource;
 		private AudioSource[] aS;
-		private AudioSource bgm;
+		private AudioSource bgmL , bgmR;
+		public bool paning;
+
 		protected override void Awake ()
 		{
 			base.Awake ();
@@ -64,7 +68,8 @@ namespace Ardunity
 			nodes.Add (new Node ("play", "Play", typeof(IWireInput<bool>), NodeType.WireFrom, "Input<bool>"));
 			nodes.Add (new Node ("playOnly", "Play Only", typeof(IWireInput<Trigger>), NodeType.WireFrom, "Input<Trigger>"));
 			nodes.Add (new Node ("setVolume", "Set Volume", typeof(IWireInput<float>), NodeType.WireFrom, "Input<float>"));
-			nodes.Add (new Node ("setBypassFilter", "Set Bypass", typeof(IWireInput<float>), NodeType.WireFrom, "Input<bool>"));
+			nodes.Add (new Node ("setBypassFilterR", "Set Bypass Right", typeof(IWireInput<float>), NodeType.WireFrom, "Input<bool>"));
+			nodes.Add (new Node ("setBypassFilterL", "Set Bypass Left", typeof(IWireInput<float>), NodeType.WireFrom, "Input<bool>"));
 
 		}
 
@@ -129,7 +134,7 @@ namespace Ardunity
 					node.objectTarget = null;
 				return;
 
-			} else if (node.name.Equals ("setBypassFilter")) {
+			} else if (node.name.Equals ("setBypassFilterR")) {
 				node.updated = true;
 				if (node.objectTarget == null && _analogInput == null)
 					return;
@@ -143,12 +148,51 @@ namespace Ardunity
 				
 				_analogInput = node.objectTarget as IWireInput<float>;
 				if (_analogInput != null) {
-					if (aS == null || bgm == null) {
+					if (aS == null || bgmR == null) {
 						aS = (AudioSource[])GameObject.FindObjectsOfType (typeof(AudioSource));
-						bgm = GameObject.FindGameObjectWithTag ("cafe").GetComponent<AudioSource> ();
+						//bgm = GameObject.FindGameObjectWithTag ("cafe").GetComponent<AudioSource> ();
+						bgmR = GameObject.Find ("Cafe bgm Right").GetComponent<AudioSource> ();
 					}
 					//print (_analogInput.input + "  A0 VALUE audio");
-					bgm.volume = _analogInput.input * .04F;
+					bgmR.volume = _analogInput.input * .04F;
+					//AudioSource[] aS = (AudioSource[])GameObject.FindObjectsOfType (typeof(AudioSource));
+					if (_analogInput.input <= 0.6f) {
+						foreach (AudioSource a in aS) {
+							a.GetComponent<AudioSource> ().bypassEffects = false;
+						}
+					} else {
+						foreach (AudioSource a in aS) {
+							a.GetComponent<AudioSource> ().bypassEffects = true;
+						}
+					}
+					_analogInput.OnWireInputChanged += OnAnalogInputChanged;
+				} else
+					node.objectTarget = null;
+
+				return;
+			} else if (node.name.Equals ("setBypassFilterL")) {
+				node.updated = true;
+				if (node.objectTarget == null && _analogInput == null)
+					return;
+				if (node.objectTarget != null) {
+					if (node.objectTarget.Equals (_analogInput))
+						return;
+				}
+
+				if (_analogInput != null)
+					_analogInput.OnWireInputChanged -= OnAnalogInputChanged;
+				_analogInput = node.objectTarget as IWireInput<float>;
+
+				if (_analogInput != null) {
+					if (aS == null || bgmL == null) {
+						aS = (AudioSource[])GameObject.FindObjectsOfType (typeof(AudioSource));
+						//bgm = GameObject.FindGameObjectWithTag ("cafe").GetComponent<AudioSource> ();
+						//bgmL = GameObject.FindGameObjectWithTag ("cafe").GetComponent<AudioSource> ();
+						bgmL = GameObject.Find ("Cafe bgm Left").GetComponent<AudioSource> ();
+					}
+					//print (_analogInput.input + "  A0 VALUE audio");
+					bgmL.volume = _analogInput.input * .04F;
+
 					//AudioSource[] aS = (AudioSource[])GameObject.FindObjectsOfType (typeof(AudioSource));
 					if (_analogInput.input <= 0.6f) {
 						foreach (AudioSource a in aS) {
