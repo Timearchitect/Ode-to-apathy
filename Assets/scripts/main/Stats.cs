@@ -20,6 +20,7 @@ public  class Stats  {
 	public static int ignoredObstacle;
 	public static float totalTime=90f;
 	public static float timeleft=totalTime;
+	public static int workMode;
 	public static void reduceHealth(){
 		/*if (wordCount >= 0) {
 			wordCount += Stats.distractionPenalty;

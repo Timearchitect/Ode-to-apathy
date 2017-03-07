@@ -23,16 +23,15 @@ public class dialogs : MonoBehaviour {
 		} else
 			print ("dialogs is missing");
 
-
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.anyKeyDown && !Game.pause) {
+	/*	if (Input.anyKeyDown && !Game.pause) {
 			if (line < textLines.Length-1) {
 				line++;
 				content.text = textLines [line];
 			}
-		}
+		}*/
 	}
 }

@@ -62,9 +62,10 @@ public class keyboardControlls : MonoBehaviour {
 		if (vVal > 0) {
 			print("up:"+vVal);
 		}
-
-		detectPressedKeyOrButton ();
-		detectReleasedKeyOrButton ();
+		//if (Stats.workMode == 0) {
+			detectPressedKeyOrButton ();
+			detectReleasedKeyOrButton ();
+		//}
 		if (timer + duration < Time.time) {
 			if (bgmL.isPlaying) {
 				bgmL.Pause ();
@@ -74,11 +75,13 @@ public class keyboardControlls : MonoBehaviour {
 			}
 		}
 		//print (Input.mousePosition,pastMousePos);
-		if (Vector3.Distance(Input.mousePosition,pastMousePos)>10) {
-			Stats.wordCount+=Stats.penSpeed;
-			pastMousePos = Input.mousePosition;
-			animation.Play (drawing.name);
-		}
+		//if (Stats.workMode == 1) {
+			if (Vector3.Distance (Input.mousePosition, pastMousePos) > 10) {
+				Stats.wordCount += Stats.penSpeed;
+				pastMousePos = Input.mousePosition;
+				animation.Play (drawing.name);
+			}
+		//}
 		//pastMousePos = Input.mousePosition;
 	}
 
