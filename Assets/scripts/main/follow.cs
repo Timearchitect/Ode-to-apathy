@@ -7,10 +7,12 @@ public class follow : MonoBehaviour {
 	public float speed=50.0f;
 	public float reachDist=20;
 	public int currentPoint;
+	public int startIndex=1;
+
 	public static int stopDistance= 150;
 	public static int stopDistanceCafe= 30;
 	public bool loop=true;
-
+	private GameObject path;
 	//stopPoints
 	private GameObject player;
 	private GameObject stopPoint_cafe;
@@ -40,7 +42,7 @@ public class follow : MonoBehaviour {
 
 	void stopPoint_player(){
 		if (Vector3.Distance (player.transform.position, this.transform.position) < stopDistance) {
-			if(Stats.wordCount>=0) Stats.wordCount+=Stats.distractionPenalty;
+			Stats.reduceHealth ();
 			if (!pause) {
 				pause = true;
 				print ("STOP!! " + Time.fixedTime);
@@ -53,7 +55,7 @@ public class follow : MonoBehaviour {
 
 	void stopPoint_cafeCounter(){
 		if (Vector3.Distance (stopPoint_cafe.transform.position, this.transform.position) < stopDistanceCafe) {
-			if(Stats.wordCount>=0) Stats.wordCount+=Stats.distractionPenalty;
+			Stats.reduceHealth ();
 			if (!pause) {
 				pause = true;
 				print ("STOP!! " + Time.fixedTime);
@@ -97,11 +99,32 @@ public class follow : MonoBehaviour {
 	
 	}
 	public void reset(){
-		currentPoint = 0;
+		enemyscript.randomize();
 		enemyscript.satisfied = false;
 		pause = false;
 		//float dist = Vector3.Distance (point [currentPoint].position, this.transform.position);
-		this.transform.position =point[0].position;
-		enemyscript.randomize();
+		currentPoint = startIndex;
+		this.transform.position =point[startIndex].position;
+
 	}
+	public void setPath(GameObject temp){
+		//print ("setPath");
+		path = temp;
+		point = path.GetComponentsInChildren <Transform>();
+
+		/*Transform[] comps = path.GetComponentsInChildren<Transform>();
+		foreach (Transform comp in comps)
+		{
+			if ( comp.gameObject.GetInstanceID() != path.GetInstanceID() )
+			{
+				point.
+			}
+		}*/
+
+		currentPoint = startIndex;
+		//print (point[startIndex].name+" starting point");
+		this.transform.position =point[startIndex].position;
+
+	}
+
 }

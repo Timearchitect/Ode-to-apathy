@@ -1,6 +1,6 @@
 ﻿#pragma strict
 
-static var timer  : float = 90.0;
+public static var timer  : float = 90.0;
 var minutes : int =0;
 var seconds : int =0;
 function Update () {
@@ -12,6 +12,7 @@ function Update () {
 	 seconds=0;
 	 minutes=0;
 	 print("finished");
+	// Game.end();
 	 // Förlust
 	}
 }

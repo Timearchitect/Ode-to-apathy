@@ -28,7 +28,7 @@ public class dialogs : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.anyKeyDown) {
+		if (Input.anyKeyDown && !Game.pause) {
 			if (line < textLines.Length-1) {
 				line++;
 				content.text = textLines [line];

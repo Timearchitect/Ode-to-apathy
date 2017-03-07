@@ -10,7 +10,7 @@ public class keyboardControlls : MonoBehaviour {
 	//public static float wordCount=0f;
 	public float timer=0,duration;
 	private bool vacant=true;
-	public AudioSource bgm,cafe;
+	public AudioSource bgmR,cafeR,bgmL,cafeL;
 	private UnityEngine.UI.Text t;
 	private Animation animation;
 	private AnimationClip typing,drawing;
@@ -25,9 +25,16 @@ public class keyboardControlls : MonoBehaviour {
 		drawing= animation.GetClip ("Drawing");
 		//animation.Play (typing.name);
 		debugContent = GameObject.FindGameObjectWithTag("debug");
-		t = debugContent.GetComponent<UnityEngine.UI.Text> ();
-		bgm =GameObject.FindGameObjectWithTag ("bgm").GetComponent<AudioSource> ();
-		cafe = GameObject.FindGameObjectWithTag ("cafe").GetComponent<AudioSource> ();
+//		t = debugContent.GetComponent<UnityEngine.UI.Text> ();
+		//t.text = "."; !!!!
+
+
+		//bgm =GameObject.FindGameObjectWithTag ("bgm").GetComponent<AudioSource> ();
+		//cafe = GameObject.FindGameObjectWithTag ("cafe").GetComponent<AudioSource> ();
+		bgmR =GameObject.Find("maching Right").GetComponent<AudioSource> ();
+		cafeR = GameObject.Find("Cafe bgm Right").GetComponent<AudioSource> ();
+		bgmL =GameObject.Find("maching Left").GetComponent<AudioSource> ();
+		cafeL = GameObject.Find("Cafe bgm Left").GetComponent<AudioSource> ();
 
 		duration = 0.5f;
 		//audio.volume = 1;
@@ -59,8 +66,11 @@ public class keyboardControlls : MonoBehaviour {
 		detectPressedKeyOrButton ();
 		detectReleasedKeyOrButton ();
 		if (timer + duration < Time.time) {
-			if (bgm.isPlaying) {
-				bgm.Pause ();
+			if (bgmL.isPlaying) {
+				bgmL.Pause ();
+			}
+			if (bgmR.isPlaying) {
+				bgmR.Pause ();
 			}
 		}
 		//print (Input.mousePosition,pastMousePos);
@@ -75,7 +85,6 @@ public class keyboardControlls : MonoBehaviour {
 	public void detectReleasedKeyOrButton(){
 		vacant = true;
 		/*foreach (KeyCode kcode in Enum.GetValues(typeof(KeyCode))) {
-
 			if (Input.GetKeyDown (kcode)) {
 				vacant = false;
 				print (kcode);
@@ -99,20 +108,20 @@ public class keyboardControlls : MonoBehaviour {
 					rightEyeOverlay.color = new Color (0f, 0f, 0f, 0.35f);
 				}
 
-				if (Input.GetKeyDown (KeyCode.LeftShift) && cafe.bypassEffects ) {
-					coverEars();
+				if (Input.GetKeyDown (KeyCode.LeftShift) && cafeL.bypassEffects ) {
+					coverLeftEar();
 				}
 
-				if (Input.GetKeyDown (KeyCode.RightShift)&& cafe.bypassEffects) {
-					coverEars ();
+				if (Input.GetKeyDown (KeyCode.RightShift)&& cafeR.bypassEffects) {
+					coverRightEar ();
 				}
 
 				//Debug.Log ("KeyCode down: " + kcode+ " count: "+wordCount +"  time:"+timer );
 				if (vacant) {
 					Stats.wordCount += Stats.typeSpeed;
 			
-					t.text = t.text.ToString () + kcode;
-					t.GraphicUpdateComplete ();
+				//	t.text = t.text.ToString () + kcode;
+//					t.GraphicUpdateComplete ();
 					Canvas.ForceUpdateCanvases ();
 
 					vacant = false;
@@ -121,8 +130,9 @@ public class keyboardControlls : MonoBehaviour {
 				animation.Play (typing.name);
 
 				timer = Time.time;
-				if(!bgm.isPlaying) bgm.Play();
-				print (this.name);
+				if(!bgmR.isPlaying) bgmR.Play();
+				if(!bgmL.isPlaying) bgmL.Play();
+				//print (this.name);
 	
 			}
 			if (Input.GetKeyUp (KeyCode.LeftControl)) {
@@ -132,31 +142,55 @@ public class keyboardControlls : MonoBehaviour {
 				rightEyeOverlay.color = new Color (0f, 0f, 0f, 0.0f);
 			}
 			if (Input.GetKeyUp (KeyCode.LeftShift)) {
-				openEars();
+				openLeftEar();
 			}
 			if (Input.GetKeyUp (KeyCode.RightShift)) {
-				openEars ();
+				openRightEar ();
 			}
 		}
 
 	}
 
-	public void coverEars(){
-		cafe.volume = 0.008f;
-		bgm.volume = 0.01f;
-			foreach (AudioSource a in aS) {
+	public void coverLeftEar(){
+		cafeL.volume = 0.005f;
+		bgmL.volume = 0.01f;
+		cafeL.bypassEffects = false;
+		bgmL.bypassEffects = false;
+			/*foreach (AudioSource a in aS) {
 				a.GetComponent<AudioSource> ().bypassEffects = false;
-			}
+			}*/
 		//print ("closed");
 	}
-	public void openEars(){
-		cafe.volume = 0.1f;
-		bgm.volume = 1f;
-		foreach (AudioSource a in aS) {
+	public void coverRightEar(){
+		cafeR.volume = 0.005f;
+		bgmR.volume = 0.01f;
+		cafeR.bypassEffects = false;
+		bgmR.bypassEffects = false;
+		/*foreach (AudioSource a in aS) {
+			a.GetComponent<AudioSource> ().bypassEffects = false;
+		}*/
+		//print ("closed");
+	}
+	public void openRightEar(){
+		cafeR.volume = 0.1f;
+		bgmR.volume = 1f;
+		cafeR.bypassEffects = true;
+		bgmR.bypassEffects = true;
+		/*foreach (AudioSource a in aS) {
 			a.GetComponent<AudioSource> ().bypassEffects = true;
-		}
+		}*/
 		//print ("open");
 
 	}
+	public void openLeftEar(){
+		cafeL.volume = 0.1f;
+		bgmL.volume = 1f;
+		cafeL.bypassEffects = true;
+		bgmL.bypassEffects = true;
+		/*foreach (AudioSource a in aS) {
+			a.GetComponent<AudioSource> ().bypassEffects = true;
+		}*/
+		//print ("open");
 
+	}
 }

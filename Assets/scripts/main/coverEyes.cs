@@ -27,8 +27,7 @@ public class coverEyes : MonoBehaviour {
 		//	animation.Play (coverAnim.name);
 			foreach (GameObject e in enemies) {
 				e.GetComponent<SpriteRenderer> ().color = new Color (e.GetComponent<SpriteRenderer> ().color.r, e.GetComponent<SpriteRenderer> ().color.g, e.GetComponent<SpriteRenderer> ().color.b, 0.3f);			
-				//e.GetComponent<SpriteRenderer> ().color.a=0.3f;
-		
+				//e.GetComponent<SpriteRenderer> ().color.a=0.3f
 			}
 		} else {
 			foreach (GameObject e in enemies) {

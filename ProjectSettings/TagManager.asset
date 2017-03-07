@@ -14,6 +14,8 @@ TagManager:
   - star
   - reviewPanel
   - stopPointCafe
+  - apathyBar
+  - dialogPanel
   layers:
   - Default
   - TransparentFX
