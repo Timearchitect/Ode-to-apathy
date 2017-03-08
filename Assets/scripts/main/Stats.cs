@@ -4,11 +4,11 @@ using UnityEngine;
 
 public  class Stats  {
 	//public static float wordSpeed;
-	public static float wordCount;
+	public static int maxWordCount=1100,maxDrawProgress=100,maxCodeProgress=100;
+	public static float wordCount,drawProgess,codeProgess;
 	public static float maxApathy=100;
 	public static float apathy=maxApathy;
 	public static float averageTypeSpeed;
-	public static int maxWordCount=1100;
 	public static float typeSpeed = 2;
 	public static float distractedTime;
 	public static float penSpeed=0.85f;
@@ -34,12 +34,21 @@ public  class Stats  {
 	}
 
 	public static void shiftMode(){
-		if (workMode == 0)
+		drawProgess = 0;
+		codeProgess = 0;
+		if (workMode == 0) {
 			workMode = 1;
-		else
+		}
+		else{
 			workMode = 0;
+		}
 	}
-
+	public static void randomMode(){
+		if (Random.Range (0, 300) == 1) {
+			Stats.shiftMode ();
+			UnityEngine.Debug.Log ("SHIFT MODE!!!");
+		}
+	}
 	/*// Use this for initialization
 	void Start () {
 	}

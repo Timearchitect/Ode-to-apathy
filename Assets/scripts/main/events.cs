@@ -15,7 +15,7 @@ public class events : MonoBehaviour {
 	// Update is called once per frame
 	void LateUpdate () {
 
-		if (Input.GetKeyDown ("space")) {
+		/*if (Input.GetKeyDown ("space")) {
 			remotePlayer =(GameObject)Instantiate(GameObject.FindGameObjectWithTag("enemy"));
 	
 			followScript = remotePlayer.GetComponent<follow>() ;
@@ -31,6 +31,6 @@ public class events : MonoBehaviour {
 			if (enemies!=null && enemies.Length != 0) {
 				print (enemies.Length + " enemies on screen");
 			}
-		}
+		}*/
 	}
 }

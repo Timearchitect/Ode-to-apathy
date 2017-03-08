@@ -43,10 +43,6 @@ public class progressBar : MonoBehaviour {
 		}
 		Stats.regenApathy ();
 
-		if (Random.Range (0, 300) == 1) {
-			Stats.shiftMode ();
-			print ("SHIFT MODE!!!");
-		}
 
 	}
 
