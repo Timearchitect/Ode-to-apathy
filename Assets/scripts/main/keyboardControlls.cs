@@ -62,10 +62,7 @@ public class keyboardControlls : MonoBehaviour {
 		if (vVal > 0) {
 			print("up:"+vVal);
 		}
-		//if (Stats.workMode == 0) {
-			detectPressedKeyOrButton ();
-			detectReleasedKeyOrButton ();
-		//}
+
 		if (timer + duration < Time.time) {
 			if (bgmL.isPlaying) {
 				bgmL.Pause ();
@@ -74,14 +71,17 @@ public class keyboardControlls : MonoBehaviour {
 				bgmR.Pause ();
 			}
 		}
-		//print (Input.mousePosition,pastMousePos);
-		//if (Stats.workMode == 1) {
+		if (Stats.workMode == 0) { // KeyBoard mode
+			detectPressedKeyOrButton ();
+			detectReleasedKeyOrButton ();
+		}
+		if (Stats.workMode == 1) { //Mouse Mode
 			if (Vector3.Distance (Input.mousePosition, pastMousePos) > 10) {
 				Stats.wordCount += Stats.penSpeed;
 				pastMousePos = Input.mousePosition;
 				animation.Play (drawing.name);
 			}
-		//}
+		}
 		//pastMousePos = Input.mousePosition;
 	}
 
@@ -183,7 +183,6 @@ public class keyboardControlls : MonoBehaviour {
 			a.GetComponent<AudioSource> ().bypassEffects = true;
 		}*/
 		//print ("open");
-
 	}
 	public void openLeftEar(){
 		cafeL.volume = 0.1f;
@@ -194,6 +193,5 @@ public class keyboardControlls : MonoBehaviour {
 			a.GetComponent<AudioSource> ().bypassEffects = true;
 		}*/
 		//print ("open");
-
 	}
 }

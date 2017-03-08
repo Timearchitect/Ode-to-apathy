@@ -18,7 +18,6 @@ public class PlayerMovement : MonoBehaviour {
 	void Start () {
 		player = GameObject.FindGameObjectWithTag("Player");
 		//playerHead = player.GetComponent("Body").GetComponent("Head")as Component;
-
 		go = this.gameObject;
 		head = GameObject.Find("Head").GetComponent<SpriteRenderer>();
 		body = GameObject.Find("Body").GetComponent<SpriteRenderer>();

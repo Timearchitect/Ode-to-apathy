@@ -7,26 +7,22 @@ public class progressBar : MonoBehaviour {
 	private GameObject go,apathyBar;
 	float val=0.0f;
 	private Slider progress,apathy;
-	// Use this for initialization
 
 	void Start () {
-		//go = this.gameObject;
 		go= GameObject.FindGameObjectWithTag("progressBar");
 		progress = go.GetComponent<Slider>();
 		apathyBar= GameObject.FindGameObjectWithTag("apathyBar");
 		apathy = apathyBar.GetComponent<Slider>();
-		/*if (progress != null) {
-			print("got it");
-		}*/
+
 	}
 	
 	void Update () {
-	//	print (Time.deltaTime);
-		//Stats.timeleft -= Time.deltaTime;
+		
 		Stats.timeleft=Stats.totalTime-Time.timeSinceLevelLoad;
 		if (Stats.timeleft <= 0) {
 			Game.end ();
 		}
+
 		if (Stats.wordCount != 0) {
 			val = ( (float)Stats.wordCount / Stats.maxWordCount);
 			//Debug.Log (Stats.maxWordCount+ " of " + Stats.wordCount +" %"+val);
@@ -46,6 +42,12 @@ public class progressBar : MonoBehaviour {
 			apathy.value = val;
 		}
 		Stats.regenApathy ();
+
+		if (Random.Range (0, 300) == 1) {
+			Stats.shiftMode ();
+			print ("SHIFT MODE!!!");
+		}
+
 	}
 
 
