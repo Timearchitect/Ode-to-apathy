@@ -42,7 +42,7 @@ public class follow : MonoBehaviour {
 
 	void stopPoint_player(){
 		if (Vector3.Distance (player.transform.position, this.transform.position) < stopDistance) {
-			Stats.reduceHealth ();
+			if(!enemyscript.satisfied)Stats.reduceHealth ();
 			if (!pause) {
 				pause = true;
 				print ("STOP!! " + Time.fixedTime);
@@ -55,7 +55,7 @@ public class follow : MonoBehaviour {
 
 	void stopPoint_cafeCounter(){
 		if (Vector3.Distance (stopPoint_cafe.transform.position, this.transform.position) < stopDistanceCafe) {
-			Stats.reduceHealth ();
+			if(!enemyscript.satisfied)Stats.reduceHealth ();
 			if (!pause) {
 				pause = true;
 				print ("STOP!! " + Time.fixedTime);

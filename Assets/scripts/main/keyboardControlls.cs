@@ -71,14 +71,14 @@ public class keyboardControlls : MonoBehaviour {
 				bgmR.Pause ();
 			}
 		}
-		if (Stats.workMode == 0) { // KeyBoard mode
+
 			detectPressedKeyOrButton ();
 			detectReleasedKeyOrButton ();
-		}
+
 		if (Stats.workMode == 1) { //Mouse Mode
 			if (Vector3.Distance (Input.mousePosition, pastMousePos) > 10) {
 				Stats.wordCount += Stats.penSpeed;
-				Stats.drawProgess += Stats.typeSpeed;
+				Stats.drawProgess += Stats.penSpeed;
 				pastMousePos = Input.mousePosition;
 				animation.Play (drawing.name);
 				if(Stats.drawProgess >= Stats.maxDrawProgress){
@@ -124,24 +124,26 @@ public class keyboardControlls : MonoBehaviour {
 				}
 
 				//Debug.Log ("KeyCode down: " + kcode+ " count: "+wordCount +"  time:"+timer );
-				if (vacant) {
-					Stats.wordCount += Stats.typeSpeed;
-					Stats.codeProgess += Stats.typeSpeed;
-					if(Stats.codeProgess>=Stats.maxCodeProgress){
-						Stats.shiftMode ();
+				if (Stats.workMode == 0) { // KeyBoard mode
+					if (vacant) {
+						Stats.wordCount += Stats.typeSpeed;
+						Stats.codeProgess += Stats.typeSpeed;
+						if (Stats.codeProgess >= Stats.maxCodeProgress) {
+							Stats.shiftMode ();
+						}
+						//	t.text = t.text.ToString () + kcode;
+//						t.GraphicUpdateComplete ();
+						//Canvas.ForceUpdateCanvases ();
+						vacant = false;
 					}
-				//	t.text = t.text.ToString () + kcode;
-//					t.GraphicUpdateComplete ();
-					Canvas.ForceUpdateCanvases ();
+					if (animation.IsPlaying (drawing.name))animation.Stop (drawing.name);
+					animation.Play (typing.name);
 
-					vacant = false;
+					timer = Time.time;
+					if(!bgmR.isPlaying) bgmR.Play();
+					if(!bgmL.isPlaying) bgmL.Play();
 				}
-				if (animation.IsPlaying (drawing.name))animation.Stop (drawing.name);
-				animation.Play (typing.name);
 
-				timer = Time.time;
-				if(!bgmR.isPlaying) bgmR.Play();
-				if(!bgmL.isPlaying) bgmL.Play();
 				//print (this.name);
 	
 			}

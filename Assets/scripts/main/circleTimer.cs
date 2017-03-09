@@ -39,23 +39,23 @@ public class circleTimer : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-
-		if (Stats.workMode == 0) {
-			if (Stats.codeProgess <= 100) {
-				lineRenderer.numPositions = Mathf.CeilToInt (360-Stats.codeProgess * 3.6f);
-				for (int i = 0; i < Mathf.CeilToInt (360-Stats.codeProgess * 3.6f); i += 1) {
-					lineRenderer.SetPosition (i, vertex [i]);
+		if (!Game.pause) {
+			if (Stats.workMode == 0) {
+				if (Stats.codeProgess <= 100) {
+					lineRenderer.numPositions = Mathf.CeilToInt (360 - Stats.codeProgess * 3.6f);
+					for (int i = 0; i < Mathf.CeilToInt (360 - Stats.codeProgess * 3.6f); i += 1) {
+						lineRenderer.SetPosition (i, vertex [i]);
+					}
 				}
-			}
-		} else {
-			if (Stats.drawProgess <= 100) {
-				lineRenderer.numPositions = Mathf.CeilToInt (360-Stats.drawProgess * 3.6f);
-				for (int i = 0; i < Mathf.CeilToInt (360-Stats.drawProgess * 3.6f); i += 1) {
-					lineRenderer.SetPosition (i, vertexPen [i]);
+			} else {
+				if (Stats.drawProgess <= 100) {
+					lineRenderer.numPositions = Mathf.CeilToInt (360 - Stats.drawProgess * 3.6f);
+					for (int i = 0; i < Mathf.CeilToInt (360 - Stats.drawProgess * 3.6f); i += 1) {
+						lineRenderer.SetPosition (i, vertexPen [i]);
+					}
 				}
 			}
 		}
-
 		//Canvas.ForceUpdateCanvases ();
 	}
 }

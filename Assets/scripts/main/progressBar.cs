@@ -2,18 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityStandardAssets.ImageEffects;
 public class progressBar : MonoBehaviour {
-	private GameObject go,apathyBar;
+	public GameObject go,apathyBar,camera;
+	public ColorCorrectionCurves desaturation;
 	float val=0.0f;
 	private Slider progress,apathy;
 
 	void Start () {
+		camera= GameObject.Find("Camera");
+		desaturation = camera.GetComponent<ColorCorrectionCurves> ();
 		go= GameObject.FindGameObjectWithTag("progressBar");
 		progress = go.GetComponent<Slider>();
 		apathyBar= GameObject.FindGameObjectWithTag("apathyBar");
 		apathy = apathyBar.GetComponent<Slider>();
-
 	}
 	
 	void Update () {
@@ -40,6 +42,7 @@ public class progressBar : MonoBehaviour {
 				Game.end();
 			}
 			apathy.value = val;
+			desaturation.saturation = 1-val;
 		}
 		Stats.regenApathy ();
 

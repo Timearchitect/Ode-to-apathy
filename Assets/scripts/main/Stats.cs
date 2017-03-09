@@ -11,12 +11,12 @@ public  class Stats  {
 	public static float averageTypeSpeed;
 	public static float typeSpeed = 2;
 	public static float distractedTime;
-	public static float penSpeed=0.85f;
+	public static float penSpeed=0.6f;
 	public static float panStereo=0.0f;
 	public static float apathyLost;
 	public static float distractionPenalty=-0.9f;
 	public static float apathyPenalty=-0.2f;
-	public static float apathyRegen=0.01f;
+	public static float apathyRegen=0.03f;
 	public static int ignoredObstacle;
 	public static float totalTime=90f;
 	public static float timeleft=totalTime;

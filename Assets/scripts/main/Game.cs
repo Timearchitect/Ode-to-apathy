@@ -25,9 +25,9 @@ public static class Game  {
 			Text content = statScreen.GetComponentsInChildren<Text> () [0];
 			content.text = "GAMEOVER" +
 			"\n timeLeft: " + Mathf.Ceil (Stats.timeleft) +"s"+
-			"\n typed: " + Mathf.Ceil (Stats.wordCount) +
+			"\n progress made: " + Mathf.Ceil (Stats.wordCount) +" of "+ Stats.maxWordCount+
 			"\n apathy left: " + Mathf.Floor (Stats.apathy)+"%"+
-			"\n total ignored: " + Stats.ignoredObstacle ; 
+			"\n total people ignored: " + Stats.ignoredObstacle ; 
 			if (Time.timeScale == 1) {            
 				Time.timeScale = 0.00001f;
 				//Screen.showCursor = true;
