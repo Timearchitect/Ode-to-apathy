@@ -19,6 +19,8 @@ ModelImporter:
     100022: Mesh06
     100024: Mesh07
     100026: base2
+    100028: base_1_1
+    100030: Componen03
     400000: base1
     400002: Componen01
     400004: Component_
@@ -33,6 +35,8 @@ ModelImporter:
     400022: Mesh06
     400024: Mesh07
     400026: base2
+    400028: base_1_1
+    400030: Componen03
     2300000: base1
     2300002: Componen01
     2300004: Component_
@@ -47,6 +51,8 @@ ModelImporter:
     2300022: Mesh06
     2300024: Mesh07
     2300026: base2
+    2300028: base_1_1
+    2300030: Componen03
     3300000: base1
     3300002: Componen01
     3300004: Component_
@@ -61,6 +67,8 @@ ModelImporter:
     3300022: Mesh06
     3300024: Mesh07
     3300026: base2
+    3300028: base_1_1
+    3300030: Componen03
     4300000: Model
     4300002: Componen01
     4300004: Component_
@@ -75,6 +83,8 @@ ModelImporter:
     4300022: Mesh06
     4300024: Mesh07
     4300026: base2
+    4300028: Componen03
+    4300030: base_1_1
   materials:
     importMaterials: 1
     materialName: 0
