@@ -29,7 +29,7 @@ public class progressBar : MonoBehaviour {
 			val = ( (float)Stats.wordCount / Stats.maxWordCount);
 			//Debug.Log (Stats.maxWordCount+ " of " + Stats.wordCount +" %"+val);
 			if (val >= 1) {
-				print ("LEVEL CLEAR!!!");   
+				//print ("LEVEL CLEAR!!!");   
 				Game.end();
 			}
 			progress.value = val;
@@ -38,7 +38,7 @@ public class progressBar : MonoBehaviour {
 			val = ( (float)Stats.apathy / Stats.maxApathy);
 			//Debug.Log (Stats.maxApathy+ " of " + Stats.apathy +" %"+val);
 			if (val <= 0.01f) {
-				print ("LEVEL CLEAR!!!");   
+				//print ("LEVEL CLEAR!!!");   
 				Game.end();
 			}
 			apathy.value = val;

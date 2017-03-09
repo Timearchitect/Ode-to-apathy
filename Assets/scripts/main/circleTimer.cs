@@ -12,15 +12,18 @@ public class circleTimer : MonoBehaviour {
 	private int range=30;
 	private int xoffset=70,yoffset=200;
 	LineRenderer lineRenderer;
+	Image icon;
 	// Use this for initialization
 	void Start () {
 		lineRenderer = gameObject.AddComponent<LineRenderer>();
+		icon = gameObject.AddComponent<Image>();
 		lineRenderer.material = new Material(Shader.Find("Particles/Additive"));
 		lineRenderer.startColor = (new Color(1,0,0,1));
 		lineRenderer.endColor = (new Color(1,0.5f,0.5f,1));
 		lineRenderer.startWidth = (10);
 		lineRenderer.endWidth = (10);
 		lineRenderer.numPositions = 360;
+		//icon.sprite=
 		//lineRenderer.SetVertexCount(360);
 		//can = this.gameObject as Canvas;
 		for(int i=0; i<360 ; i+=1){
