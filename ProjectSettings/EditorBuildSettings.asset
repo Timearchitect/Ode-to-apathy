@@ -4,4 +4,12 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/scenes/loading1.unity
+  - enabled: 1
+    path: Assets/scenes/lvl2.unity
+  - enabled: 1
+    path: Assets/scenes/lvl1.unity
+  - enabled: 1
+    path: Assets/scenes/lvl3.unity
