@@ -760,6 +760,10 @@ ModelImporter:
     101504: Mesh99_1_1
     101506: Model1
     101508: skpkwuta8_
+    101510: Group1
+    101512: Mesh234_01
+    101514: Mesh234_02
+    101516: Mesh234_03
     400000: Camera
     400002: Camera.target
     400004: Componen01
@@ -1515,6 +1519,10 @@ ModelImporter:
     401504: Mesh99_1_1
     401506: Model1
     401508: skpkwuta8_
+    401510: Group1
+    401512: Mesh234_01
+    401514: Mesh234_02
+    401516: Mesh234_03
     2300000: Componen01
     2300002: Componen02
     2300004: Componen03
@@ -2268,6 +2276,10 @@ ModelImporter:
     2301500: Mesh99_1_1
     2301502: Model1
     2301504: skpkwuta8_
+    2301506: Group1
+    2301508: Mesh234_01
+    2301510: Mesh234_02
+    2301512: Mesh234_03
     3300000: Componen01
     3300002: Componen02
     3300004: Componen03
@@ -3021,6 +3033,10 @@ ModelImporter:
     3301500: Mesh99_1_1
     3301502: Model1
     3301504: skpkwuta8_
+    3301506: Group1
+    3301508: Mesh234_01
+    3301510: Mesh234_02
+    3301512: Mesh234_03
     4300000: shelf1
     4300002: shelf10
     4300004: shelf11
@@ -3773,6 +3789,10 @@ ModelImporter:
     4301498: Mesh98_1_1
     4301500: Mesh99_1_1
     4301502: Model1
+    4301504: Group1
+    4301506: Mesh234_01
+    4301508: Mesh234_02
+    4301510: Mesh234_03
   materials:
     importMaterials: 1
     materialName: 0
