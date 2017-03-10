@@ -33,7 +33,7 @@ public class circleTimer : MonoBehaviour {
 		//spriteRenderer.sprite= Resources.Load<Sprite> ("barn1") as Sprite;
 		icon.sprite=Resources.Load<Sprite>("codingicon") as Sprite;
 		keyboardPos = new Vector3(Screen.width*.5f,Screen.height*.5f,GameObject.Find ("Player").transform.position.z);
-		penPos = new Vector3(Screen.width*.65f,Screen.height*.5f,GameObject.Find ("Player").transform.position.z);
+		penPos = new Vector3(Screen.width*.61f,Screen.height*.5f,GameObject.Find ("Player").transform.position.z);
 
 		//icon.overrideSprite=Resources.Load<Sprite>("codingicon.png") as Sprite;
 		//icon = gameObject.AddComponent<Texture2D>();
@@ -74,7 +74,7 @@ public class circleTimer : MonoBehaviour {
 			} else {
 				if (Stats.drawProgess <= 100) {
 					transform.position=penPos;
-					icon.sprite=Resources.Load<Sprite>("drawing") as Sprite;
+					icon.sprite=Resources.Load<Sprite>("drawingicon") as Sprite;
 					lineRenderer.numPositions = Mathf.CeilToInt (360 - Stats.drawProgess * 3.6f);
 					for (int i = 0; i < Mathf.CeilToInt (360 - Stats.drawProgess * 3.6f); i += 1) {
 						lineRenderer.SetPosition (i, vertexPen [i]);
