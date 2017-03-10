@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public static class Game  {
+using UnityEngine.SceneManagement;
 
-	public static bool pause, lose, win , cutscene;
+public static class Game  {
+	public static AsyncOperation aos;
+	public static bool cheatMode,pause, lose, win , cutscene;
 	public static GameObject statScreen,panel;
 	public static Image panelImage;
 
@@ -28,6 +30,11 @@ public static class Game  {
 			"\n progress made: " + Mathf.Ceil (Stats.wordCount) +" of "+ Stats.maxWordCount+
 			"\n apathy left: " + Mathf.Floor (Stats.apathy)+"%"+
 			"\n total people ignored: " + Stats.ignoredObstacle ; 
+			UnityEngine.Debug.Log( "GAMEOVER" +
+				"\n timeLeft: " + Mathf.Ceil (Stats.timeleft) +"s"+
+				"\n progress made: " + Mathf.Ceil (Stats.wordCount) +" of "+ Stats.maxWordCount+
+				"\n apathy left: " + Mathf.Floor (Stats.apathy)+"%"+
+				"\n total people ignored: " + Stats.ignoredObstacle );
 			if (Time.timeScale == 1) {            
 				Time.timeScale = 0.00001f;
 				//Screen.showCursor = true;
@@ -38,10 +45,20 @@ public static class Game  {
 			//GUI.enabled = false;
 			Debug.Log ("end!!!");
 			Game.pause = true;
+
+			aos = SceneManager.LoadSceneAsync(Stats.currentLevel);
+			aos.allowSceneActivation = true;
+
+
+			SceneManager.LoadScene (Stats.currentLevel);
 		}
 	}
+	public static void refresh(){
+		pause=false;
+		Stats.wordCount = 0;
+		Stats.timeleft = 90;
+		Stats.drawProgess = 0;
+		Stats.codeProgess = 0;
+	}
 
-	/*public static void pause () {
-		
-	}*/
 }

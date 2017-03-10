@@ -4,7 +4,7 @@ using UnityEngine;
 
 public  class Stats  {
 	//public static float wordSpeed;
-	public static int maxWordCount=1100,maxDrawProgress=100,maxCodeProgress=100;
+	public static int maxWordCount=10,maxDrawProgress=100,maxCodeProgress=100;
 	public static float wordCount,drawProgess,codeProgess;
 	public static float maxApathy=100;
 	public static float apathy=maxApathy;
@@ -19,8 +19,9 @@ public  class Stats  {
 	public static float apathyRegen=0.03f;
 	public static int ignoredObstacle;
 	public static float totalTime=90f;
+	public static int currentLevel;
 	public static float timeleft=totalTime;
-	public static int workMode;
+	public static int workMode,pWorkMode;
 	public static long modeTimer;
 	public static int workDuration = 10;
 
@@ -35,6 +36,7 @@ public  class Stats  {
 	public static void shiftMode(){
 		drawProgess = 0;
 		codeProgess = 0;
+		pWorkMode = workMode;
 		if (workMode == 0) {
 			workMode = 1;
 		}

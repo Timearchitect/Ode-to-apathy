@@ -47,7 +47,7 @@ public class keyboardControlls : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		float hVal = Input.GetAxis ("Horizontal"); 
+	/*	float hVal = Input.GetAxis ("Horizontal"); 
 		float vVal = Input.GetAxis ("Vertical"); 
 
 		if (hVal < 0) {
@@ -62,7 +62,7 @@ public class keyboardControlls : MonoBehaviour {
 		if (vVal > 0) {
 			print("up:"+vVal);
 		}
-
+*/
 		if (timer + duration < Time.time) {
 			if (bgmL.isPlaying) {
 				bgmL.Pause ();
@@ -71,7 +71,6 @@ public class keyboardControlls : MonoBehaviour {
 				bgmR.Pause ();
 			}
 		}
-
 			detectPressedKeyOrButton ();
 			detectReleasedKeyOrButton ();
 
@@ -79,6 +78,7 @@ public class keyboardControlls : MonoBehaviour {
 			if (Vector3.Distance (Input.mousePosition, pastMousePos) > 10) {
 				Stats.wordCount += Stats.penSpeed;
 				Stats.drawProgess += Stats.penSpeed;
+				circleTimer.render ();
 				pastMousePos = Input.mousePosition;
 				animation.Play (drawing.name);
 				if(Stats.drawProgess >= Stats.maxDrawProgress){
@@ -95,10 +95,8 @@ public class keyboardControlls : MonoBehaviour {
 			if (Input.GetKeyDown (kcode)) {
 				vacant = false;
 				print (kcode);
-
 			}
 		}*/
-	
 	}
 
 	public void detectPressedKeyOrButton(){
@@ -128,6 +126,7 @@ public class keyboardControlls : MonoBehaviour {
 					if (vacant) {
 						Stats.wordCount += Stats.typeSpeed;
 						Stats.codeProgess += Stats.typeSpeed;
+						circleTimer.render ();
 						if (Stats.codeProgess >= Stats.maxCodeProgress) {
 							Stats.shiftMode ();
 						}

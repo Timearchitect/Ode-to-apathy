@@ -24,16 +24,12 @@ public class coverEyes : MonoBehaviour {
 		//print(leftEye.GetComponent<Image> ().color.a + "   blackness");
 		//print(rightEye.GetComponent<Image> ().color.a + "   blackness");
 		if (leftEye.GetComponent<Image> ().color.a > 0.25f || rightEye.GetComponent<Image> ().color.a > 0.25f) { // transparent effect
-		//	animation.Play (coverAnim.name);
 			foreach (GameObject e in enemies) {
 				e.GetComponent<SpriteRenderer> ().color = new Color (e.GetComponent<SpriteRenderer> ().color.r, e.GetComponent<SpriteRenderer> ().color.g, e.GetComponent<SpriteRenderer> ().color.b, 0.3f);			
-				//e.GetComponent<SpriteRenderer> ().color.a=0.3f
 			}
 		} else {
 			foreach (GameObject e in enemies) {
 				e.GetComponent<SpriteRenderer> ().color = new Color (e.GetComponent<SpriteRenderer> ().color.r, e.GetComponent<SpriteRenderer> ().color.g, e.GetComponent<SpriteRenderer> ().color.b, 1f);			
-				//e.GetComponent<SpriteRenderer> ().color = new Color(1f,1f,1f,1f);
-				//e.GetComponent<SpriteRenderer> ().color.a=1f;
 			}
 		}
 		//  animation.Stop (coverAnim.name);

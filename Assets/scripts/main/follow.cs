@@ -95,7 +95,7 @@ public class follow : MonoBehaviour {
 			currentPoint++;
 			if (loop && currentPoint >= point.Length) {
 				reset ();
-				print("reset loop/");
+				//print("reset loop/");
 			}
 		}
 	

@@ -14,9 +14,7 @@ public class circleTimer : MonoBehaviour {
 	LineRenderer lineRenderer;
 	Image icon;
 	Vector3 keyboardPos,penPos;
-	//SpriteRenderer icon;
-	//Texture2D icon;
-	// Use this for initialization
+
 	void Start () {
 		lineRenderer = gameObject.AddComponent<LineRenderer>();
 		//icon = gameObject.AddComponent<Image>();
@@ -29,19 +27,10 @@ public class circleTimer : MonoBehaviour {
 		lineRenderer.endWidth = (10);
 		lineRenderer.numPositions = 360;
 
-		//icon.sprite=Resources.Load("DRAWING.png") as Sprite;
-		//spriteRenderer.sprite= Resources.Load<Sprite> ("barn1") as Sprite;
 		icon.sprite=Resources.Load<Sprite>("codingicon") as Sprite;
 		keyboardPos = new Vector3(Screen.width*.5f,Screen.height*.5f,GameObject.Find ("Player").transform.position.z);
 		penPos = new Vector3(Screen.width*.61f,Screen.height*.5f,GameObject.Find ("Player").transform.position.z);
 
-		//icon.overrideSprite=Resources.Load<Sprite>("codingicon.png") as Sprite;
-		//icon = gameObject.AddComponent<Texture2D>();
-		//icon= Resources.Load("CODINGicon.png")as Texture2D;
-		//DrawTexture (new Rect(new Vector2(0,0),new Vector2(200,200)),icon);
-		//icon.sprite=
-		//lineRenderer.SetVertexCount(360);
-		//can = this.gameObject as Canvas;
 		for(int i=0; i<360 ; i+=1){
 			vertex [i] = new Vector3 (Mathf.Cos(Mathf.Deg2Rad*(i+90)) * range,Mathf.Sin(Mathf.Deg2Rad*(i+90)) * range+yoffset,0);
 			//if(180<i)lineRenderer.SetPosition (i ,vertex[i]);
@@ -50,6 +39,8 @@ public class circleTimer : MonoBehaviour {
 			vertexPen [i] = new Vector3 (Mathf.Cos(Mathf.Deg2Rad*(i+90)) * range+xoffset,Mathf.Sin(Mathf.Deg2Rad*(i+90)) * range+yoffset,0);
 			//if(180<i)lineRenderer.SetPosition (i ,vertex[i]);
 		}
+		transform.position = keyboardPos;
+
 		//lineRenderer.SetPositions(vertex);
 		//this.transform.position=GameObject.Find ("Player").transform.position;
 		//lineRenderer.transform.position = GameObject.Find ("Player").transform.position;
@@ -58,13 +49,12 @@ public class circleTimer : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		//transform.position = GameObject.Find ("Player").transform.position;
-		//icon.transform.position = GameObject.Find ("Player").transform.position;
-
 		if (!Game.pause) {
 			if (Stats.workMode == 0) {
-				transform.position=keyboardPos;
-				icon.sprite=Resources.Load<Sprite>("codingicon") as Sprite;
+				if (Stats.pWorkMode != Stats.workMode) {
+					transform.position = keyboardPos;
+					icon.sprite = Resources.Load<Sprite> ("codingicon") as Sprite;
+				}
 				if (Stats.codeProgess <= 100) {
 					lineRenderer.numPositions = Mathf.CeilToInt (360 - Stats.codeProgess * 3.6f);
 					for (int i = 0; i < Mathf.CeilToInt (360 - Stats.codeProgess * 3.6f); i += 1) {
@@ -73,8 +63,10 @@ public class circleTimer : MonoBehaviour {
 				}
 			} else {
 				if (Stats.drawProgess <= 100) {
-					transform.position=penPos;
-					icon.sprite=Resources.Load<Sprite>("drawingicon") as Sprite;
+					if (Stats.pWorkMode != Stats.workMode) {
+						transform.position = penPos;
+						icon.sprite = Resources.Load<Sprite> ("drawingicon") as Sprite;
+					}
 					lineRenderer.numPositions = Mathf.CeilToInt (360 - Stats.drawProgess * 3.6f);
 					for (int i = 0; i < Mathf.CeilToInt (360 - Stats.drawProgess * 3.6f); i += 1) {
 						lineRenderer.SetPosition (i, vertexPen [i]);
@@ -82,11 +74,11 @@ public class circleTimer : MonoBehaviour {
 				}
 			}
 		}
-		//Canvas.ForceUpdateCanvases ();
 	}
 
-	void switchicons(){
+	public static void render(){
 
+	
 	}
 }
 

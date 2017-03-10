@@ -18,7 +18,9 @@ public class LoadingBarScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		print (this+"level "+Stats.currentLevel+" this!!!");
+		Game.refresh ();
+		Stats.currentLevel=4; // to overview scene
 	}
 	
 	// Update is called once per frame
@@ -26,14 +28,15 @@ public class LoadingBarScript : MonoBehaviour {
 		
 	}
 	public void loadLevel01(){
-		print ("inne loadLevel01");
+		print ("inne level "+Stats.currentLevel);
 		loadingScreenBG.SetActive (true);
 		progBar.gameObject.SetActive (true);
 		loadingText.gameObject.SetActive (true);
 		loadingText.text="Loading...";
 
 		if (!isFakeLoadingBar) {
-		
+			print ("inne StartCoroutine");
+
 			StartCoroutine (LoadLevelWithRealProgress());
 
 		} else {
@@ -44,10 +47,12 @@ public class LoadingBarScript : MonoBehaviour {
 	}
 
 	IEnumerator LoadLevelWithRealProgress(){
-		yield return new WaitForSeconds (1);
+		print ("load");
+		//yield return new WaitForSeconds (1);   // ehh... väntar förevigt från overview
 
-		ao = SceneManager.LoadSceneAsync(1);
-			ao.allowSceneActivation = false;
+
+		ao = SceneManager.LoadSceneAsync(Stats.currentLevel);
+		ao.allowSceneActivation = false;
 
 		while(!ao.isDone){
 			progBar.value = ao.progress;
@@ -69,10 +74,12 @@ public class LoadingBarScript : MonoBehaviour {
 	}
 
 	IEnumerator LoadLevelWithFakeProgress(){
+		print ("fake");
 
 		yield return new WaitForSeconds (1);
 
 		while (progBar.value != 1f) {
+			print ("increase");
 			progBar.value += fakeIncrement;
 			yield return new WaitForSeconds (fakeTiming);
 		
@@ -82,9 +89,12 @@ public class LoadingBarScript : MonoBehaviour {
 		
 			loadingText.text = "Done Loading";
 			if (Input.GetKeyDown (KeyCode.F)) {
-				SceneManager.LoadScene (1);
+				Application.UnloadLevel (Stats.currentLevel-1);
+				SceneManager.LoadScene (Stats.currentLevel);
 			}
 			yield return null;
 		}
 	}
+
+
 }
