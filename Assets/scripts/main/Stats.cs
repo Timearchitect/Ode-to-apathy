@@ -32,7 +32,6 @@ public  class Stats  {
 		if (apathy < maxApathy) 
 			apathy += apathyRegen;
 	}
-
 	public static void shiftMode(){
 		drawProgess = 0;
 		codeProgess = 0;
