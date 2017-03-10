@@ -124,7 +124,7 @@ public class keyboardControlls : MonoBehaviour {
 				}
 
 				//Debug.Log ("KeyCode down: " + kcode+ " count: "+wordCount +"  time:"+timer );
-				if (Stats.workMode == 0) { // KeyBoard mode
+				if (Stats.workMode == 0  && !Input.GetKeyDown (KeyCode.LeftControl)  && !Input.GetKeyDown (KeyCode.RightControl)  && !Input.GetKeyDown (KeyCode.LeftShift) && !Input.GetKeyDown (KeyCode.RightShift)) { // KeyBoard mode
 					if (vacant) {
 						Stats.wordCount += Stats.typeSpeed;
 						Stats.codeProgess += Stats.typeSpeed;

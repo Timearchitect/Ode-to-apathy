@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class follow : MonoBehaviour {
+	[SerializeField]
+	public GameObject path;
 	public Transform[] point;
 	public float speed=50.0f;
 	public float reachDist=20;
@@ -12,7 +14,7 @@ public class follow : MonoBehaviour {
 	public static int stopDistance= 150;
 	public static int stopDistanceCafe= 30;
 	public bool loop=true;
-	private GameObject path;
+
 	//stopPoints
 	private GameObject player;
 	private GameObject stopPoint_cafe;
