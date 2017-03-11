@@ -1,39 +1,34 @@
 fileFormatVersion: 2
-guid: 52859226bce3d41168edf40028c769cb
-timeCreated: 1489143826
+guid: 96e6ba752ceb94c0ab2d1dc2a8758831
+timeCreated: 1489181146
 licenseType: Free
-ModelImporter:
+SketchUpImporter:
+  generateBackFace: 0
+  mergeCoplanarFaces: 0
+  selectedNodes: 
+  assetHash:
+    serializedVersion: 2
+    Hash: 42cea96a82301f9930df5cc61a269f1f
+  longitude: 0
+  latitude: 0
+  northCorrection: 0
+  fileUnit: 0
+  sketchUpImportData:
+    defaultCamera:
+      position: {x: 0, y: 0, z: 0}
+      lookAt: {x: 0, y: 0, z: 1}
+      up: {x: 0, y: 1, z: 0}
+      fov: 45
+      aspectRatio: 1.33
+      orthoSize: 0
+      isPerspective: 1
+    scenes: []
   serializedVersion: 19
-  fileIDToRecycleName:
-    100000: Componen01
-    100002: Componen03
-    100004: Componen04
-    100006: Component_
-    100008: //RootNode
-    400000: Componen01
-    400002: Componen03
-    400004: Componen04
-    400006: Component_
-    400008: //RootNode
-    2300000: Componen01
-    2300002: Componen03
-    2300004: Componen04
-    2300006: Component_
-    2300008: //RootNode
-    3300000: Componen01
-    3300002: Componen03
-    3300004: Componen04
-    3300006: Component_
-    3300008: //RootNode
-    4300000: Model
-    4300002: Componen01
-    4300004: Componen03
-    4300006: Componen04
-    4300008: Component_
+  fileIDToRecycleName: {}
   materials:
     importMaterials: 1
-    materialName: 0
-    materialSearch: 1
+    materialName: 2
+    materialSearch: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -54,7 +49,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.0254
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
@@ -73,7 +68,7 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
