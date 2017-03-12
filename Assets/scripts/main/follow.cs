@@ -10,7 +10,7 @@ public class follow : MonoBehaviour {
 	public float reachDist=20;
 	public int currentPoint;
 	public int startIndex=1;
-
+	public int startTime;
 	public static int stopDistance= 150;
 	public static int stopDistanceCafe= 30;
 	public bool loop=true;
@@ -23,10 +23,17 @@ public class follow : MonoBehaviour {
 	enemy enemyscript;
 	// Use this for initialization
 	void Start () {
-		player = GameObject.FindGameObjectWithTag ("Player");
-		stopPoint_cafe = GameObject.FindGameObjectWithTag ("stopPointCafe");
-		enemyscript = this.GetComponent ("enemy")as enemy;
-		enemyscript.satisfied = false;
+		try{
+			player = GameObject.FindGameObjectWithTag ("Player");
+			stopPoint_cafe = GameObject.FindGameObjectWithTag ("stopPointCafe");
+			enemyscript = this.GetComponent ("enemy")as enemy;
+			enemyscript.satisfied = false;
+		}catch{
+			UnityEngine.Debug.LogError ("Error in "+this.name +" please check in script: ");
+			UnityEditor.EditorApplication.isPlaying = false;
+			UnityEditor.EditorApplication.isPaused = true;
+
+		}
 	}
 	
 	// Update is called once per frame
@@ -48,6 +55,7 @@ public class follow : MonoBehaviour {
 			if (!pause) {
 				pause = true;
 				print ("STOP!! " + Time.fixedTime);
+				enemyscript.spawnDialogBox ();
 			}
 		} else {
 			pause = false;

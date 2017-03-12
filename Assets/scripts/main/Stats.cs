@@ -4,7 +4,7 @@ using UnityEngine;
 
 public  class Stats  {
 	//public static float wordSpeed;
-	public static int maxWordCount=10,maxDrawProgress=100,maxCodeProgress=100;
+	public static int maxWordCount=1000,maxDrawProgress=100,maxCodeProgress=100;
 	public static float wordCount,drawProgess,codeProgess;
 	public static float maxApathy=100;
 	public static float apathy=maxApathy;

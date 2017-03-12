@@ -19,30 +19,31 @@ public class keyboardControlls : MonoBehaviour {
 	Vector3 pastMousePos = new Vector3();
 	// Use this for initialization
 	void Start () {
-		animation = GameObject.FindGameObjectWithTag ("Player").GetComponent<Animation>();
-		print (animation.name +" found");
-		typing= animation.GetClip ("Typing");
-		drawing= animation.GetClip ("Drawing");
-		//animation.Play (typing.name);
-		debugContent = GameObject.FindGameObjectWithTag("debug");
-//		t = debugContent.GetComponent<UnityEngine.UI.Text> ();
-		//t.text = "."; !!!!
+		try{
+			animation = GameObject.FindGameObjectWithTag ("Player").GetComponent<Animation>();
+			print (animation.name +" found");
+			typing= animation.GetClip ("Typing");
+			drawing= animation.GetClip ("Drawing");
+			//animation.Play (typing.name);
+			debugContent = GameObject.FindGameObjectWithTag("debug");
+			//t = debugContent.GetComponent<UnityEngine.UI.Text> ();
+			//bgm =GameObject.FindGameObjectWithTag ("bgm").GetComponent<AudioSource> ();
+			//cafe = GameObject.FindGameObjectWithTag ("cafe").GetComponent<AudioSource> ();
+			bgmR =GameObject.Find("maching Right").GetComponent<AudioSource> ();
+			cafeR = GameObject.Find("Cafe bgm Right").GetComponent<AudioSource> ();
+			bgmL =GameObject.Find("maching Left").GetComponent<AudioSource> ();
+			cafeL = GameObject.Find("Cafe bgm Left").GetComponent<AudioSource> ();
 
+			duration = 0.5f;
+			leftEyeOverlay = GameObject.Find ("leftEye").GetComponent<Image> ();
+			rightEyeOverlay = GameObject.Find ("rightEye").GetComponent<Image> ();	
+			aS = (AudioSource[])GameObject.FindObjectsOfType (typeof(AudioSource));
+		}catch{
+			UnityEngine.Debug.LogError ("Error in "+this.name +" please check in script: ");
+			UnityEditor.EditorApplication.isPlaying = false;
+			UnityEditor.EditorApplication.isPaused = true;
 
-		//bgm =GameObject.FindGameObjectWithTag ("bgm").GetComponent<AudioSource> ();
-		//cafe = GameObject.FindGameObjectWithTag ("cafe").GetComponent<AudioSource> ();
-		bgmR =GameObject.Find("maching Right").GetComponent<AudioSource> ();
-		cafeR = GameObject.Find("Cafe bgm Right").GetComponent<AudioSource> ();
-		bgmL =GameObject.Find("maching Left").GetComponent<AudioSource> ();
-		cafeL = GameObject.Find("Cafe bgm Left").GetComponent<AudioSource> ();
-
-		duration = 0.5f;
-		//audio.volume = 1;
-		//audio.Play ();
-		leftEyeOverlay = GameObject.Find ("leftEye").GetComponent<Image> ();
-		rightEyeOverlay = GameObject.Find ("rightEye").GetComponent<Image> ();	
-		aS = (AudioSource[])GameObject.FindObjectsOfType (typeof(AudioSource));
-
+		}
 	}
 
 	// Update is called once per frame
