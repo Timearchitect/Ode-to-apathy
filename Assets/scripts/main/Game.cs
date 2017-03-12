@@ -7,13 +7,14 @@ using UnityEngine.SceneManagement;
 
 public static class Game  {
 	public static AsyncOperation aos;
-	public static bool cheatMode,pause, lose, win , cutscene;
+	public static bool cheatMode=true,pause, lose, win , cutscene;
 	public static GameObject statScreen,panel;
 	public static Image panelImage;
 
 
 	public static void end () {
 		if (!pause) {
+	
 			GameObject gui;
 			GameObject reviewPanel;
 			gui = GameObject.Find ("GUI");
@@ -49,24 +50,33 @@ public static class Game  {
 			Debug.Log ("end!!!");
 			Game.pause = true;
 
-
 			aos = SceneManager.LoadSceneAsync((SceneManager.GetActiveScene ().buildIndex + 1));
 			aos.allowSceneActivation = true;
 		//	refresh ();
 		//	SceneManager.LoadScene ((SceneManager.GetActiveScene ().buildIndex + 1));
 		}
 	}
+	public static void alert(){
+		UnityEngine.Debug.Log ("ALERT!!"+Time.timeSinceLevelLoad);
+	}
 	public static void refresh(){
+		
+		UnityEngine.Debug.Log ("refresh!!"+Time.timeSinceLevelLoad);
 		pause=false;
+		Time.timeScale = 1;
+		//Time.timeSinceLevelLoad;
 		Stats.wordCount = 0;
 		Stats.timeleft = 90;
 		Stats.drawProgess = 0;
 		Stats.codeProgess = 0;
 		Stats.apathyLost = 0;
+		Stats.apathy = Stats.maxApathy;
+
 	}
 	[System.Diagnostics.DebuggerStepThrough]
 	public static void check(UnityEngine.Object obj,String name){
 		if (obj == null)
 			throw new Exception ("can't find :"+name);
 	}
+
 }

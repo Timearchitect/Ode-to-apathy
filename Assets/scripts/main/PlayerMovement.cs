@@ -17,7 +17,10 @@ public class PlayerMovement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		print ("START PLAYER");
 		try{
+			if (Game.cheatMode)
+				Stats.maxWordCount = 100;
 			player = GameObject.FindGameObjectWithTag("Player");
 				print(player.name);
 			go = this.gameObject;
@@ -33,8 +36,13 @@ public class PlayerMovement : MonoBehaviour {
 
 		}
 	}
+	void Awake () {
+		print ("Awake PLAYER");
+		Start ();
+	}
 	// Update is called once per frame
 	void LateUpdate () {
+	//	print ("moving"+Time.timeSinceLevelLoad);
 		if (Game.cheatMode) {
 			hVal = Input.GetAxis ("Horizontal"); 
 			vVal = Input.GetAxis ("Vertical"); 

@@ -58,6 +58,7 @@ public class LoadingBarScript : MonoBehaviour {
 				loadingText.text = "Press 'F' to continue" ;
 				if(Input.GetKeyDown(KeyCode.F)){
 					ao.allowSceneActivation = true;
+					Game.refresh ();
 				}
 			}
 

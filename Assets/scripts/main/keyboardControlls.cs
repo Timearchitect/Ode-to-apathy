@@ -52,7 +52,10 @@ public class keyboardControlls : MonoBehaviour {
 
 		}
 	}
-
+	void Awake () {
+		print ("Awake keyBoard!!!    !!!");
+		Start ();
+	}
 	// Update is called once per frame
 	void Update () {
 	/*	float hVal = Input.GetAxis ("Horizontal"); 
