@@ -10,12 +10,19 @@ public class progressBar : MonoBehaviour {
 	private Slider progress,apathy;
 
 	void Start () {
-		camera= GameObject.Find("Camera");
-		desaturation = camera.GetComponent<ColorCorrectionCurves> ();
-		go= GameObject.FindGameObjectWithTag("progressBar");
-		progress = go.GetComponent<Slider>();
-		apathyBar= GameObject.FindGameObjectWithTag("apathyBar");
-		apathy = apathyBar.GetComponent<Slider>();
+		try{
+			camera= GameObject.Find("Camera");
+			desaturation = camera.GetComponent<ColorCorrectionCurves> ();
+			go= GameObject.FindGameObjectWithTag("progressBar");
+			progress = go.GetComponent<Slider>();
+			apathyBar= GameObject.FindGameObjectWithTag("apathyBar");
+			apathy = apathyBar.GetComponent<Slider>();
+		}catch{
+			UnityEngine.Debug.LogError ("Error in "+this.name +" please check in script: ");
+			UnityEditor.EditorApplication.isPlaying = false;
+			UnityEditor.EditorApplication.isPaused = true;
+
+		}
 	}
 	
 	void Update () {

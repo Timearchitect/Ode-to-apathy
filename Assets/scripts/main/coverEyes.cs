@@ -12,11 +12,16 @@ public class coverEyes : MonoBehaviour {
 	private GameObject[] enemies;
 	// Use this for initialization
 	void Start () {
-		//animation = GameObject.FindGameObjectWithTag ("Player").GetComponent<Animation>();
-		//coverAnim= animation.GetClip ("Cover_Ears");
-		leftEye = GameObject.Find ("leftEye");
-		rightEye = GameObject.Find ("rightEye");
-		enemies = GameObject.FindGameObjectsWithTag ("enemy");
+		try{
+			leftEye = GameObject.Find ("leftEye");
+			rightEye = GameObject.Find ("rightEye");
+			enemies = GameObject.FindGameObjectsWithTag ("enemy");
+		}catch{
+			UnityEngine.Debug.LogError ("Error in "+this.name +" please check in script: ");
+			UnityEditor.EditorApplication.isPlaying = false;
+			UnityEditor.EditorApplication.isPaused = true;
+
+		}
 	}
 
 	// Update is called once per frame

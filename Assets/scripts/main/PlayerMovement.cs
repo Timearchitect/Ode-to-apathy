@@ -16,12 +16,18 @@ public class PlayerMovement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		player = GameObject.FindGameObjectWithTag("Player");
-		//playerHead = player.GetComponent("Body").GetComponent("Head")as Component;
-		go = this.gameObject;
-		head = GameObject.Find("Head").GetComponent<SpriteRenderer>();
-		body = GameObject.Find("Body").GetComponent<SpriteRenderer>();
+		try{
+			player = GameObject.FindGameObjectWithTag("Player");
+			//playerHead = player.GetComponent("Body").GetComponent("Head")as Component;
+			go = this.gameObject;
+			head = GameObject.Find("Head").GetComponent<SpriteRenderer>();
+			body = GameObject.Find("Body").GetComponent<SpriteRenderer>();
+		}catch{
+			UnityEngine.Debug.LogError ("Error in "+this.name +" please check in script: ");
+			UnityEditor.EditorApplication.isPlaying = false;
+			UnityEditor.EditorApplication.isPaused = true;
 
+		}
 	}
 	// Update is called once per frame
 	void LateUpdate () {
@@ -51,10 +57,10 @@ public class PlayerMovement : MonoBehaviour {
 				player.transform.position += new Vector3 (0, 1, 0);
 				head.sprite = Resources.Load<Sprite> ("head") as Sprite;
 			}
-			finishpos = player.transform.position + offset;
-			go.transform.position = Vector3.Lerp (go.transform.position, finishpos, lerpSpeed);
-		}
 
+		}
+		finishpos = player.transform.position + offset;
+		go.transform.position = Vector3.Lerp (go.transform.position, finishpos, lerpSpeed);
 		rotateBack ();
 
 	}

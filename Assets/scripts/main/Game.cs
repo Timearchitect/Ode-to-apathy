@@ -13,13 +13,14 @@ public static class Game  {
 
 	public static void end () {
 		if (!pause) {
-			//UnityEngine.Debug.Log(this.name);
 			GameObject gui;
 			GameObject reviewPanel;
 			gui = GameObject.Find ("GUI");
 			reviewPanel = GameObject.Find ("ReviewPanel");
 			//reviewPanel = GameObject.FindGameObjectWithTag("reviewPanel");
-			statScreen = GameObject.Find ("dialogCanvas");
+			//statScreen = GameObject.Find ("dialogCanvas");
+			statScreen = GameObject.Instantiate((GameObject)Resources.Load("PreFabs/dialogCanvas", typeof(GameObject)));
+
 			panel = GameObject.FindGameObjectWithTag ("dialogPanel");
 			panelImage = panel.GetComponent<Image> ();
 			panelImage.color = new Color (1.0f, 1.0f, 1.0f, 1.0f);
