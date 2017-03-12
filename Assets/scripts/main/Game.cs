@@ -11,6 +11,7 @@ public static class Game  {
 	public static GameObject statScreen,panel;
 	public static Image panelImage;
 
+
 	public static void end () {
 		if (!pause) {
 			GameObject gui;
@@ -48,11 +49,11 @@ public static class Game  {
 			Debug.Log ("end!!!");
 			Game.pause = true;
 
-			aos = SceneManager.LoadSceneAsync(Stats.currentLevel);
+
+			aos = SceneManager.LoadSceneAsync((SceneManager.GetActiveScene ().buildIndex + 1));
 			aos.allowSceneActivation = true;
-
-
-			SceneManager.LoadScene (Stats.currentLevel);
+		//	refresh ();
+		//	SceneManager.LoadScene ((SceneManager.GetActiveScene ().buildIndex + 1));
 		}
 	}
 	public static void refresh(){
@@ -61,6 +62,7 @@ public static class Game  {
 		Stats.timeleft = 90;
 		Stats.drawProgess = 0;
 		Stats.codeProgess = 0;
+		Stats.apathyLost = 0;
 	}
 	[System.Diagnostics.DebuggerStepThrough]
 	public static void check(UnityEngine.Object obj,String name){
