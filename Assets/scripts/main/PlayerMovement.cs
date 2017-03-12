@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,12 +19,15 @@ public class PlayerMovement : MonoBehaviour {
 	void Start () {
 		try{
 			player = GameObject.FindGameObjectWithTag("Player");
-			//playerHead = player.GetComponent("Body").GetComponent("Head")as Component;
+				print(player.name);
 			go = this.gameObject;
+				print(go.name);
 			head = GameObject.Find("Head").GetComponent<SpriteRenderer>();
+				print(head.name);
 			body = GameObject.Find("Body").GetComponent<SpriteRenderer>();
-		}catch{
-			UnityEngine.Debug.LogError ("Error in "+this.name +" please check in script: ");
+				print(body.name);
+		}catch(Exception ex ){
+			UnityEngine.Debug.LogError ("Error in "+this.name +" please check row "+ex.ToString ().Split (':') [3]+" in script: ");			
 			UnityEditor.EditorApplication.isPlaying = false;
 			UnityEditor.EditorApplication.isPaused = true;
 

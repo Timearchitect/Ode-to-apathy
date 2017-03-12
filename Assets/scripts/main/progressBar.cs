@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,13 +13,19 @@ public class progressBar : MonoBehaviour {
 	void Start () {
 		try{
 			camera= GameObject.Find("Camera");
+				print(camera.name);			
 			desaturation = camera.GetComponent<ColorCorrectionCurves> ();
+				print(desaturation.name);
 			go= GameObject.FindGameObjectWithTag("progressBar");
+				print(go.name);
 			progress = go.GetComponent<Slider>();
+				print(progress.name);
 			apathyBar= GameObject.FindGameObjectWithTag("apathyBar");
+				print(apathyBar.name);
 			apathy = apathyBar.GetComponent<Slider>();
-		}catch{
-			UnityEngine.Debug.LogError ("Error in "+this.name +" please check in script: ");
+				print(apathy.name);
+		}catch(Exception ex ){
+			UnityEngine.Debug.LogError ("Error in "+this.name +" please check row "+ex.ToString ().Split (':') [3]+" in script: ");			
 			UnityEditor.EditorApplication.isPlaying = false;
 			UnityEditor.EditorApplication.isPaused = true;
 

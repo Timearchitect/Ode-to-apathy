@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,22 +23,23 @@ public class dialogs : MonoBehaviour {
 
 	void Start () {
 		try{
-			print("start dialog");
 			textFile = Resources.Load (fileSource) as TextAsset;
+			print(textFile.name);
 			if(textFile!=null){
 				textLines=textFile.text.Split ('\n');
 			}
-			//print (textLines[0]);
-			content = GetComponent<Text>();
 			content = GetComponentsInChildren<Text> ()[0]; 
+			print(content.name);
 
 			if (content != null) {
 				content.text = textLines [0];
 			} else
 				print (fileSource+".txt is missing");
-		}catch{
-			UnityEngine.Debug.LogError ("Error in "+this.name +" please check in script: ");
+		}catch(Exception ex ){
+			UnityEngine.Debug.LogError ("Error in "+this.name +" please check row "+ex.ToString ().Split (':') [3]+" in script: ");			
 			UnityEditor.EditorApplication.isPlaying = false;
+			UnityEditor.EditorApplication.isPaused = true;
+
 		}
 	}
 	

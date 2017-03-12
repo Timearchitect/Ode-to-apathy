@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,10 +15,13 @@ public class coverEyes : MonoBehaviour {
 	void Start () {
 		try{
 			leftEye = GameObject.Find ("leftEye");
+				print(leftEye.name);
 			rightEye = GameObject.Find ("rightEye");
+				print(rightEye.name);
 			enemies = GameObject.FindGameObjectsWithTag ("enemy");
-		}catch{
-			UnityEngine.Debug.LogError ("Error in "+this.name +" please check in script: ");
+				print(enemies);
+		}catch(Exception ex ){
+			UnityEngine.Debug.LogError ("Error in "+this.name +" please check row "+ex.ToString ().Split (':') [3]+" in script: ");			
 			UnityEditor.EditorApplication.isPlaying = false;
 			UnityEditor.EditorApplication.isPaused = true;
 

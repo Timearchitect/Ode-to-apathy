@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -61,5 +62,9 @@ public static class Game  {
 		Stats.drawProgess = 0;
 		Stats.codeProgess = 0;
 	}
-
+	[System.Diagnostics.DebuggerStepThrough]
+	public static void check(UnityEngine.Object obj,String name){
+		if (obj == null)
+			throw new Exception ("can't find :"+name);
+	}
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -21,25 +22,31 @@ public class keyboardControlls : MonoBehaviour {
 	void Start () {
 		try{
 			animation = GameObject.FindGameObjectWithTag ("Player").GetComponent<Animation>();
-			print (animation.name +" found");
+				print (animation.name +" found");
 			typing= animation.GetClip ("Typing");
+				print(typing.name);
 			drawing= animation.GetClip ("Drawing");
-			//animation.Play (typing.name);
+				print(drawing.name);
 			debugContent = GameObject.FindGameObjectWithTag("debug");
-			//t = debugContent.GetComponent<UnityEngine.UI.Text> ();
-			//bgm =GameObject.FindGameObjectWithTag ("bgm").GetComponent<AudioSource> ();
-			//cafe = GameObject.FindGameObjectWithTag ("cafe").GetComponent<AudioSource> ();
+				//print(debugContent.name);
 			bgmR =GameObject.Find("maching Right").GetComponent<AudioSource> ();
+				print(bgmR.name);
 			cafeR = GameObject.Find("Cafe bgm Right").GetComponent<AudioSource> ();
+				print(cafeR.name);
 			bgmL =GameObject.Find("maching Left").GetComponent<AudioSource> ();
+				print(bgmL.name);
 			cafeL = GameObject.Find("Cafe bgm Left").GetComponent<AudioSource> ();
+				print(cafeL.name);
 
 			duration = 0.5f;
 			leftEyeOverlay = GameObject.Find ("leftEye").GetComponent<Image> ();
+			print(leftEyeOverlay.name);
 			rightEyeOverlay = GameObject.Find ("rightEye").GetComponent<Image> ();	
+			print(rightEyeOverlay.name);
 			aS = (AudioSource[])GameObject.FindObjectsOfType (typeof(AudioSource));
-		}catch{
-			UnityEngine.Debug.LogError ("Error in "+this.name +" please check in script: ");
+			print(aS);
+		}catch(Exception ex ){
+			UnityEngine.Debug.LogError ("Error in "+this.name +" please check row "+ex.ToString ().Split (':') [3]+" in script: ");			
 			UnityEditor.EditorApplication.isPlaying = false;
 			UnityEditor.EditorApplication.isPaused = true;
 

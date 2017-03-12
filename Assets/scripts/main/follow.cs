@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,11 +26,14 @@ public class follow : MonoBehaviour {
 	void Start () {
 		try{
 			player = GameObject.FindGameObjectWithTag ("Player");
-			stopPoint_cafe = GameObject.FindGameObjectWithTag ("stopPointCafe");
+				print(player.name);
+			//stopPoint_cafe = GameObject.FindGameObjectWithTag ("stopPointCafe");
+				//print(stopPoint_cafe.name);
 			enemyscript = this.GetComponent ("enemy")as enemy;
+				print(enemyscript.name);
 			enemyscript.satisfied = false;
-		}catch{
-			UnityEngine.Debug.LogError ("Error in "+this.name +" please check in script: ");
+		}catch(Exception ex ){
+			UnityEngine.Debug.LogError ("Error in "+this.name +" please check row "+ex.ToString ().Split (':') [3]+" in script: ");				
 			UnityEditor.EditorApplication.isPlaying = false;
 			UnityEditor.EditorApplication.isPaused = true;
 
