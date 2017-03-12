@@ -11,6 +11,7 @@ public class dialogs : MonoBehaviour {
 	private string[] textLines;
 	private Text content;
 	private int line=0;
+	private bool skip;
 	// Use this for initialization
 
 	public dialogs initialize(string filename,Vector3 pos){
@@ -21,6 +22,7 @@ public class dialogs : MonoBehaviour {
 
 	void Start () {
 		try{
+			print("start dialog");
 			textFile = Resources.Load (fileSource) as TextAsset;
 			if(textFile!=null){
 				textLines=textFile.text.Split ('\n');
@@ -46,18 +48,22 @@ public class dialogs : MonoBehaviour {
 				line++;
 				content.text = textLines [line];
 			} else {
-				//Destroy (this);
+				print (this.gameObject+"typing destroy!!!");
+
 				Destroy (gameObject);
 			}
 		}
-		if (line == textLines.Length) {
+		if ( skip ) {
 			Destroy (gameObject);
+			print (this.gameObject+"destroy!!!");
+
 		}
 	}
 
 	public void destroy(){
+		print("destroy?");
 		line = textLines.Length;
-		print (this.gameObject+"destroy!!!");
+		skip = true;
 		//Destroy (this.gameObject);
 
 	}

@@ -69,6 +69,8 @@ public class follow : MonoBehaviour {
 			if (!pause) {
 				pause = true;
 				print ("STOP!! " + Time.fixedTime);
+				enemyscript.spawnDialogBox ();
+
 			}
 		} else {
 			pause = false;
