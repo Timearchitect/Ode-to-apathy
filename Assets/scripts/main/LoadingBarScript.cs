@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-
 public class LoadingBarScript : MonoBehaviour {
 
 	AsyncOperation ao;
@@ -15,12 +14,10 @@ public class LoadingBarScript : MonoBehaviour {
 	public bool isFakeLoadingBar = false;
 	public float fakeIncrement = 0f;
 	public float fakeTiming = 0f;
-
 	// Use this for initialization
 	void Start () {
-		print (this+"level "+Stats.currentLevel+" this!!!");
+		loadLevel01 ();
 		Game.refresh ();
-		Stats.currentLevel=4; // to overview scene
 	}
 	
 	// Update is called once per frame
@@ -28,45 +25,41 @@ public class LoadingBarScript : MonoBehaviour {
 		
 	}
 	public void loadLevel01(){
-		print ("inne level "+Stats.currentLevel);
-		loadingScreenBG.SetActive (true);
-		progBar.gameObject.SetActive (true);
+		print ("build index +1: " + (SceneManager.GetActiveScene ().buildIndex + 1));
+		//loadingScreenBG.SetActive (true);
+
+		//progBar.gameObject.SetActive (true);
 		loadingText.gameObject.SetActive (true);
 		loadingText.text="Loading...";
 
+
 		if (!isFakeLoadingBar) {
-			print ("inne StartCoroutine");
 
 			StartCoroutine (LoadLevelWithRealProgress());
 
 		} else {
-			print ("In fakeloadingbar");
 			StartCoroutine(LoadLevelWithFakeProgress());
 
 		}
 	}
 
 	IEnumerator LoadLevelWithRealProgress(){
-		print ("load");
-		//yield return new WaitForSeconds (1);   // ehh... väntar förevigt från overview
-
-
-		ao = SceneManager.LoadSceneAsync(Stats.currentLevel);
+		
+		ao = SceneManager.LoadSceneAsync((SceneManager.GetActiveScene ().buildIndex + 1));
 		ao.allowSceneActivation = false;
 
 		while(!ao.isDone){
-			progBar.value = ao.progress;
+			//progBar.value = ao.progress;
 
 			//done yo
 			if(ao.progress == 0.9f){
-				progBar.value = 1f;
-
-				loadingText.text = "Press 'F'to begin";
+				//progBar.value = 1f;
+				loadingText.text = "Press 'F' to continue" ;
 				if(Input.GetKeyDown(KeyCode.F)){
 					ao.allowSceneActivation = true;
 				}
 			}
-			Debug.Log(ao.progress);
+
 			yield return null;
 		
 
@@ -74,27 +67,24 @@ public class LoadingBarScript : MonoBehaviour {
 	}
 
 	IEnumerator LoadLevelWithFakeProgress(){
-		print ("fake");
-
-		yield return new WaitForSeconds (1);
-
-		while (progBar.value != 1f) {
-			print ("increase");
-			progBar.value += fakeIncrement;
-			yield return new WaitForSeconds (fakeTiming);
+		//while (progBar.value != 1f) {
+			//progBar.value += fakeIncrement;
+	//		yield return new WaitForSeconds (fakeTiming);
 		
-		}
+	//	}
 
 		while (progBar.value == 1f) {
 		
 			loadingText.text = "Done Loading";
 			if (Input.GetKeyDown (KeyCode.F)) {
-				Application.UnloadLevel (Stats.currentLevel-1);
-				SceneManager.LoadScene (Stats.currentLevel);
+				SceneManager.LoadScene ((SceneManager.GetActiveScene ().buildIndex + 1));
 			}
 			yield return null;
 		}
 	}
 
+	public void whichLevel(){
+	
 
+	}
 }
