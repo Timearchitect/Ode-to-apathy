@@ -19,8 +19,10 @@ public class PlayerMovement : MonoBehaviour {
 	void Start () {
 		print ("START PLAYER");
 		try{
+			Game.loadStaticReferences();
+
 			if (Game.cheatMode)
-				Stats.maxWordCount = 100;
+				Stats.maxWordCount = 300;
 			player = GameObject.FindGameObjectWithTag("Player");
 				print(player.name);
 			go = this.gameObject;
@@ -77,9 +79,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	}
 	void rotateBack(){
-	
 		body.transform.rotation =Quaternion.RotateTowards(body.transform.rotation, player.transform.rotation, 0.3f);
-
 	}
 
 }

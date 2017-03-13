@@ -37,11 +37,10 @@ public class keyboardControlls : MonoBehaviour {
 				print(bgmL.name);
 			cafeL = GameObject.Find("Cafe bgm Left").GetComponent<AudioSource> ();
 				print(cafeL.name);
-
 			disR = GameObject.Find("distraction Right").GetComponent<AudioSource> ();
-			print(disR.name);
+				print(disR.name);
 			disL = GameObject.Find("distraction Left").GetComponent<AudioSource> ();
-			print(disL.name);
+				print(disL.name);
 
 			duration = 0.5f;
 			leftEyeOverlay = GameObject.Find ("leftEye").GetComponent<Image> ();
@@ -214,7 +213,7 @@ public class keyboardControlls : MonoBehaviour {
 	public void openRightEar(){
 		cafeR.volume = 0.1f;
 		bgmR.volume = 1f;
-		disR.volume = 0.01f;
+		disR.volume = 1f;
 		cafeR.bypassEffects = true;
 		bgmR.bypassEffects = true;
 		disR.bypassEffects = true;
@@ -226,7 +225,7 @@ public class keyboardControlls : MonoBehaviour {
 	public void openLeftEar(){
 		cafeL.volume = 0.1f;
 		bgmL.volume = 1f;
-		disL.volume = 0.01f;
+		disL.volume = 1f;
 		cafeL.bypassEffects = true;
 		bgmL.bypassEffects = true;
 		disL.bypassEffects = true;

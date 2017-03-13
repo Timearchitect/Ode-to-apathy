@@ -8323,7 +8323,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: dcd951e5d2cd03b469d49dad66243b5c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: fbe027354aa182f40bb1b58b10764e50, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -19135,7 +19135,7 @@ MonoBehaviour:
   reachDist: 20
   currentPoint: 0
   startIndex: 1
-  startTime: 0
+  startTime: 50
   loop: 0
   pause: 0
 --- !u!114 &1217080867
@@ -19151,6 +19151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 0}
   dialogCanvas: {fileID: 0}
+  soundClip: []
   textFileName: test
   condition: 2
   satisfied: 0
@@ -21485,6 +21486,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 0}
   dialogCanvas: {fileID: 0}
+  soundClip: []
   textFileName: Dialogues
   condition: 0
   satisfied: 0
@@ -21578,7 +21580,7 @@ MonoBehaviour:
   reachDist: 20
   currentPoint: 0
   startIndex: 1
-  startTime: 50
+  startTime: 0
   loop: 1
   pause: 0
 --- !u!114 &1383116709
@@ -21594,6 +21596,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 0}
   dialogCanvas: {fileID: 0}
+  soundClip: []
   textFileName: Dialogues
   condition: 0
   satisfied: 0
@@ -30151,7 +30154,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: dcd951e5d2cd03b469d49dad66243b5c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: fbe027354aa182f40bb1b58b10764e50, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -32106,6 +32109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 0}
   dialogCanvas: {fileID: 0}
+  soundClip: []
   textFileName: Dialogues
   condition: 0
   satisfied: 0
@@ -32133,7 +32137,7 @@ MonoBehaviour:
   reachDist: 20
   currentPoint: 0
   startIndex: 1
-  startTime: 50
+  startTime: 0
   loop: 1
   pause: 0
 --- !u!1 &2100117669

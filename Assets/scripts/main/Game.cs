@@ -11,15 +11,28 @@ public static class Game  {
 	public static GameObject statScreen,panel;
 	public static Image panelImage;
 	public enum Conditions : short {visualLeft=0,visualRight=1,audioLeft=2,audioRight=3};
-	public static AudioSource disR = GameObject.Find("distraction Right").GetComponent<AudioSource> ();
-	public static AudioSource disL = GameObject.Find("distraction Left").GetComponent<AudioSource> ();
-	public static AudioSource cafeR = GameObject.Find ("Cafe bgm Right").GetComponent<AudioSource> ();
-	public static AudioSource cafeL = GameObject.Find ("Cafe bgm Left").GetComponent<AudioSource> ();
-	public static AudioSource  machL= GameObject.Find ("maching Left").GetComponent<AudioSource> ();
-	public static AudioSource  machR = GameObject.Find ("maching Right").GetComponent<AudioSource> ();
-	public static Image leftEye = GameObject.Find ("leftEye").GetComponent<Image> ();
-	public static Image rightEye = GameObject.Find ("rightEye").GetComponent<Image> ();
-	public static GameObject player= GameObject.FindGameObjectWithTag("Player");
+	public static AudioSource disR;
+	public static AudioSource disL;
+	public static AudioSource cafeR;
+	public static AudioSource cafeL;
+	public static AudioSource machL;
+	public static AudioSource machR;
+	public static Image leftEye;
+	public static Image rightEye;
+	public static GameObject player;
+
+	public static void loadStaticReferences(){
+		disR = GameObject.Find("distraction Right").GetComponent<AudioSource> ();
+		 disL = GameObject.Find("distraction Left").GetComponent<AudioSource> ();
+		cafeR = GameObject.Find ("Cafe bgm Right").GetComponent<AudioSource> ();
+		cafeL = GameObject.Find ("Cafe bgm Left").GetComponent<AudioSource> ();
+		machL= GameObject.Find ("maching Left").GetComponent<AudioSource> ();
+		 machR = GameObject.Find ("maching Right").GetComponent<AudioSource> ();
+		leftEye = GameObject.Find ("leftEye").GetComponent<Image> ();
+		rightEye = GameObject.Find ("rightEye").GetComponent<Image> ();
+		 player= GameObject.FindGameObjectWithTag("Player");
+	}
+
 
 	public static void end () {
 		if (!pause) {

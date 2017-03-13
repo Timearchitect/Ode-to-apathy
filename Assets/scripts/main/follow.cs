@@ -44,9 +44,8 @@ public class follow : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if(startTime>1)print (started+" "+Time.timeSinceLevelLoad );
 		if (!started && startTime <= Time.timeSinceLevelLoad) {
-			print (Time.timeSinceLevelLoad + " vs " + startTime);
+			print ( " scripted enemy GO! now at: " + startTime);
 			started = true;
 		}
 		if (started) {
@@ -68,7 +67,8 @@ public class follow : MonoBehaviour {
 			if (!pause) {
 				pause = true;
 				print ("STOP!! " + Time.fixedTime);
-				enemyscript.spawnDialogBox ();
+				//enemyscript.spawnDialogBox ();
+				enemyscript.spawnDistraction ();
 			}
 		} else {
 			pause = false;
@@ -83,6 +83,8 @@ public class follow : MonoBehaviour {
 				pause = true;
 				print ("STOP!! " + Time.fixedTime);
 			//	enemyscript.spawnDialogBox ();
+			   enemyscript.spawnDistraction ();
+
 			}
 		} else {
 			pause = false;

@@ -29,14 +29,13 @@ public class progressBar : MonoBehaviour {
 			UnityEngine.Debug.LogError ("Error in "+this.name +" please check row "+ex.ToString ().Split (':') [3]+" in script: ");			
 			UnityEditor.EditorApplication.isPlaying = false;
 			UnityEditor.EditorApplication.isPaused = true;
-
 		}
 	}
 	
 	void Update () {
 		
 		Stats.timeleft=Stats.totalTime-Time.timeSinceLevelLoad;
-		print (Stats.totalTime +" total   :   sinceLVLSTART "+Time.timeSinceLevelLoad);
+		//print (Stats.totalTime +" total   :   sinceLVLSTART "+Time.timeSinceLevelLoad);
 		if (Stats.timeleft <= 0) {
 			Game.end ();
 		}
