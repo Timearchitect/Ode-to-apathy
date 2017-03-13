@@ -11,7 +11,7 @@ public class keyboardControlls : MonoBehaviour {
 	//public static float wordCount=0f;
 	public float timer=0,duration;
 	private bool vacant=true;
-	public AudioSource bgmR,cafeR,bgmL,cafeL;
+	public AudioSource bgmR,cafeR,bgmL,cafeL,disL,disR;
 	private UnityEngine.UI.Text t;
 	private Animation animation;
 	private AnimationClip typing,drawing;
@@ -37,6 +37,11 @@ public class keyboardControlls : MonoBehaviour {
 				print(bgmL.name);
 			cafeL = GameObject.Find("Cafe bgm Left").GetComponent<AudioSource> ();
 				print(cafeL.name);
+
+			disR = GameObject.Find("distraction Right").GetComponent<AudioSource> ();
+			print(disR.name);
+			disL = GameObject.Find("distraction Left").GetComponent<AudioSource> ();
+			print(disL.name);
 
 			duration = 0.5f;
 			leftEyeOverlay = GameObject.Find ("leftEye").GetComponent<Image> ();
@@ -82,20 +87,13 @@ public class keyboardControlls : MonoBehaviour {
 				bgmR.Pause ();
 			}
 		}
-			detectPressedKeyOrButton ();
-			detectReleasedKeyOrButton ();
-
-		if (Stats.workMode == 1) { //Mouse Mode
-			if (Vector3.Distance (Input.mousePosition, pastMousePos) > 10) {
-				Stats.wordCount += Stats.penSpeed;
-				Stats.drawProgess += Stats.penSpeed;
-				circleTimer.render ();
-				pastMousePos = Input.mousePosition;
-				animation.Play (drawing.name);
-				if(Stats.drawProgess >= Stats.maxDrawProgress){
-					Stats.shiftMode ();
-				}
-			}
+		detectPressedKeyOrButton ();
+		detectReleasedKeyOrButton ();
+		detectMouseMovement ();
+		if (Stats.workMode != Stats.pWorkMode) {
+		
+		//shift
+		
 		}
 		//pastMousePos = Input.mousePosition;
 	}
@@ -172,12 +170,30 @@ public class keyboardControlls : MonoBehaviour {
 		}
 
 	}
-
+	public void detectMouseMovement(){
+		if (Stats.workMode == 1) { //Mouse Mode
+			if (Vector3.Distance (Input.mousePosition, pastMousePos) > 10) {
+				Stats.wordCount += Stats.penSpeed;
+				Stats.drawProgess += Stats.penSpeed;
+				circleTimer.render ();
+				pastMousePos = Input.mousePosition;
+				animation.Play (drawing.name);
+				timer = Time.time;
+				if(!bgmR.isPlaying) bgmR.Play(); 
+				if(!bgmL.isPlaying) bgmL.Play();
+				if(Stats.drawProgess >= Stats.maxDrawProgress){
+					Stats.shiftMode ();
+				}
+			}
+		}
+	}
 	public void coverLeftEar(){
 		cafeL.volume = 0.005f;
 		bgmL.volume = 0.01f;
+		disL.volume = 0.01f;
 		cafeL.bypassEffects = false;
 		bgmL.bypassEffects = false;
+		disL.bypassEffects = false;
 			/*foreach (AudioSource a in aS) {
 				a.GetComponent<AudioSource> ().bypassEffects = false;
 			}*/
@@ -186,8 +202,10 @@ public class keyboardControlls : MonoBehaviour {
 	public void coverRightEar(){
 		cafeR.volume = 0.005f;
 		bgmR.volume = 0.01f;
+		disR.volume = 0.01f;
 		cafeR.bypassEffects = false;
 		bgmR.bypassEffects = false;
+		disR.bypassEffects = false;
 		/*foreach (AudioSource a in aS) {
 			a.GetComponent<AudioSource> ().bypassEffects = false;
 		}*/
@@ -196,8 +214,10 @@ public class keyboardControlls : MonoBehaviour {
 	public void openRightEar(){
 		cafeR.volume = 0.1f;
 		bgmR.volume = 1f;
+		disR.volume = 0.01f;
 		cafeR.bypassEffects = true;
 		bgmR.bypassEffects = true;
+		disR.bypassEffects = true;
 		/*foreach (AudioSource a in aS) {
 			a.GetComponent<AudioSource> ().bypassEffects = true;
 		}*/
@@ -206,8 +226,10 @@ public class keyboardControlls : MonoBehaviour {
 	public void openLeftEar(){
 		cafeL.volume = 0.1f;
 		bgmL.volume = 1f;
+		disL.volume = 0.01f;
 		cafeL.bypassEffects = true;
 		bgmL.bypassEffects = true;
+		disL.bypassEffects = true;
 		/*foreach (AudioSource a in aS) {
 			a.GetComponent<AudioSource> ().bypassEffects = true;
 		}*/

@@ -16,7 +16,7 @@ namespace Ardunity
 		private IWireInput<float> _analogInput;
 		private AudioSource _audioSource;
 		private AudioSource[] aS;
-		private AudioSource bgmL , bgmR ,cafeL ,cafeR;
+		private AudioSource bgmL , bgmR ,cafeL ,cafeR,disL,disR;
 		public bool paning;
 
 		protected override void Awake ()
@@ -152,6 +152,7 @@ namespace Ardunity
 						//bgm = GameObject.FindGameObjectWithTag ("cafe").GetComponent<AudioSource> ();
 						cafeR = GameObject.Find ("Cafe bgm Right").GetComponent<AudioSource> ();
 						bgmR = GameObject.Find ("maching Right").GetComponent<AudioSource> ();
+						disR = GameObject.Find ("distraction Right").GetComponent<AudioSource> ();
 					}
 					//print (_analogInput.input + "  A0 VALUE audio");
 					cafeR.volume = _analogInput.input * .04F;
@@ -159,12 +160,14 @@ namespace Ardunity
 					if (_analogInput.input <= 0.6f) {
 						cafeR.bypassEffects = false;
 						bgmR.bypassEffects = false;
+						disR.bypassEffects = false;
 						/*foreach (AudioSource a in aS) {
 							a.GetComponent<AudioSource> ().bypassEffects = false;
 						}*/
 					} else {
 						cafeR.bypassEffects = true;
 						bgmR.bypassEffects = true;
+						disR.bypassEffects = true;
 						/*foreach (AudioSource a in aS) {
 							a.GetComponent<AudioSource> ().bypassEffects = true;
 						}*/
@@ -193,6 +196,7 @@ namespace Ardunity
 						//bgmL = GameObject.FindGameObjectWithTag ("cafe").GetComponent<AudioSource> ();
 						cafeL = GameObject.Find ("Cafe bgm Left").GetComponent<AudioSource> ();
 						bgmL = GameObject.Find ("maching Left").GetComponent<AudioSource> ();
+						disL = GameObject.Find ("distraction Left").GetComponent<AudioSource> ();
 					}
 					//print (_analogInput.input + "  A0 VALUE audio");
 					cafeL.volume = _analogInput.input * .04F;
@@ -201,12 +205,14 @@ namespace Ardunity
 					if (_analogInput.input <= 0.6f) {
 						cafeL.bypassEffects = false;
 						bgmL.bypassEffects = false;
+						disL.bypassEffects = false;
 						/*foreach (AudioSource a in aS) {
 							a.GetComponent<AudioSource> ().bypassEffects = false;
 						}*/
 					} else {
 						cafeL.bypassEffects = true;
 						bgmL.bypassEffects = true;
+						disL.bypassEffects = true;
 						/*foreach (AudioSource a in aS) {
 							a.GetComponent<AudioSource> ().bypassEffects = true;
 						}*/

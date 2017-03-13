@@ -10,7 +10,7 @@ public class follow : MonoBehaviour {
 	public float speed=50.0f;
 	public float reachDist=20;
 	public int currentPoint;
-	public int startIndex=1;
+	public int startIndex=0;
 	public int startTime;
 	public static int stopDistance= 150;
 	public static int stopDistanceCafe= 30;
@@ -39,7 +39,6 @@ public class follow : MonoBehaviour {
 			UnityEngine.Debug.LogError ("Error in "+this.name +" please check row "+ex.ToString ().Split (':') [3]+" in script: ");				
 			UnityEditor.EditorApplication.isPlaying = false;
 			UnityEditor.EditorApplication.isPaused = true;
-
 		}
 	}
 
@@ -121,7 +120,6 @@ public class follow : MonoBehaviour {
 				reset ();
 				else 
 				dead = true;
-				//print("reset loop/");
 			}
 		}
 	
