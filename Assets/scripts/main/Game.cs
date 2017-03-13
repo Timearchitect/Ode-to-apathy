@@ -11,6 +11,15 @@ public static class Game  {
 	public static GameObject statScreen,panel;
 	public static Image panelImage;
 	public enum Conditions : short {visualLeft=0,visualRight=1,audioLeft=2,audioRight=3};
+	public static AudioSource disR = GameObject.Find("distraction Right").GetComponent<AudioSource> ();
+	public static AudioSource disL = GameObject.Find("distraction Left").GetComponent<AudioSource> ();
+	public static AudioSource cafeR = GameObject.Find ("Cafe bgm Right").GetComponent<AudioSource> ();
+	public static AudioSource cafeL = GameObject.Find ("Cafe bgm Left").GetComponent<AudioSource> ();
+	public static AudioSource  machL= GameObject.Find ("maching Left").GetComponent<AudioSource> ();
+	public static AudioSource  machR = GameObject.Find ("maching Right").GetComponent<AudioSource> ();
+	public static Image leftEye = GameObject.Find ("leftEye").GetComponent<Image> ();
+	public static Image rightEye = GameObject.Find ("rightEye").GetComponent<Image> ();
+	public static GameObject player= GameObject.FindGameObjectWithTag("Player");
 
 	public static void end () {
 		if (!pause) {
@@ -30,10 +39,10 @@ public static class Game  {
 
 			Text content = statScreen.GetComponentsInChildren<Text> () [0];
 			content.text = "GAMEOVER" +
-			"\n timeLeft: " + Mathf.Ceil (Stats.timeleft) +"s"+
-			"\n progress made: " + Mathf.Ceil (Stats.wordCount) +" of "+ Stats.maxWordCount+
-			"\n apathy left: " + Mathf.Floor (Stats.apathy)+"%"+
-			"\n total people ignored: " + Stats.ignoredObstacle ; 
+				"\n timeLeft: " + Mathf.Ceil (Stats.timeleft) +"s"+
+				"\n progress made: " + Mathf.Ceil (Stats.wordCount) +" of "+ Stats.maxWordCount+
+				"\n apathy left: " + Mathf.Floor (Stats.apathy)+"%"+
+				"\n total people ignored: " + Stats.ignoredObstacle ; 
 			UnityEngine.Debug.Log( "GAMEOVER" +
 				"\n timeLeft: " + Mathf.Ceil (Stats.timeleft) +"s"+
 				"\n progress made: " + Mathf.Ceil (Stats.wordCount) +" of "+ Stats.maxWordCount+

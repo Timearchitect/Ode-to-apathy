@@ -19564,6 +19564,403 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1281465832}
   m_Mesh: {fileID: 4301154, guid: d74c87860285a413a93a70701d422df3, type: 3}
+--- !u!1 &1307280082
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1307280088}
+  - component: {fileID: 1307280087}
+  - component: {fileID: 1307280086}
+  - component: {fileID: 1307280085}
+  - component: {fileID: 1307280084}
+  - component: {fileID: 1307280083}
+  m_Layer: 0
+  m_Name: distraction Left
+  m_TagString: bgm
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1307280083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1307280082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c72dbec1c356fc4096c3155ebcdea0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  windowRect:
+    serializedVersion: 2
+    x: 674
+    y: 385
+    width: 152
+    height: 151
+  nodes:
+  - name: ReactingTarget
+    text: maching Left
+    nodeType: 0
+    objectTarget: {fileID: 0}
+    tooltip: Reacting Target
+    rect:
+      serializedVersion: 2
+      x: 674
+      y: 405
+      width: 152
+      height: 18
+    updated: 1
+  - name: play
+    text: Play
+    nodeType: 2
+    objectTarget: {fileID: 0}
+    tooltip: Input<bool>
+    rect:
+      serializedVersion: 2
+      x: 674
+      y: 423
+      width: 152
+      height: 18
+    updated: 1
+  - name: playOnly
+    text: Play Only
+    nodeType: 2
+    objectTarget: {fileID: 0}
+    tooltip: Input<Trigger>
+    rect:
+      serializedVersion: 2
+      x: 674
+      y: 441
+      width: 152
+      height: 18
+    updated: 1
+  - name: setVolume
+    text: Set Volume
+    nodeType: 2
+    objectTarget: {fileID: 0}
+    tooltip: Input<float>
+    rect:
+      serializedVersion: 2
+      x: 674
+      y: 459
+      width: 152
+      height: 18
+    updated: 1
+  - name: setBypassFilterR
+    text: Set Bypass Right
+    nodeType: 2
+    objectTarget: {fileID: 0}
+    tooltip: Input<bool>
+    rect:
+      serializedVersion: 2
+      x: 674
+      y: 477
+      width: 152
+      height: 18
+    updated: 1
+  - name: setBypassFilterL
+    text: Set Bypass Left
+    nodeType: 2
+    objectTarget: {fileID: 0}
+    tooltip: Input<bool>
+    rect:
+      serializedVersion: 2
+      x: 674
+      y: 495
+      width: 152
+      height: 18
+    updated: 1
+  - name: AudioSourceReactor
+    text: AudioSourceReactor
+    nodeType: 1
+    objectTarget: {fileID: 0}
+    tooltip: AudioSourceReactor
+    rect:
+      serializedVersion: 2
+      x: 674
+      y: 513
+      width: 152
+      height: 18
+    updated: 1
+  paning: 0
+--- !u!114 &1307280084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1307280082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c72dbec1c356fc4096c3155ebcdea0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  windowRect:
+    serializedVersion: 2
+    x: 669
+    y: 6
+    width: 152
+    height: 151
+  nodes:
+  - name: ReactingTarget
+    text: maching Left
+    nodeType: 0
+    objectTarget: {fileID: 0}
+    tooltip: Reacting Target
+    rect:
+      serializedVersion: 2
+      x: 669
+      y: 26
+      width: 152
+      height: 18
+    updated: 1
+  - name: play
+    text: Play
+    nodeType: 2
+    objectTarget: {fileID: 0}
+    tooltip: Input<bool>
+    rect:
+      serializedVersion: 2
+      x: 669
+      y: 44
+      width: 152
+      height: 18
+    updated: 1
+  - name: playOnly
+    text: Play Only
+    nodeType: 2
+    objectTarget: {fileID: 0}
+    tooltip: Input<Trigger>
+    rect:
+      serializedVersion: 2
+      x: 669
+      y: 62
+      width: 152
+      height: 18
+    updated: 1
+  - name: setVolume
+    text: Set Volume
+    nodeType: 2
+    objectTarget: {fileID: 0}
+    tooltip: Input<float>
+    rect:
+      serializedVersion: 2
+      x: 669
+      y: 80
+      width: 152
+      height: 18
+    updated: 1
+  - name: setBypassFilterR
+    text: Set Bypass Right
+    nodeType: 2
+    objectTarget: {fileID: 0}
+    tooltip: Input<bool>
+    rect:
+      serializedVersion: 2
+      x: 669
+      y: 98
+      width: 152
+      height: 18
+    updated: 1
+  - name: setBypassFilterL
+    text: Set Bypass Left
+    nodeType: 2
+    objectTarget: {fileID: 0}
+    tooltip: Input<bool>
+    rect:
+      serializedVersion: 2
+      x: 669
+      y: 116
+      width: 152
+      height: 18
+    updated: 1
+  - name: AudioSourceReactor
+    text: AudioSourceReactor
+    nodeType: 1
+    objectTarget: {fileID: 0}
+    tooltip: AudioSourceReactor
+    rect:
+      serializedVersion: 2
+      x: 669
+      y: 134
+      width: 152
+      height: 18
+    updated: 1
+  paning: 0
+--- !u!169 &1307280085
+AudioLowPassFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1307280082}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_LowpassResonanceQ: 10
+  lowpassLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0.09090909
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!165 &1307280086
+AudioHighPassFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1307280082}
+  m_Enabled: 0
+  m_CutoffFrequency: 100
+  m_HighpassResonanceQ: 10
+--- !u!82 &1307280087
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1307280082}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: dcd951e5d2cd03b469d49dad66243b5c, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 0
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: -1
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0.002
+      value: 1
+      inSlope: -500.20065
+      outSlope: -500.20065
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.004
+      value: 0.5
+      inSlope: -125.05016
+      outSlope: -125.05016
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.016
+      value: 0.125
+      inSlope: -7.815635
+      outSlope: -7.815635
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.032
+      value: 0.0625
+      inSlope: -1.9539088
+      outSlope: -1.9539088
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.064
+      value: 0.03125
+      inSlope: -0.4884772
+      outSlope: -0.4884772
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.128
+      value: 0.015625
+      inSlope: -0.1221193
+      outSlope: -0.1221193
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.18068041
+      value: 0.033793032
+      inSlope: -31.26254
+      outSlope: -31.26254
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.43641236
+      value: 0.07608837
+      inSlope: -0.030529825
+      outSlope: -0.030529825
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.512
+      value: 0.00390625
+      inSlope: -0.0076324563
+      outSlope: -0.0076324563
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0.002
+      inSlope: -0.002000801
+      outSlope: -0.002000801
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!4 &1307280088
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1307280082}
+  m_LocalRotation: {x: 0.17713368, y: -0.5501926, z: 0.000000010662521, w: 0.81603414}
+  m_LocalPosition: {x: 64, y: 303, z: -130}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 57
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1308065615
 GameObject:
   m_ObjectHideFlags: 0
@@ -20715,6 +21112,8 @@ MonoBehaviour:
   cafeR: {fileID: 0}
   bgmL: {fileID: 0}
   cafeL: {fileID: 0}
+  disL: {fileID: 0}
+  disR: {fileID: 0}
   aS: []
 --- !u!114 &1373795227
 MonoBehaviour:
@@ -31940,6 +32339,403 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2079718426}
   m_Mesh: {fileID: 4301362, guid: d74c87860285a413a93a70701d422df3, type: 3}
+--- !u!1 &2084209463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2084209469}
+  - component: {fileID: 2084209468}
+  - component: {fileID: 2084209467}
+  - component: {fileID: 2084209466}
+  - component: {fileID: 2084209465}
+  - component: {fileID: 2084209464}
+  m_Layer: 0
+  m_Name: distraction Right
+  m_TagString: bgm
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2084209464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2084209463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c72dbec1c356fc4096c3155ebcdea0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  windowRect:
+    serializedVersion: 2
+    x: 674
+    y: 385
+    width: 152
+    height: 151
+  nodes:
+  - name: ReactingTarget
+    text: maching Right
+    nodeType: 0
+    objectTarget: {fileID: 0}
+    tooltip: Reacting Target
+    rect:
+      serializedVersion: 2
+      x: 674
+      y: 405
+      width: 152
+      height: 18
+    updated: 1
+  - name: play
+    text: Play
+    nodeType: 2
+    objectTarget: {fileID: 0}
+    tooltip: Input<bool>
+    rect:
+      serializedVersion: 2
+      x: 674
+      y: 423
+      width: 152
+      height: 18
+    updated: 1
+  - name: playOnly
+    text: Play Only
+    nodeType: 2
+    objectTarget: {fileID: 0}
+    tooltip: Input<Trigger>
+    rect:
+      serializedVersion: 2
+      x: 674
+      y: 441
+      width: 152
+      height: 18
+    updated: 1
+  - name: setVolume
+    text: Set Volume
+    nodeType: 2
+    objectTarget: {fileID: 0}
+    tooltip: Input<float>
+    rect:
+      serializedVersion: 2
+      x: 674
+      y: 459
+      width: 152
+      height: 18
+    updated: 1
+  - name: setBypassFilterR
+    text: Set Bypass Right
+    nodeType: 2
+    objectTarget: {fileID: 0}
+    tooltip: Input<bool>
+    rect:
+      serializedVersion: 2
+      x: 674
+      y: 477
+      width: 152
+      height: 18
+    updated: 1
+  - name: setBypassFilterL
+    text: Set Bypass Left
+    nodeType: 2
+    objectTarget: {fileID: 0}
+    tooltip: Input<bool>
+    rect:
+      serializedVersion: 2
+      x: 674
+      y: 495
+      width: 152
+      height: 18
+    updated: 1
+  - name: AudioSourceReactor
+    text: AudioSourceReactor
+    nodeType: 1
+    objectTarget: {fileID: 0}
+    tooltip: AudioSourceReactor
+    rect:
+      serializedVersion: 2
+      x: 674
+      y: 513
+      width: 152
+      height: 18
+    updated: 1
+  paning: 0
+--- !u!114 &2084209465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2084209463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c72dbec1c356fc4096c3155ebcdea0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  windowRect:
+    serializedVersion: 2
+    x: 669
+    y: 6
+    width: 152
+    height: 151
+  nodes:
+  - name: ReactingTarget
+    text: maching Right
+    nodeType: 0
+    objectTarget: {fileID: 0}
+    tooltip: Reacting Target
+    rect:
+      serializedVersion: 2
+      x: 669
+      y: 26
+      width: 152
+      height: 18
+    updated: 1
+  - name: play
+    text: Play
+    nodeType: 2
+    objectTarget: {fileID: 0}
+    tooltip: Input<bool>
+    rect:
+      serializedVersion: 2
+      x: 669
+      y: 44
+      width: 152
+      height: 18
+    updated: 1
+  - name: playOnly
+    text: Play Only
+    nodeType: 2
+    objectTarget: {fileID: 0}
+    tooltip: Input<Trigger>
+    rect:
+      serializedVersion: 2
+      x: 669
+      y: 62
+      width: 152
+      height: 18
+    updated: 1
+  - name: setVolume
+    text: Set Volume
+    nodeType: 2
+    objectTarget: {fileID: 0}
+    tooltip: Input<float>
+    rect:
+      serializedVersion: 2
+      x: 669
+      y: 80
+      width: 152
+      height: 18
+    updated: 1
+  - name: setBypassFilterR
+    text: Set Bypass Right
+    nodeType: 2
+    objectTarget: {fileID: 0}
+    tooltip: Input<bool>
+    rect:
+      serializedVersion: 2
+      x: 669
+      y: 98
+      width: 152
+      height: 18
+    updated: 1
+  - name: setBypassFilterL
+    text: Set Bypass Left
+    nodeType: 2
+    objectTarget: {fileID: 0}
+    tooltip: Input<bool>
+    rect:
+      serializedVersion: 2
+      x: 669
+      y: 116
+      width: 152
+      height: 18
+    updated: 1
+  - name: AudioSourceReactor
+    text: AudioSourceReactor
+    nodeType: 1
+    objectTarget: {fileID: 0}
+    tooltip: AudioSourceReactor
+    rect:
+      serializedVersion: 2
+      x: 669
+      y: 134
+      width: 152
+      height: 18
+    updated: 1
+  paning: 0
+--- !u!169 &2084209466
+AudioLowPassFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2084209463}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_LowpassResonanceQ: 10
+  lowpassLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0.09090909
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!165 &2084209467
+AudioHighPassFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2084209463}
+  m_Enabled: 0
+  m_CutoffFrequency: 100
+  m_HighpassResonanceQ: 10
+--- !u!82 &2084209468
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2084209463}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: dcd951e5d2cd03b469d49dad66243b5c, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 0
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 1
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0.002
+      value: 1
+      inSlope: -500.20065
+      outSlope: -500.20065
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.004
+      value: 0.5
+      inSlope: -125.05016
+      outSlope: -125.05016
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.016
+      value: 0.125
+      inSlope: -7.815635
+      outSlope: -7.815635
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.032
+      value: 0.0625
+      inSlope: -1.9539088
+      outSlope: -1.9539088
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.064
+      value: 0.03125
+      inSlope: -0.4884772
+      outSlope: -0.4884772
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.128
+      value: 0.015625
+      inSlope: -0.1221193
+      outSlope: -0.1221193
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.18068041
+      value: 0.033793032
+      inSlope: -31.26254
+      outSlope: -31.26254
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.43641236
+      value: 0.07608837
+      inSlope: -0.030529825
+      outSlope: -0.030529825
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.512
+      value: 0.00390625
+      inSlope: -0.0076324563
+      outSlope: -0.0076324563
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0.002
+      inSlope: -0.002000801
+      outSlope: -0.002000801
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!4 &2084209469
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2084209463}
+  m_LocalRotation: {x: 0.17713368, y: -0.5501926, z: 0.000000009591874, w: 0.81603414}
+  m_LocalPosition: {x: 64, y: 303, z: -130}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 58
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2087721614
 GameObject:
   m_ObjectHideFlags: 0
