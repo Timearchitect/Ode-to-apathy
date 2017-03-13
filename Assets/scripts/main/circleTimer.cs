@@ -11,6 +11,7 @@ public class circleTimer : MonoBehaviour {
 	private int range=30,xoffset=70,yoffset=200;
 	LineRenderer lineRenderer;
 	SpriteRenderer icon;
+	private static float strokeWidth=10;
 	Vector3 keyboardPos,penPos;
 
 	void Start () {
@@ -27,8 +28,8 @@ public class circleTimer : MonoBehaviour {
 				print(lineRenderer.material.name);		
 			lineRenderer.startColor = (new Color(1,0,0,1));
 			lineRenderer.endColor = (new Color(1,0.5f,0.5f,1));
-			lineRenderer.startWidth = (10);
-			lineRenderer.endWidth = (10);
+			lineRenderer.startWidth = 10;
+			lineRenderer.endWidth = 10;
 			lineRenderer.numPositions = 360;
 		
 			icon.sprite=codingIcon;
@@ -75,9 +76,19 @@ public class circleTimer : MonoBehaviour {
 					}
 				}
 			}
+			retract ();
 		}
 	}
-
+	public static void pop(){
+		strokeWidth=30;
+	}
+	public  void retract(){
+		if (strokeWidth >= 10) {
+			strokeWidth *= .95f;
+			lineRenderer.startWidth = strokeWidth;
+			lineRenderer.endWidth = strokeWidth;
+		}
+	}
 	public static void render(){
 
 	

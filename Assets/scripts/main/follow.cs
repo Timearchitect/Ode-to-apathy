@@ -19,12 +19,15 @@ public class follow : MonoBehaviour {
 	//stopPoints
 	private GameObject player;
 	private GameObject stopPoint_cafe;
-	public bool pause=false;
-	public float dist;
-	enemy enemyscript;
-	// Use this for initialization
+	public bool pause;
+	private bool started;
+	private float dist;
+	private enemy enemyscript;
+	private bool dead;
+
 	void Start () {
 		try{
+			if(startTime>0)started=false;
 			player = GameObject.FindGameObjectWithTag ("Player");
 				print(player.name);
 			//stopPoint_cafe = GameObject.FindGameObjectWithTag ("stopPointCafe");
@@ -39,17 +42,24 @@ public class follow : MonoBehaviour {
 
 		}
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		if (!pause || enemyscript.satisfied) {
-			move();
+		if(startTime>1)print (started+" "+Time.timeSinceLevelLoad );
+		if (!started && startTime <= Time.timeSinceLevelLoad) {
+			print (Time.timeSinceLevelLoad + " vs " + startTime);
+			started = true;
 		}
-	//Check stoppoints
-		stopPoint_player ();
-
-		if (stopPoint_cafe != null) {
-			stopPoint_cafeCounter ();
+		if (started) {
+			if (dead)
+				Destroy (this.gameObject);
+			else {
+				if (!pause || enemyscript.satisfied)
+					move ();
+				stopPoint_player (); //Check stoppoints
+				if (stopPoint_cafe != null)
+					stopPoint_cafeCounter ();
+			}
 		}
 	}
 
@@ -73,8 +83,7 @@ public class follow : MonoBehaviour {
 			if (!pause) {
 				pause = true;
 				print ("STOP!! " + Time.fixedTime);
-				enemyscript.spawnDialogBox ();
-
+			//	enemyscript.spawnDialogBox ();
 			}
 		} else {
 			pause = false;
@@ -107,21 +116,25 @@ public class follow : MonoBehaviour {
 	
 		if ( dist <= reachDist) {
 			currentPoint++;
-			if (loop && currentPoint >= point.Length) {
+			if (currentPoint >= point.Length) {
+				if(loop)
 				reset ();
+				else 
+				dead = true;
 				//print("reset loop/");
 			}
 		}
 	
 	}
 	public void reset(){
-		enemyscript.randomize();
-		enemyscript.satisfied = false;
-		pause = false;
-		//float dist = Vector3.Distance (point [currentPoint].position, this.transform.position);
-		currentPoint = startIndex;
-		this.transform.position =point[startIndex].position;
 
+			enemyscript.randomize ();
+			enemyscript.satisfied = false;
+			pause = false;
+			//float dist = Vector3.Distance (point [currentPoint].position, this.transform.position);
+			currentPoint = startIndex;
+			this.transform.position = point [startIndex].position;
+		
 	}
 	public void setPath(GameObject temp){
 		//print ("setPath");

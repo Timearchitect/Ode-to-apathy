@@ -36,6 +36,7 @@ public  class Stats  {
 	public static void shiftMode(){
 		drawProgess = 0;
 		codeProgess = 0;
+		circleTimer.pop ();
 		pWorkMode = workMode;
 		if (workMode == 0) {
 			workMode = 1;
