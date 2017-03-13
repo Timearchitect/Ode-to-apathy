@@ -24,6 +24,7 @@ public class progressBar : MonoBehaviour {
 				print(apathyBar.name);
 			apathy = apathyBar.GetComponent<Slider>();
 				print(apathy.name);
+				print(apathy.value);
 		}catch(Exception ex ){
 			UnityEngine.Debug.LogError ("Error in "+this.name +" please check row "+ex.ToString ().Split (':') [3]+" in script: ");			
 			UnityEditor.EditorApplication.isPlaying = false;
@@ -35,6 +36,7 @@ public class progressBar : MonoBehaviour {
 	void Update () {
 		
 		Stats.timeleft=Stats.totalTime-Time.timeSinceLevelLoad;
+		print (Stats.totalTime +" total   :   sinceLVLSTART "+Time.timeSinceLevelLoad);
 		if (Stats.timeleft <= 0) {
 			Game.end ();
 		}

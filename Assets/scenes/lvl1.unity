@@ -5638,7 +5638,6 @@ MonoBehaviour:
   startTime: 0
   loop: 1
   pause: 0
-  dist: 0
 --- !u!114 &431422668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5653,8 +5652,9 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   dialogCanvas: {fileID: 0}
   textFileName: Dialogues
+  condition: 0
   satisfied: 0
-  followscript: {fileID: 0}
+  generated: 1
 --- !u!212 &431422669
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19672,7 +19672,6 @@ MonoBehaviour:
   startTime: 0
   loop: 1
   pause: 0
-  dist: 0
 --- !u!114 &1310687583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19687,8 +19686,9 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   dialogCanvas: {fileID: 0}
   textFileName: Dialogues
+  condition: 0
   satisfied: 0
-  followscript: {fileID: 0}
+  generated: 1
 --- !u!212 &1310687584
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20648,11 +20648,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1373795224}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2df8194b0c8689b418ce05fce3f06479, type: 3}
+  m_Script: {fileID: 11500000, guid: 5b113ea9bde78e24cb7f47570197077b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minutes: 0
-  seconds: 0
 --- !u!114 &1373795228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31106,7 +31104,6 @@ MonoBehaviour:
   startTime: 0
   loop: 1
   pause: 0
-  dist: 0
 --- !u!114 &2026121883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31121,8 +31118,9 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   dialogCanvas: {fileID: 0}
   textFileName: Dialogues
+  condition: 0
   satisfied: 0
-  followscript: {fileID: 0}
+  generated: 1
 --- !u!212 &2026121884
 SpriteRenderer:
   m_ObjectHideFlags: 0

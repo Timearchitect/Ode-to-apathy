@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public static class Game  {
 	public static AsyncOperation aos;
-	public static bool cheatMode=false,pause, lose, win , cutscene;
+	public static bool cheatMode=true,pause, lose, win , cutscene;
 	public static GameObject statScreen,panel;
 	public static Image panelImage;
 	public enum Conditions : short {visualLeft=0,visualRight=1,audioLeft=2,audioRight=3};
@@ -65,6 +65,7 @@ public static class Game  {
 		pause=false;
 		Time.timeScale = 1;
 		//Time.timeSinceLevelLoad;
+
 		Stats.wordCount = 0;
 		Stats.timeleft = 90;
 		Stats.drawProgess = 0;
