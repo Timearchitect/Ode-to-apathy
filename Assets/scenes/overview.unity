@@ -14595,6 +14595,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 0}
   dialogCanvas: {fileID: 0}
+  soundClip:
+  - {fileID: 0}
+  - {fileID: 0}
   textFileName: test
   condition: 2
   satisfied: 0
@@ -16088,7 +16091,7 @@ Transform:
   m_GameObject: {fileID: 1327974104}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -585, y: 364, z: 136}
-  m_LocalScale: {x: 82.54882, y: 48.1, z: 109.34864}
+  m_LocalScale: {x: 76.1, y: 78.8, z: 108.8}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 22
@@ -16919,6 +16922,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 0}
   dialogCanvas: {fileID: 0}
+  soundClip:
+  - {fileID: 0}
+  - {fileID: 0}
   textFileName: Dialogues
   condition: 0
   satisfied: 0
@@ -17028,6 +17034,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 0}
   dialogCanvas: {fileID: 0}
+  soundClip:
+  - {fileID: 0}
+  - {fileID: 0}
   textFileName: Dialogues
   condition: 0
   satisfied: 0
@@ -27244,6 +27253,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 0}
   dialogCanvas: {fileID: 0}
+  soundClip:
+  - {fileID: 0}
+  - {fileID: 0}
   textFileName: Dialogues
   condition: 0
   satisfied: 0
