@@ -14579,7 +14579,7 @@ MonoBehaviour:
   reachDist: 20
   currentPoint: 0
   startIndex: 1
-  startTime: 50
+  startTime: 0
   loop: 0
   pause: 0
 --- !u!114 &1217080867
@@ -14596,10 +14596,10 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   dialogCanvas: {fileID: 0}
   soundClip:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 71b98ec9b4509e94d85b1ff2d6d7659d, type: 3}
+  - {fileID: 8300000, guid: 9a1a5068bc7d9cd40813527f8143d5e3, type: 3}
   textFileName: test
-  condition: 2
+  condition: 3
   satisfied: 0
   generated: 0
 --- !u!212 &1217080868
@@ -17018,7 +17018,7 @@ MonoBehaviour:
   reachDist: 20
   currentPoint: 0
   startIndex: 1
-  startTime: 0
+  startTime: 20
   loop: 1
   pause: 0
 --- !u!114 &1383116709
@@ -27283,7 +27283,7 @@ MonoBehaviour:
   reachDist: 20
   currentPoint: 0
   startIndex: 1
-  startTime: 0
+  startTime: 20
   loop: 1
   pause: 0
 --- !u!28 &2095006711

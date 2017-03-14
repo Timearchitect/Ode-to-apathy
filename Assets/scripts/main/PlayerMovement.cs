@@ -20,7 +20,6 @@ public class PlayerMovement : MonoBehaviour {
 		print ("START PLAYER");
 		try{
 			Game.loadStaticReferences();
-
 			if (Game.cheatMode)
 				Stats.maxWordCount = 300;
 			player = GameObject.FindGameObjectWithTag("Player");
