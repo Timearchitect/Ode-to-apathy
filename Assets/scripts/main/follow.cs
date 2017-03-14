@@ -45,7 +45,7 @@ public class follow : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (!started && startTime <= Time.timeSinceLevelLoad) {
-			print ( " scripted enemy GO! now at: " + startTime);
+			print ( " scripted "+ this.gameObject.name +"  GO! now at: " + startTime);
 			started = true;
 		}
 		if (started) {
