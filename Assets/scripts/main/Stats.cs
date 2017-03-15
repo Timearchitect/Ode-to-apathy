@@ -18,8 +18,8 @@ public  class Stats  {
 	public static float apathyPenalty=-0.2f;
 	public static float apathyRegen=0.03f;
 	public static int ignoredObstacle;
-	public static float totalTime=90f;
-	public static int currentLevel;
+	public static float totalTime=60f;
+	public static int currentLevel=1;
 	public static float timeleft=totalTime;
 	public static int workMode,pWorkMode;
 	public static long modeTimer;
@@ -40,9 +40,13 @@ public  class Stats  {
 		pWorkMode = workMode;
 		if (workMode == 0) {
 			workMode = 1;
+			Game.machL.clip = Resources.Load ("pecil",typeof(AudioClip)) as AudioClip;
+			Game.machR.clip = Resources.Load ("pecil",typeof(AudioClip)) as AudioClip;
 		}
 		else{
 			workMode = 0;
+			Game.machL.clip = Resources.Load ("tangentbord",typeof(AudioClip)) as AudioClip;
+			Game.machR.clip = Resources.Load ("tangentbord",typeof(AudioClip)) as AudioClip;
 		}
 	}
 	public static void randomMode(){

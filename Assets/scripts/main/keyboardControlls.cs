@@ -94,6 +94,38 @@ public class keyboardControlls : MonoBehaviour {
 		//shift
 		
 		}
+		/*if (Input.GetKeyDown (KeyCode.LeftControl)) {
+			leftEyeOverlay.color = new Color (0f, 0f, 0f, leftEyeOverlay.color.a+.02f); 
+			//leftEyeOverlay.color = new Color (0f, 0f, 0f, 0.35f); 
+		}
+
+		if (Input.GetKeyDown (KeyCode.RightControl)) {
+			rightEyeOverlay.color = new Color (0f, 0f, 0f, rightEyeOverlay.color.a+.02f); 
+			//rightEyeOverlay.color = new Color (0f, 0f, 0f, 0.35f);
+		}
+
+		if (Input.GetKeyDown (KeyCode.LeftShift) && cafeL.bypassEffects ) {
+			coverLeftEar();
+		}
+
+		if (Input.GetKeyDown (KeyCode.RightShift)&& cafeR.bypassEffects) {
+			coverRightEar ();
+		}
+		if (Input.GetKeyUp (KeyCode.LeftControl)) {
+			//leftEyeOverlay.color = new Color (0f, 0f, 0f, 0.0f); 
+			leftEyeOverlay.color = new Color (0f, 0f, 0f, leftEyeOverlay.color.a-.02f); 
+		}
+		if (Input.GetKeyUp (KeyCode.RightControl)) {
+			//rightEyeOverlay.color = new Color (0f, 0f, 0f, 0.0f);
+			rightEyeOverlay.color = new Color (0f, 0f, 0f, rightEyeOverlay.color.a-.02f);
+
+		}
+		if (Input.GetKeyUp (KeyCode.LeftShift)) {
+			openLeftEar();
+		}
+		if (Input.GetKeyUp (KeyCode.RightShift)) {
+			openRightEar ();
+		}*/
 		//pastMousePos = Input.mousePosition;
 	}
 
@@ -112,12 +144,13 @@ public class keyboardControlls : MonoBehaviour {
 		foreach(KeyCode kcode in Enum.GetValues(typeof(KeyCode))){
 
 			if (Input.GetKeyDown (kcode)) {
-
 				if (Input.GetKeyDown (KeyCode.LeftControl)) {
+					//if(leftEyeOverlay.color.a<0.35f)leftEyeOverlay.color = new Color (0f, 0f, 0f, leftEyeOverlay.color.a+.02f); 
 					leftEyeOverlay.color = new Color (0f, 0f, 0f, 0.35f); 
 				}
 
 				if (Input.GetKeyDown (KeyCode.RightControl)) {
+					//if(rightEyeOverlay.color.a<0.35f)rightEyeOverlay.color = new Color (0f, 0f, 0f, rightEyeOverlay.color.a+.02f); 
 					rightEyeOverlay.color = new Color (0f, 0f, 0f, 0.35f);
 				}
 
@@ -135,6 +168,7 @@ public class keyboardControlls : MonoBehaviour {
 						Stats.wordCount += Stats.typeSpeed;
 						Stats.codeProgess += Stats.typeSpeed;
 						circleTimer.render ();
+						progressBar.highlight ();
 						if (Stats.codeProgess >= Stats.maxCodeProgress) {
 							Stats.shiftMode ();
 						}
@@ -145,7 +179,6 @@ public class keyboardControlls : MonoBehaviour {
 					}
 					if (animation.IsPlaying (drawing.name))animation.Stop (drawing.name);
 					animation.Play (typing.name);
-
 					timer = Time.time;
 					if(!bgmR.isPlaying) bgmR.Play();
 					if(!bgmL.isPlaying) bgmL.Play();
@@ -156,9 +189,12 @@ public class keyboardControlls : MonoBehaviour {
 			}
 			if (Input.GetKeyUp (KeyCode.LeftControl)) {
 				leftEyeOverlay.color = new Color (0f, 0f, 0f, 0.0f); 
+				//if(leftEyeOverlay.color.a>.02f)leftEyeOverlay.color = new Color (0f, 0f, 0f, leftEyeOverlay.color.a-.02f); 
 			}
 			if (Input.GetKeyUp (KeyCode.RightControl)) {
 				rightEyeOverlay.color = new Color (0f, 0f, 0f, 0.0f);
+				//if(rightEyeOverlay.color.a>.02f)rightEyeOverlay.color = new Color (0f, 0f, 0f, rightEyeOverlay.color.a-.02f);
+
 			}
 			if (Input.GetKeyUp (KeyCode.LeftShift)) {
 				openLeftEar();
@@ -175,6 +211,7 @@ public class keyboardControlls : MonoBehaviour {
 				Stats.wordCount += Stats.penSpeed;
 				Stats.drawProgess += Stats.penSpeed;
 				circleTimer.render ();
+				progressBar.highlight ();
 				pastMousePos = Input.mousePosition;
 				animation.Play (drawing.name);
 				timer = Time.time;

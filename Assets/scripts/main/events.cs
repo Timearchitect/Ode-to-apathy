@@ -14,10 +14,8 @@ public class events : MonoBehaviour {
 	
 	// Update is called once per frame
 	void LateUpdate () {
-
 		/*if (Input.GetKeyDown ("space")) {
 			remotePlayer =(GameObject)Instantiate(GameObject.FindGameObjectWithTag("enemy"));
-	
 			followScript = remotePlayer.GetComponent<follow>() ;
 			followScript.Pause ();
 			//(GameObject)Instantiate(GameObject.FindGameObjectWithTag("enemy"), new Vector3(0,0,0), Quaternion.identity);

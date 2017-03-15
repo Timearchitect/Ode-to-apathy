@@ -33,6 +33,14 @@ public static class Game  {
 		 player= GameObject.FindGameObjectWithTag("Player");
 	}
 
+	public static void gameover(){
+		aos = SceneManager.LoadSceneAsync(8);
+		aos.allowSceneActivation = true;
+	}
+	public static void apathyDeath(){
+		aos = SceneManager.LoadSceneAsync(9);
+		aos.allowSceneActivation = true;
+	}
 
 	public static void end () {
 		if (!pause) {
@@ -71,18 +79,19 @@ public static class Game  {
 			//GUI.enabled = false;
 			Debug.Log ("end!!!");
 			Game.pause = true;
-
+			Stats.currentLevel++;
 			aos = SceneManager.LoadSceneAsync((SceneManager.GetActiveScene ().buildIndex + 1));
 			aos.allowSceneActivation = true;
-		//	refresh ();
-		//	SceneManager.LoadScene ((SceneManager.GetActiveScene ().buildIndex + 1));
+			//refresh ();
+			//SceneManager.LoadScene ((SceneManager.GetActiveScene ().buildIndex + 1));
 		}
 	}
+
 	public static void alert(){
 		UnityEngine.Debug.Log ("ALERT!!"+Time.timeSinceLevelLoad);
 	}
+
 	public static void refresh(){
-		
 		UnityEngine.Debug.Log ("refresh!!"+Time.timeSinceLevelLoad);
 		pause=false;
 		Time.timeScale = 1;
@@ -96,6 +105,8 @@ public static class Game  {
 		Stats.apathy = Stats.maxApathy;
 
 	}
+
+
 	[System.Diagnostics.DebuggerStepThrough]
 	public static void check(UnityEngine.Object obj,String name){
 		if (obj == null)

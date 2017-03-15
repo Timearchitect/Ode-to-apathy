@@ -16,6 +16,7 @@ TagManager:
   - stopPointCafe
   - apathyBar
   - dialogPanel
+  - endCard
   layers:
   - Default
   - TransparentFX
