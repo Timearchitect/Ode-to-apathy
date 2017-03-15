@@ -83,3 +83,5 @@ sysinfo.txt
 *.unitypackage
 Assets/3dmodels/furniture/Textures.meta
 *.meta
+Assets/3dmodels/Furniture/bookandshelf.3ds.meta
+Assets/3dmodels/Furniture/bookshelf.3ds.meta
