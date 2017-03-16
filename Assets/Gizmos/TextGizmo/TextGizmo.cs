@@ -18,12 +18,10 @@ public class TextGizmo
 	private const int CHAR_TEXTURE_WIDTH = 12;
 	private const string characters = "abcdefghijklmnopqrstuvwxyz0123456789 _:-+*%()/";
 
-
 	public static void Init()
 	{
 		tg = new TextGizmo();
 	}
-
 
 	/* singleton constructor */
 	private TextGizmo()
@@ -34,8 +32,7 @@ public class TextGizmo
 			texturePathLookup.Add( characters[c], "TextGizmo/text_" + characters[c] + ".png" );
 		}
 	}
-
-
+		
 	/* only call this method from a OnGizmos() method */
 	public static void Draw( Vector3 position, string text )
 	{
@@ -48,9 +45,7 @@ public class TextGizmo
 			for (int c = 0; c < lowerText.Length; c++) {  
 				if (tg.texturePathLookup.ContainsKey (lowerText [c])) {
 					Vector3 worldPoint = tg.editorCamera.ScreenToWorldPoint (new Vector3 (screenPoint.x + offset, screenPoint.y, screenPoint.z - 600));
-
 					Gizmos.DrawIcon (worldPoint, tg.texturePathLookup [lowerText [c]], false);
-
 					offset += CHAR_TEXTURE_WIDTH;
 				}
 			}

@@ -10,7 +10,9 @@ public class keyboardControlls : MonoBehaviour {
 	public Image leftEyeOverlay,rightEyeOverlay;
 	//public static float wordCount=0f;
 	public float timer=0,duration;
+	public float fadeRate=0.04f;
 	private bool vacant=true;
+	private bool lv,rv,la,ra;
 	public AudioSource bgmR,cafeR,bgmL,cafeL,disL,disR;
 	private UnityEngine.UI.Text t;
 	private Animation animation;
@@ -90,37 +92,46 @@ public class keyboardControlls : MonoBehaviour {
 		detectReleasedKeyOrButton ();
 		detectMouseMovement ();
 		if (Stats.workMode != Stats.pWorkMode) {
-		
 		//shift
-		
 		}
-		/*if (Input.GetKeyDown (KeyCode.LeftControl)) {
-			leftEyeOverlay.color = new Color (0f, 0f, 0f, leftEyeOverlay.color.a+.02f); 
+
+		if(lv)increaseBlinds(leftEyeOverlay);
+		else decreaseBlinds(leftEyeOverlay);
+		if(rv)increaseBlinds(rightEyeOverlay);
+		else decreaseBlinds(rightEyeOverlay);
+
+		if (Input.GetKeyDown (KeyCode.LeftControl)) {
+			lv=true;
+			//leftEyeOverlay.color = new Color (0f, 0f, 0f, leftEyeOverlay.color.a+.02f); 
 			//leftEyeOverlay.color = new Color (0f, 0f, 0f, 0.35f); 
+			//increaseBlinds(leftEyeOverlay);
 		}
 
 		if (Input.GetKeyDown (KeyCode.RightControl)) {
-			rightEyeOverlay.color = new Color (0f, 0f, 0f, rightEyeOverlay.color.a+.02f); 
+			rv=true;
+			//rightEyeOverlay.color = new Color (0f, 0f, 0f, rightEyeOverlay.color.a+.02f); 
 			//rightEyeOverlay.color = new Color (0f, 0f, 0f, 0.35f);
+			//increaseBlinds(rightEyeOverlay);
 		}
 
-		if (Input.GetKeyDown (KeyCode.LeftShift) && cafeL.bypassEffects ) {
+		/*if (Input.GetKeyDown (KeyCode.LeftShift) && cafeL.bypassEffects ) {
 			coverLeftEar();
 		}
 
 		if (Input.GetKeyDown (KeyCode.RightShift)&& cafeR.bypassEffects) {
 			coverRightEar ();
-		}
-		if (Input.GetKeyUp (KeyCode.LeftControl)) {
-			//leftEyeOverlay.color = new Color (0f, 0f, 0f, 0.0f); 
-			leftEyeOverlay.color = new Color (0f, 0f, 0f, leftEyeOverlay.color.a-.02f); 
+		}*/
+		if (Input.GetKeyUp (KeyCode.LeftControl)) {			
+			lv = false;
+			//leftEyeOverlay.color = new Color (0f, 0f, 0f, leftEyeOverlay.color.a-.02f); 
+			//decreaseBlinds(leftEyeOverlay);
 		}
 		if (Input.GetKeyUp (KeyCode.RightControl)) {
-			//rightEyeOverlay.color = new Color (0f, 0f, 0f, 0.0f);
-			rightEyeOverlay.color = new Color (0f, 0f, 0f, rightEyeOverlay.color.a-.02f);
-
+			rv = false;
+			//rightEyeOverlay.color = new Color (0f, 0f, 0f, rightEyeOverlay.color.a-.02f);
+		//	decreaseBlinds(rightEyeOverlay);
 		}
-		if (Input.GetKeyUp (KeyCode.LeftShift)) {
+		/*if (Input.GetKeyUp (KeyCode.LeftShift)) {
 			openLeftEar();
 		}
 		if (Input.GetKeyUp (KeyCode.RightShift)) {
@@ -144,7 +155,7 @@ public class keyboardControlls : MonoBehaviour {
 		foreach(KeyCode kcode in Enum.GetValues(typeof(KeyCode))){
 
 			if (Input.GetKeyDown (kcode)) {
-				if (Input.GetKeyDown (KeyCode.LeftControl)) {
+				/*if (Input.GetKeyDown (KeyCode.LeftControl)) {
 					//if(leftEyeOverlay.color.a<0.35f)leftEyeOverlay.color = new Color (0f, 0f, 0f, leftEyeOverlay.color.a+.02f); 
 					leftEyeOverlay.color = new Color (0f, 0f, 0f, 0.35f); 
 				}
@@ -152,7 +163,7 @@ public class keyboardControlls : MonoBehaviour {
 				if (Input.GetKeyDown (KeyCode.RightControl)) {
 					//if(rightEyeOverlay.color.a<0.35f)rightEyeOverlay.color = new Color (0f, 0f, 0f, rightEyeOverlay.color.a+.02f); 
 					rightEyeOverlay.color = new Color (0f, 0f, 0f, 0.35f);
-				}
+				}*/
 
 				if (Input.GetKeyDown (KeyCode.LeftShift) && cafeL.bypassEffects ) {
 					coverLeftEar();
@@ -187,7 +198,7 @@ public class keyboardControlls : MonoBehaviour {
 				//print (this.name);
 	
 			}
-			if (Input.GetKeyUp (KeyCode.LeftControl)) {
+			/*if (Input.GetKeyUp (KeyCode.LeftControl)) {
 				leftEyeOverlay.color = new Color (0f, 0f, 0f, 0.0f); 
 				//if(leftEyeOverlay.color.a>.02f)leftEyeOverlay.color = new Color (0f, 0f, 0f, leftEyeOverlay.color.a-.02f); 
 			}
@@ -195,7 +206,7 @@ public class keyboardControlls : MonoBehaviour {
 				rightEyeOverlay.color = new Color (0f, 0f, 0f, 0.0f);
 				//if(rightEyeOverlay.color.a>.02f)rightEyeOverlay.color = new Color (0f, 0f, 0f, rightEyeOverlay.color.a-.02f);
 
-			}
+			}*/
 			if (Input.GetKeyUp (KeyCode.LeftShift)) {
 				openLeftEar();
 			}
@@ -223,6 +234,15 @@ public class keyboardControlls : MonoBehaviour {
 			}
 		}
 	}
+
+	public void increaseBlinds(Image img){
+		if(img.color.a<Stats.visualCoverMax)img.color = new Color (0,0,0, img.color.a+fadeRate);
+	}
+	public void decreaseBlinds(Image img){
+		if(img.color.a>0)img.color = new Color (0,0,0, img.color.a-fadeRate);
+	}
+
+
 	public void coverLeftEar(){
 		cafeL.volume = 0.005f;
 		bgmL.volume = 0.01f;

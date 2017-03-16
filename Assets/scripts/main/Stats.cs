@@ -10,6 +10,7 @@ public  class Stats  {
 	public static float apathy=maxApathy;
 	public static float averageTypeSpeed;
 	public static float typeSpeed = 2;
+	public static float visualCoverMax = .8f;
 	public static float distractedTime;
 	public static float penSpeed=0.7f;
 	public static float panStereo=0.0f;

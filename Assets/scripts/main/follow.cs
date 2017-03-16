@@ -39,9 +39,6 @@ public class follow : MonoBehaviour {
 		} else {
 			point = null;
 		}
-
-
-
 	
 	}
 
@@ -109,7 +106,6 @@ public class follow : MonoBehaviour {
 		} else {
 			pause = false;
 		}
-
 	}
 
 
