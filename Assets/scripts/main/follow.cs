@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEditor;
 public class follow : MonoBehaviour {
 	[SerializeField]
 	public GameObject path;
@@ -24,6 +24,26 @@ public class follow : MonoBehaviour {
 	private float dist;
 	private enemy enemyscript;
 	private bool dead;
+
+
+	void OnValidate(){
+
+		if (path != null) {
+			point = path.GetComponentsInChildren <Transform> ();
+			for (int a = 0; a < point.Length - 1; a++){
+				// moving elements downwards, to fill the gap at [index]
+				point[a] = point[a + 1];
+			}
+			// finally, let's decrement Array's size by one
+			Array.Resize(ref point, point.Length - 1);
+		} else {
+			point = null;
+		}
+
+
+
+	
+	}
 
 	void Start () {
 		try{
@@ -94,9 +114,26 @@ public class follow : MonoBehaviour {
 
 
 	void OnDrawGizmos(){
+		TextGizmo.Draw (transform.position, "time "+startTime);
+		if (Selection.Contains (gameObject)) {
+			Gizmos.color = Color.red;
+		} else {
+			Gizmos.color = new Color (0, 0, 0, .2f);
+		}
+
 		foreach (Transform p in point) {
 			Gizmos.DrawSphere (p.position,reachDist);
 		}
+
+		Gizmos.DrawLine (transform.position, point [0].position);
+		for(int i=0; i<point.Length;i++){
+			if (point.Length-1 > i  ) {
+				Gizmos.DrawLine (point [i].position, point [i + 1].position);
+			}
+			if (Selection.Contains (gameObject))TextGizmo.Draw (point [i].position, i + "");
+		}
+		if(loop)Gizmos.DrawLine (point [point.Length-1].position, point [0].position);
+		else Gizmos.DrawCube (point [point.Length-1].position,new Vector3(reachDist*2,reachDist*2,reachDist*2));
 	}
 	public bool isPaused(){
 		return pause;
