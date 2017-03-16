@@ -12716,7 +12716,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 987674277}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -289, y: 244, z: 203}
+  m_LocalPosition: {x: -289, y: 296, z: 203}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
   - {fileID: 2140668433}
@@ -16900,10 +16900,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 219cbd8465101db41a130b1a82debcd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: {fileID: 0}
+  path: {fileID: 707747155}
   point:
-  - {fileID: 326498439}
-  - {fileID: 1722634201}
+  - {fileID: 517140134}
+  - {fileID: 1929467084}
+  - {fileID: 698693870}
+  - {fileID: 567808237}
+  - {fileID: 1722374213}
+  - {fileID: 962092455}
   speed: 250
   reachDist: 20
   currentPoint: 0
@@ -16925,8 +16929,8 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   dialogCanvas: {fileID: 0}
   soundClip:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: bd3e6c86d42ca0046a417500e8237780, type: 3}
+  - {fileID: 8300000, guid: 0a78951619b432044b1199844927af4b, type: 3}
   textFileName: Dialogues
   condition: 0
   satisfied: 0
@@ -17008,7 +17012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 219cbd8465101db41a130b1a82debcd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: {fileID: 0}
+  path: {fileID: 1307719993}
   point:
   - {fileID: 739859119}
   - {fileID: 1887346282}
@@ -17037,8 +17041,8 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   dialogCanvas: {fileID: 0}
   soundClip:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: bd3e6c86d42ca0046a417500e8237780, type: 3}
+  - {fileID: 8300000, guid: 0a78951619b432044b1199844927af4b, type: 3}
   textFileName: Dialogues
   condition: 0
   satisfied: 0
@@ -17085,7 +17089,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1383116707}
   m_LocalRotation: {x: -0, y: -0, z: 0.007472939, w: 0.9999721}
-  m_LocalPosition: {x: 1140, y: 101, z: 188}
+  m_LocalPosition: {x: 1142, y: -17, z: 188}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
@@ -27256,8 +27260,8 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   dialogCanvas: {fileID: 0}
   soundClip:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: bd3e6c86d42ca0046a417500e8237780, type: 3}
+  - {fileID: 8300000, guid: 0a78951619b432044b1199844927af4b, type: 3}
   textFileName: Dialogues
   condition: 0
   satisfied: 0
@@ -27273,7 +27277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 219cbd8465101db41a130b1a82debcd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: {fileID: 0}
+  path: {fileID: 707747155}
   point:
   - {fileID: 517140134}
   - {fileID: 1929467084}
