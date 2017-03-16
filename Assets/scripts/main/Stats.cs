@@ -32,8 +32,7 @@ public  class Stats  {
 		if(apathy>-Stats.apathyPenalty)apathy += Stats.apathyPenalty;
 	}
 	public static void regenApathy(){
-		if (apathy < maxApathy) 
-			apathy += apathyRegen;
+		if (apathy < maxApathy) apathy += apathyRegen;
 	}
 	public static void shiftMode(){
 		drawProgess = 0;
@@ -60,7 +59,6 @@ public  class Stats  {
 	/*// Use this for initialization
 	void Start () {
 	}
-	
 	// Update is called once per frame
 	void Update () {
 	}*/

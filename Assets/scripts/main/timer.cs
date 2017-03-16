@@ -14,13 +14,13 @@ public class timer : MonoBehaviour {
 		timeStyle.fontSize = Mathf.FloorToInt(Screen.width*.04f);
 		timeStyle.alignment = TextAnchor.MiddleCenter;
 		timeStyle.font = (Font)Resources.Load("helvetica-normal-58c53b4136502");
-		//currentStyle = new GUIStyle( GUI.skin.box );
-		//currentStyle.normal.background = MakeTex( 2, 2, new Color( 0f, 1f, 0f, 0.5f ) );
+		//	currentStyle = new GUIStyle( GUI.skin.box );
+		//	currentStyle.normal.background = MakeTex( 2, 2, new Color( 0f, 1f, 0f, 0.5f ) );
 	}
 	
-	// Update is called once per frame
+	//	Update is called once per frame
 	void Update () {
-		//gametimer -= Time.deltaTime;
+		//	gametimer -= Time.deltaTime;
 		minutes = Mathf.FloorToInt(Stats.timeleft / 60);
 		seconds = Mathf.CeilToInt(Stats.timeleft % 60);
 		if(Stats.timeleft <= 0){
