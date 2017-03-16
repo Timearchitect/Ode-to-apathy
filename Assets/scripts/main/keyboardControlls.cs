@@ -10,7 +10,6 @@ public class keyboardControlls : MonoBehaviour {
 	public Image leftEyeOverlay,rightEyeOverlay;
 	//public static float wordCount=0f;
 	public float timer=0,duration;
-	public float fadeRate=0.04f;
 	private bool vacant=true;
 	private bool lv,rv,la,ra;
 	public AudioSource bgmR,cafeR,bgmL,cafeL,disL,disR;
@@ -236,10 +235,10 @@ public class keyboardControlls : MonoBehaviour {
 	}
 
 	public void increaseBlinds(Image img){
-		if(img.color.a<Stats.visualCoverMax)img.color = new Color (0,0,0, img.color.a+fadeRate);
+		if(img.color.a<Stats.visualCoverMax)img.color = new Color (0,0,0, img.color.a+Stats.fadeRate);
 	}
 	public void decreaseBlinds(Image img){
-		if(img.color.a>0)img.color = new Color (0,0,0, img.color.a-fadeRate);
+		if(img.color.a>0)img.color = new Color (0,0,0, img.color.a-Stats.fadeRate);
 	}
 
 

@@ -4,13 +4,14 @@ using UnityEngine;
 
 public  class Stats  {
 	//public static float wordSpeed;
-	public static int maxWordCount=1100,maxDrawProgress=100,maxCodeProgress=100;
+	public static int maxWordCount=400,maxDrawProgress=100,maxCodeProgress=100;
 	public static float wordCount,drawProgess,codeProgess;
 	public static float maxApathy=100;
 	public static float apathy=maxApathy;
 	public static float averageTypeSpeed;
 	public static float typeSpeed = 2;
-	public static float visualCoverMax = .8f;
+	public static float visualCoverMax = .6f;
+	public static float fadeRate=0.06f;
 	public static float distractedTime;
 	public static float penSpeed=0.7f;
 	public static float panStereo=0.0f;

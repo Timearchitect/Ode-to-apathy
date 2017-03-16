@@ -117,8 +117,10 @@ public class follow : MonoBehaviour {
 			Gizmos.color = new Color (0, 0, 0, .2f);
 		}
 
-		foreach (Transform p in point) {
-			Gizmos.DrawSphere (p.position,reachDist);
+		if (point != null) {
+			foreach (Transform p in point) {
+				Gizmos.DrawSphere (p.position, reachDist);
+			}
 		}
 
 		Gizmos.DrawLine (transform.position, point [0].position);
