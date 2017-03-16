@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1752,7 +1752,7 @@ RectTransform:
   - {fileID: 1940971720}
   - {fileID: 1882305128}
   m_Father: {fileID: 660475252}
-  m_RootOrder: 3
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1910,7 +1910,7 @@ RectTransform:
   - {fileID: 1797070201}
   - {fileID: 1494513658}
   m_Father: {fileID: 660475252}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2471,7 +2471,7 @@ RectTransform:
   - {fileID: 1978341883}
   - {fileID: 376959173}
   m_Father: {fileID: 660475252}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2602,12 +2602,12 @@ RectTransform:
   - {fileID: 1138040862}
   - {fileID: 1146438353}
   - {fileID: 372054942}
-  - {fileID: 264997582}
   - {fileID: 314649881}
   - {fileID: 1767250112}
   - {fileID: 2065249035}
   - {fileID: 695274864}
   - {fileID: 595411998}
+  - {fileID: 264997582}
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2628,12 +2628,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugContent: {fileID: 0}
-  leftEye: {fileID: 0}
-  rightEye: {fileID: 0}
+  leftEyeOverlay: {fileID: 0}
+  rightEyeOverlay: {fileID: 0}
   timer: 0
   duration: 0
-  bgm: {fileID: 0}
-  cafe: {fileID: 0}
+  bgmR: {fileID: 0}
+  cafeR: {fileID: 0}
+  bgmL: {fileID: 0}
+  cafeL: {fileID: 0}
+  disL: {fileID: 0}
+  disR: {fileID: 0}
   aS: []
 --- !u!114 &660475254
 MonoBehaviour:
@@ -2646,8 +2650,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2df8194b0c8689b418ce05fce3f06479, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minutes: 0
-  seconds: 0
 --- !u!114 &660475255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2659,6 +2661,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d612ea8d44d73024c886dc21fd5c5c97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  go: {fileID: 0}
+  apathyBar: {fileID: 0}
+  camera: {fileID: 0}
+  desaturation: {fileID: 0}
 --- !u!114 &660475256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2761,7 +2767,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 660475252}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4239,13 +4245,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 219cbd8465101db41a130b1a82debcd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  path: {fileID: 112937058}
   point:
   - {fileID: 326498439}
   - {fileID: 1722634201}
   speed: 150
   reachDist: 20
   currentPoint: 0
-  stopDistance: 150
+  startIndex: 0
+  startTime: 0
   loop: 1
   pause: 0
 --- !u!114 &1382854730
@@ -4260,7 +4268,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 0}
+  condition: 0
+  dialogCanvas: {fileID: 1278149303514428, guid: bace621d7201d384db53a6e68087b7ac,
+    type: 2}
+  textFileName: Dialogues
+  soundClip:
+  - {fileID: 8300000, guid: bd3e6c86d42ca0046a417500e8237780, type: 3}
+  - {fileID: 8300000, guid: 0a78951619b432044b1199844927af4b, type: 3}
   satisfied: 0
+  generated: 1
 --- !u!212 &1382854731
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4338,16 +4354,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 219cbd8465101db41a130b1a82debcd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  path: {fileID: 1307719993}
   point:
   - {fileID: 739859119}
   - {fileID: 1887346282}
   - {fileID: 2032744392}
-  - {fileID: 977999956}
   - {fileID: 1474822897}
+  - {fileID: 977999956}
   speed: 150
   reachDist: 20
   currentPoint: 0
-  stopDistance: 150
+  startIndex: 0
+  startTime: 0
   loop: 1
   pause: 0
 --- !u!114 &1383116709
@@ -4362,7 +4380,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 0}
+  condition: 0
+  dialogCanvas: {fileID: 1278149303514428, guid: bace621d7201d384db53a6e68087b7ac,
+    type: 2}
+  textFileName: Dialogues
+  soundClip:
+  - {fileID: 8300000, guid: bd3e6c86d42ca0046a417500e8237780, type: 3}
+  - {fileID: 8300000, guid: 0a78951619b432044b1199844927af4b, type: 3}
   satisfied: 0
+  generated: 1
 --- !u!212 &1383116710
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4937,6 +4963,7 @@ MonoBehaviour:
       width: 152
       height: 18
     updated: 1
+  paning: 0
 --- !u!1 &1474822896
 GameObject:
   m_ObjectHideFlags: 0
@@ -6162,7 +6189,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 660475252}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7139,7 +7166,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 660475252}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7312,7 +7339,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 0}
+  condition: 0
+  dialogCanvas: {fileID: 1278149303514428, guid: bace621d7201d384db53a6e68087b7ac,
+    type: 2}
+  textFileName: Homeless_man
+  soundClip:
+  - {fileID: 8300000, guid: bd3e6c86d42ca0046a417500e8237780, type: 3}
+  - {fileID: 8300000, guid: 0a78951619b432044b1199844927af4b, type: 3}
   satisfied: 0
+  generated: 0
 --- !u!114 &2091271382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7324,15 +7359,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 219cbd8465101db41a130b1a82debcd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  path: {fileID: 707747155}
   point:
   - {fileID: 517140134}
   - {fileID: 1929467084}
   - {fileID: 567808237}
-  - {fileID: 1722374213}
   - {fileID: 962092455}
+  - {fileID: 1722374213}
   speed: 200
   reachDist: 20
   currentPoint: 0
-  stopDistance: 150
-  loop: 1
+  startIndex: 0
+  startTime: 0
+  loop: 0
   pause: 0
