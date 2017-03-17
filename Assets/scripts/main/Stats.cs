@@ -35,11 +35,11 @@ public  class Stats  {
 				totalTime =90;
 				break;
 			case 2:
-				maxWordCount = 1000;
+				maxWordCount = 900;
 				totalTime =100;
 				break;
 			case 3:
-				maxWordCount = 1200;
+				maxWordCount = 1100;
 				totalTime =100;
 				break;
 			default:
