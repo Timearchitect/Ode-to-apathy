@@ -96,14 +96,14 @@ public static class Game  {
 		pause=false;
 		Time.timeScale = 1;
 		//Time.timeSinceLevelLoad;
-
+		Stats.difficultyBasedOnLevel();
 		Stats.wordCount = 0;
-		Stats.timeleft = 90;
+		Stats.timeleft = Stats.totalTime;
 		Stats.drawProgess = 0;
 		Stats.codeProgess = 0;
 		Stats.apathyLost = 0;
 		Stats.apathy = Stats.maxApathy;
-
+		timer.resetSoundNoArduino = true;
 	}
 
 

@@ -8,8 +8,10 @@ public class timer : MonoBehaviour {
 	private int minutes  , seconds ;
 	private  GUIStyle timeStyle,currentStyle;
 	public Texture2D myGUITexture;
+	public static bool resetSoundNoArduino=true;
 	// Use this for initialization
 	void Start () { 
+
 		timeStyle  = new GUIStyle("box");
 		timeStyle.fontSize = Mathf.FloorToInt(Screen.width*.04f);
 		timeStyle.alignment = TextAnchor.MiddleCenter;
@@ -20,6 +22,14 @@ public class timer : MonoBehaviour {
 	
 	//	Update is called once per frame
 	void Update () {
+		if (resetSoundNoArduino && Time.timeSinceLevelLoad > 1) {
+			resetSoundNoArduino = false;
+			AudioSource[] As = GameObject.FindObjectsOfType<AudioSource> ();
+			foreach (AudioSource a in As) {
+				a.volume = 1;
+				a.bypassEffects = true;
+			}
+		}
 		//	gametimer -= Time.deltaTime;
 		minutes = Mathf.FloorToInt(Stats.timeleft / 60);
 		seconds = Mathf.FloorToInt(Stats.timeleft % 60);

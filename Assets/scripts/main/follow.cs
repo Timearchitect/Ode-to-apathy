@@ -167,6 +167,7 @@ public class follow : MonoBehaviour {
 	public void reset(){
 
 			enemyscript.randomize ();
+			enemyscript.firstDialog = true;
 			enemyscript.satisfied = false;
 			pause = false;
 			//float dist = Vector3.Distance (point [currentPoint].position, this.transform.position);

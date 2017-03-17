@@ -27,13 +27,27 @@ public  class Stats  {
 	public static long modeTimer;
 	public static int workDuration = 10;
 
-
-	public static void increaseDifficulty(){
-		maxWordCount += 100;
-
-
+	public static void difficultyBasedOnLevel(){
+		UnityEngine.Debug.Log ("difficulty based on level: "+Stats.currentLevel);
+		switch(currentLevel){
+			case 1:
+				maxWordCount = 800;
+				totalTime =90;
+				break;
+			case 2:
+				maxWordCount = 1000;
+				totalTime =100;
+				break;
+			case 3:
+				maxWordCount = 1200;
+				totalTime =100;
+				break;
+			default:
+				maxWordCount = 1000;
+				totalTime = 90;
+			break;
+			}
 	}
-
 
 	public static void reduceHealth(){
 		if(apathy>-Stats.apathyPenalty)apathy += Stats.apathyPenalty;

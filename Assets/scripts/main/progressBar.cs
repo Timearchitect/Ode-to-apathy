@@ -16,6 +16,7 @@ public class progressBar : MonoBehaviour {
 
 	void Start () {
 		try{
+			Stats.difficultyBasedOnLevel();
 			camera= GameObject.Find("Camera");
 				print(camera.name);			
 			desaturation = camera.GetComponent<ColorCorrectionCurves> ();
