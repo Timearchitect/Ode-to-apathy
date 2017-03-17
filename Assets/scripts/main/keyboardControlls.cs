@@ -87,31 +87,32 @@ public class keyboardControlls : MonoBehaviour {
 				bgmR.Pause ();
 			}
 		}
-		detectPressedKeyOrButton ();
-		detectReleasedKeyOrButton ();
-		detectMouseMovement ();
-		//if (Stats.workMode != Stats.pWorkMode) {
-		//shift
-		//}
+		if(!Game.pause){
+			detectPressedKeyOrButton ();
+			detectReleasedKeyOrButton ();
+			detectMouseMovement ();
+			//if (Stats.workMode != Stats.pWorkMode) {
+			//shift
+			//}
 
-		if(lv)increaseBlinds(leftEyeOverlay);
-		else decreaseBlinds(leftEyeOverlay);
-		if(rv)increaseBlinds(rightEyeOverlay);
-		else decreaseBlinds(rightEyeOverlay);
+			if(lv)increaseBlinds(leftEyeOverlay);
+			else decreaseBlinds(leftEyeOverlay);
+			if(rv)increaseBlinds(rightEyeOverlay);
+			else decreaseBlinds(rightEyeOverlay);
 
-		if (Input.GetKeyDown (KeyCode.LeftControl)) {
-			lv=true;
-			//leftEyeOverlay.color = new Color (0f, 0f, 0f, leftEyeOverlay.color.a+.02f); 
-			//leftEyeOverlay.color = new Color (0f, 0f, 0f, 0.35f); 
-			//increaseBlinds(leftEyeOverlay);
-		}
+			if (Input.GetKeyDown (KeyCode.LeftControl)) {
+				lv=true;
+				//leftEyeOverlay.color = new Color (0f, 0f, 0f, leftEyeOverlay.color.a+.02f); 
+				//leftEyeOverlay.color = new Color (0f, 0f, 0f, 0.35f); 
+				//increaseBlinds(leftEyeOverlay);
+			}
 
-		if (Input.GetKeyDown (KeyCode.RightControl)) {
-			rv=true;
-			//rightEyeOverlay.color = new Color (0f, 0f, 0f, rightEyeOverlay.color.a+.02f); 
-			//rightEyeOverlay.color = new Color (0f, 0f, 0f, 0.35f);
-			//increaseBlinds(rightEyeOverlay);
-		}
+			if (Input.GetKeyDown (KeyCode.RightControl)) {
+				rv=true;
+				//rightEyeOverlay.color = new Color (0f, 0f, 0f, rightEyeOverlay.color.a+.02f); 
+				//rightEyeOverlay.color = new Color (0f, 0f, 0f, 0.35f);
+				//increaseBlinds(rightEyeOverlay);
+			}
 
 		/*if (Input.GetKeyDown (KeyCode.LeftShift) && cafeL.bypassEffects ) {
 			coverLeftEar();
@@ -120,15 +121,16 @@ public class keyboardControlls : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.RightShift)&& cafeR.bypassEffects) {
 			coverRightEar ();
 		}*/
-		if (Input.GetKeyUp (KeyCode.LeftControl)) {			
-			lv = false;
+			if (Input.GetKeyUp (KeyCode.LeftControl)) {			
+				lv = false;
 			//leftEyeOverlay.color = new Color (0f, 0f, 0f, leftEyeOverlay.color.a-.02f); 
 			//decreaseBlinds(leftEyeOverlay);
-		}
-		if (Input.GetKeyUp (KeyCode.RightControl)) {
-			rv = false;
+			}
+			if (Input.GetKeyUp (KeyCode.RightControl)) {
+				rv = false;
 			//rightEyeOverlay.color = new Color (0f, 0f, 0f, rightEyeOverlay.color.a-.02f);
 		//	decreaseBlinds(rightEyeOverlay);
+			}
 		}
 		/*if (Input.GetKeyUp (KeyCode.LeftShift)) {
 			openLeftEar();
