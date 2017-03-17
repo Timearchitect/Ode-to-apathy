@@ -12,6 +12,7 @@ public class dialogs : MonoBehaviour {
 	private string[] textLines;
 	private Text content;
 	private int line=0;
+	private float timer;
 	private bool skip;
 	// Use this for initialization
 
@@ -45,20 +46,19 @@ public class dialogs : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.anyKeyDown && !Game.pause) {
+		if (timer+2.5<Time.time  && !Game.pause) { //Input.anyKeyDown
+			timer=Time.time;
 			if (line < textLines.Length - 1) {
 				line++;
 				content.text = textLines [line];
 			} else {
 				print (this.gameObject+"typing destroy!!!");
-
 				Destroy (gameObject);
 			}
 		}
 		if ( skip ) {
 			Destroy (gameObject);
 			print (this.gameObject+"destroy!!!");
-
 		}
 	}
 
@@ -67,6 +67,5 @@ public class dialogs : MonoBehaviour {
 		line = textLines.Length;
 		skip = true;
 		//Destroy (this.gameObject);
-
 	}
 }

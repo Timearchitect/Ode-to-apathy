@@ -57,10 +57,10 @@ public class keyboardControlls : MonoBehaviour {
 
 		}
 	}
-	void Awake () {
+/*	void Awake () {
 		print ("Awake keyBoard!!!    !!!");
 		Start ();
-	}
+	}*/
 	// Update is called once per frame
 	void Update () {
 	/*	float hVal = Input.GetAxis ("Horizontal"); 
@@ -90,9 +90,9 @@ public class keyboardControlls : MonoBehaviour {
 		detectPressedKeyOrButton ();
 		detectReleasedKeyOrButton ();
 		detectMouseMovement ();
-		if (Stats.workMode != Stats.pWorkMode) {
+		//if (Stats.workMode != Stats.pWorkMode) {
 		//shift
-		}
+		//}
 
 		if(lv)increaseBlinds(leftEyeOverlay);
 		else decreaseBlinds(leftEyeOverlay);
@@ -240,8 +240,7 @@ public class keyboardControlls : MonoBehaviour {
 	public void decreaseBlinds(Image img){
 		if(img.color.a>0)img.color = new Color (0,0,0, img.color.a-Stats.fadeRate);
 	}
-
-
+		
 	public void coverLeftEar(){
 		cafeL.volume = 0.005f;
 		bgmL.volume = 0.01f;

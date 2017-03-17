@@ -7,6 +7,7 @@ public class Movie : MonoBehaviour {
 	public MovieTexture movie;
 	private AudioSource audio;
 	int quality;
+
 	void Start () {
 		quality = QualitySettings.vSyncCount;
 		QualitySettings.vSyncCount = 0;
@@ -23,10 +24,10 @@ public class Movie : MonoBehaviour {
 			QualitySettings.vSyncCount = quality;
 			this.gameObject.SetActive (false);
 		}
-		if (Input.GetKeyDown (KeyCode.Space) && movie.isPlaying)
+		/*if (Input.GetKeyDown (KeyCode.Space) && movie.isPlaying)
 			movie.Pause ();
 		else if (Input.GetKeyDown (KeyCode.Space) && !movie.isPlaying)
-			movie.Play ();
+			movie.Play ();*/
 	}
 
 }

@@ -22,7 +22,7 @@ public class timer : MonoBehaviour {
 	void Update () {
 		//	gametimer -= Time.deltaTime;
 		minutes = Mathf.FloorToInt(Stats.timeleft / 60);
-		seconds = Mathf.CeilToInt(Stats.timeleft % 60);
+		seconds = Mathf.FloorToInt(Stats.timeleft % 60);
 		if(Stats.timeleft <= 0){
 			Stats.timeleft = 0;
 			seconds=0;

@@ -11,7 +11,7 @@ public  class Stats  {
 	public static float averageTypeSpeed;
 	public static float typeSpeed = 2;
 	public static float visualCoverMax = .6f;
-	public static float fadeRate=0.06f;
+	public static float fadeRate=0.08f;
 	public static float distractedTime;
 	public static float penSpeed=0.7f;
 	public static float panStereo=0.0f;
@@ -26,6 +26,13 @@ public  class Stats  {
 	public static int workMode,pWorkMode;
 	public static long modeTimer;
 	public static int workDuration = 10;
+
+
+	public static void increaseDifficulty(){
+		maxWordCount += 100;
+
+
+	}
 
 
 	public static void reduceHealth(){
