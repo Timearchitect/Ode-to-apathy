@@ -32,15 +32,18 @@ public  class Stats  {
 		switch(currentLevel){
 			case 1:
 				maxWordCount = 800;
-				totalTime =90;
+				totalTime =100;
+				apathyRegen=0.05f;
 				break;
 			case 2:
 				maxWordCount = 900;
 				totalTime =100;
+				apathyRegen=0.04f;
 				break;
 			case 3:
-				maxWordCount = 1100;
-				totalTime =100;
+				maxWordCount = 1000;
+				totalTime =90;
+				apathyRegen=0.035f;
 				break;
 			default:
 				maxWordCount = 1000;
