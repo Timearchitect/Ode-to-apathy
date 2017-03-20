@@ -39,9 +39,6 @@ public class follow : MonoBehaviour {
 		} else {
 			point = null;
 		}
-
-
-
 	
 	}
 
@@ -75,8 +72,8 @@ public class follow : MonoBehaviour {
 				if (!pause || enemyscript.satisfied)
 					move ();
 				stopPoint_player (); //Check stoppoints
-				if (stopPoint_cafe != null)
-					stopPoint_cafeCounter ();
+				//	if (stopPoint_cafe != null)
+				//	stopPoint_cafeCounter ();
 			}
 		}
 	}
@@ -109,7 +106,6 @@ public class follow : MonoBehaviour {
 		} else {
 			pause = false;
 		}
-
 	}
 
 
@@ -121,19 +117,24 @@ public class follow : MonoBehaviour {
 			Gizmos.color = new Color (0, 0, 0, .2f);
 		}
 
-		foreach (Transform p in point) {
-			Gizmos.DrawSphere (p.position,reachDist);
-		}
-
-		Gizmos.DrawLine (transform.position, point [0].position);
-		for(int i=0; i<point.Length;i++){
-			if (point.Length-1 > i  ) {
-				Gizmos.DrawLine (point [i].position, point [i + 1].position);
+		if (point != null) {
+			foreach (Transform p in point) {
+				Gizmos.DrawSphere (p.position, reachDist);
 			}
-			if (Selection.Contains (gameObject))TextGizmo.Draw (point [i].position, i + "");
+		
+			Gizmos.DrawLine (transform.position, point [0].position);
+			for (int i = 0; i < point.Length; i++) {
+				if (point.Length - 1 > i) {
+					Gizmos.DrawLine (point [i].position, point [i + 1].position);
+				}
+				if (Selection.Contains (gameObject))
+					TextGizmo.Draw (point [i].position, i + "");
+			}
+			if (loop)
+				Gizmos.DrawLine (point [point.Length - 1].position, point [0].position);
+			else
+				Gizmos.DrawCube (point [point.Length - 1].position, new Vector3 (reachDist * 2, reachDist * 2, reachDist * 2));
 		}
-		if(loop)Gizmos.DrawLine (point [point.Length-1].position, point [0].position);
-		else Gizmos.DrawCube (point [point.Length-1].position,new Vector3(reachDist*2,reachDist*2,reachDist*2));
 	}
 	public bool isPaused(){
 		return pause;
@@ -166,6 +167,7 @@ public class follow : MonoBehaviour {
 	public void reset(){
 
 			enemyscript.randomize ();
+			enemyscript.firstDialog = true;
 			enemyscript.satisfied = false;
 			pause = false;
 			//float dist = Vector3.Distance (point [currentPoint].position, this.transform.position);

@@ -13,8 +13,11 @@ public class progressBar : MonoBehaviour {
 	private Slider progress,apathy;
 	private UnityEngine.UI.Image fill,bfill;
 	private RectTransform rt ,art;
+
 	void Start () {
 		try{
+
+			Stats.difficultyBasedOnLevel();
 			camera= GameObject.Find("Camera");
 				print(camera.name);			
 			desaturation = camera.GetComponent<ColorCorrectionCurves> ();
@@ -34,19 +37,17 @@ public class progressBar : MonoBehaviour {
 			fill = bar.GetComponentsInChildren<UnityEngine.UI.Image>()[1];
 			bfill = bar.GetComponentsInChildren<UnityEngine.UI.Image>()[0];
 			//fill.color=  Color.blue;
-				
 			//fill.color=  Color.Lerp(Color.red, Color.green, 0.5f);
 	
 			print(bar+"!!!!!!!! mybar");
-			 rt = bar.GetComponent<RectTransform>();
+			rt = bar.GetComponent<RectTransform>();
 			rt.sizeDelta=new Vector2(Screen.width*1f,60);
 			rt.transform.position= new Vector3(Screen.width*0.5f,Screen.height*.98f,0);
 
-			 art = apathyBar.GetComponent<RectTransform>();
+			art = apathyBar.GetComponent<RectTransform>();
 			art.sizeDelta=new Vector2(Screen.width*.2f,40);
 			//art.transform.position= new Vector3(Screen.width*.8f,Screen.height*.05f,0);
 			art.transform.position= new Vector3(Screen.width*.95f,Screen.height*.35f,0);
-
 			//new Vector2(300,300),new Vector2(Screen.width,Screen.height*.1f)
 
 		}catch(Exception ex ){
@@ -57,11 +58,12 @@ public class progressBar : MonoBehaviour {
 	}
 	
 	void Update () {
+		
 		fill.color=  Color.Lerp(Color.white, Color.green, percentBlend);
 		percentBlend *= 0.92f;
 		sizeLerp*= 0.9f;
 		asizeLerp*= 0.85f;
-		if (Input.GetMouseButtonDown (0))highlightApathy ();
+		//if (Input.GetMouseButtonDown (0))highlightApathy ();
 		rt.sizeDelta=new Vector2(Screen.width*1f*(1+sizeLerp),60*(1+sizeLerp));
 		art.sizeDelta=new Vector2((float)(Screen.height*.4f+(Math.Sin(asizeLerp)*30)+60),(float)(45+(Math.Sin(asizeLerp)*30)+60));
 		//art.sizeDelta=new Vector2((float)(30+(Math.Sin(asizeLerp)*40)),(float)(Screen.height*.2f+(Math.Sin(asizeLerp)*40)));
