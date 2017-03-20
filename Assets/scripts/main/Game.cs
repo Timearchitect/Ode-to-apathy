@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public static class Game  {
 	public static AsyncOperation aos;
-	public static bool cheatMode=false,pause, lose, win , cutscene;
+	public static bool cheatMode=true,pause, lose, win , cutscene;
 	public static GameObject statScreen,panel;
 	public static Image panelImage;
 	public enum Conditions : short {visualLeft=0,visualRight=1,audioLeft=2,audioRight=3};
@@ -44,7 +44,6 @@ public static class Game  {
 
 	public static void end () {
 		if (!pause) {
-	
 			GameObject gui;
 			GameObject reviewPanel;
 			gui = GameObject.Find ("GUI");
@@ -96,11 +95,12 @@ public static class Game  {
 		Time.timeScale = 1;
 		//Time.timeSinceLevelLoad;
 		//print ("build index +1: " + ());
-
+		win=false;
 		UnityEngine.Debug.Log ("refresh!!"+Time.timeSinceLevelLoad+" current LVL:"+Stats.currentLevel);
 
 		Stats.difficultyBasedOnLevel();
 		Stats.wordCount = 0;
+		Stats.workMode = 0;
 		Stats.timeleft = Stats.totalTime;
 		Stats.drawProgess = 0;
 		Stats.codeProgess = 0;
@@ -108,8 +108,8 @@ public static class Game  {
 		Stats.apathy = Stats.maxApathy;
 		timer.resetSoundNoArduino = true;
 	}
-	public static void setCurrentlevelBasedOnbuildIndex(){		
-		switch(SceneManager.GetActiveScene ().buildIndex ){
+	public static void setCurrentlevelBasedOnbuildIndex(int biuldIndex){	
+		switch(biuldIndex ){
 		case 2:
 			Stats.currentLevel = 1;
 			break;
@@ -118,6 +118,33 @@ public static class Game  {
 			break;
 		case 6:
 			Stats.currentLevel = 3;
+			break;
+		default:
+			UnityEngine.Debug.Log(biuldIndex);
+			break;
+		}
+		UnityEngine.Debug.Log ("setCurrentlevelBasedOnbuildIndex!!: "+biuldIndex+" current LVL:"+Stats.currentLevel);
+
+	}
+	public static void audioBasedOnLevel(){
+	
+		switch(Stats.currentLevel){
+		case 1:
+			break;
+		case 2:
+			break;
+		case 3:
+			AudioSource cafeR = UnityEngine.GameObject.Find ("Cafe bgm Right").GetComponent<AudioSource> ();
+			AudioSource cafeL = UnityEngine.GameObject.Find ("Cafe bgm Left").GetComponent<AudioSource> ();
+			AudioSource machR = UnityEngine.GameObject.Find ("maching Right").GetComponent<AudioSource> ();
+			AudioSource machL = UnityEngine.GameObject.Find ("maching Left").GetComponent<AudioSource> ();
+			cafeR.mute = true;
+			cafeL.mute = true;
+			machR.bypassReverbZones = true;
+			machL.bypassReverbZones = true;
+			UnityEngine.Debug.Log ("MUTE!!!!");
+			break;
+		default:
 			break;
 		}
 	}

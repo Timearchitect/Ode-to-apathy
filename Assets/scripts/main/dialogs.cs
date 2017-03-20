@@ -31,7 +31,6 @@ public class dialogs : MonoBehaviour {
 			}
 			content = GetComponentsInChildren<Text> ()[0]; 
 			print(content.name);
-
 			if (content != null) {
 				content.text = textLines [0];
 			} else
@@ -40,7 +39,6 @@ public class dialogs : MonoBehaviour {
 			UnityEngine.Debug.LogError ("Error in "+this.name +" please check row "+ex.ToString ().Split (':') [3]+" in script: ");			
 			UnityEditor.EditorApplication.isPlaying = false;
 			UnityEditor.EditorApplication.isPaused = true;
-
 		}
 	}
 	

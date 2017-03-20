@@ -101,7 +101,6 @@ public class follow : MonoBehaviour {
 				print ("STOP!! " + Time.fixedTime);
 			//	enemyscript.spawnDialogBox ();
 			   enemyscript.spawnDistraction ();
-
 			}
 		} else {
 			pause = false;

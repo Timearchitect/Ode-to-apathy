@@ -16,7 +16,6 @@ public class progressBar : MonoBehaviour {
 
 	void Start () {
 		try{
-
 			Stats.difficultyBasedOnLevel();
 			camera= GameObject.Find("Camera");
 				print(camera.name);			
@@ -33,7 +32,6 @@ public class progressBar : MonoBehaviour {
 				print(apathy.name);
 				print(apathy.value);
 		//	print(bar.GetComponentInChildren<GameObject>("Fill Area")+" !!!dsfysadkufsadfjsadfashdfjadfkshfas");
-
 			fill = bar.GetComponentsInChildren<UnityEngine.UI.Image>()[1];
 			bfill = bar.GetComponentsInChildren<UnityEngine.UI.Image>()[0];
 			//fill.color=  Color.blue;
@@ -72,7 +70,8 @@ public class progressBar : MonoBehaviour {
 		//print (Stats.totalTime +" total   :   sinceLVLSTART "+Time.timeSinceLevelLoad);
 		if (Stats.timeleft <= 0) {
 			//Game.end ();
-			Game.gameover ();
+			if(!coverEyes.fadeOut)coverEyes.FadeOut();
+			if(Game.pause)Game.gameover ();
 		}
 
 		if (Stats.wordCount != 0) {
@@ -80,29 +79,28 @@ public class progressBar : MonoBehaviour {
 			//Debug.Log (Stats.maxWordCount+ " of " + Stats.wordCount +" %"+val);
 			if (val >= 1) {
 				//print ("LEVEL CLEAR!!!");   
-				Game.end();
+				if(coverEyes.whiteFade.color.a>=0.9f)Game.win=true;
+				if(!coverEyes.fadeOut && !Game.win)coverEyes.FadeOut();
+				if( Game.win)Game.end();
 			}
-
 			progress.value = val;
 		}
 		if (Stats.apathy != 0) {
 			val = ( (float)Stats.apathy / Stats.maxApathy);
 			//Debug.Log (Stats.maxApathy+ " of " + Stats.apathy +" %"+val);
 			if (val <= 0.01f) {
-				//print ("LEVEL CLEAR!!!");   
+				print ("LEVEL CLEAR!!!");   
 				//Game.end();
-				Game.apathyDeath ();
+				if(!coverEyes.fadeOut)coverEyes.FadeOut();
+				if(Game.pause)Game.apathyDeath ();
 			}
 			apathy.value = val;
 			desaturation.saturation = 0.6f-val*0.6f;
 		}
 		Stats.regenApathy ();
-
-
 	}
 	public static void highlight(){
 				percentBlend = 0.3f;
-
 	}
 	public static void highlightApathy(){
 		asizeLerp =(float) Math.PI;

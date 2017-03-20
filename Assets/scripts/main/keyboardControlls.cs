@@ -54,7 +54,6 @@ public class keyboardControlls : MonoBehaviour {
 			UnityEngine.Debug.LogError ("Error in "+this.name +" please check row "+ex.ToString ().Split (':') [3]+" in script: ");			
 			UnityEditor.EditorApplication.isPlaying = false;
 			UnityEditor.EditorApplication.isPaused = true;
-
 		}
 	}
 /*	void Awake () {
@@ -160,7 +159,6 @@ public class keyboardControlls : MonoBehaviour {
 					//if(leftEyeOverlay.color.a<0.35f)leftEyeOverlay.color = new Color (0f, 0f, 0f, leftEyeOverlay.color.a+.02f); 
 					leftEyeOverlay.color = new Color (0f, 0f, 0f, 0.35f); 
 				}
-
 				if (Input.GetKeyDown (KeyCode.RightControl)) {
 					//if(rightEyeOverlay.color.a<0.35f)rightEyeOverlay.color = new Color (0f, 0f, 0f, rightEyeOverlay.color.a+.02f); 
 					rightEyeOverlay.color = new Color (0f, 0f, 0f, 0.35f);
@@ -173,7 +171,7 @@ public class keyboardControlls : MonoBehaviour {
 				if (Input.GetKeyDown (KeyCode.RightShift)&& cafeR.bypassEffects) {
 					coverRightEar ();
 				}
-
+		
 				//Debug.Log ("KeyCode down: " + kcode+ " count: "+wordCount +"  time:"+timer );
 				if (Stats.workMode == 0  && !Input.GetKeyDown (KeyCode.LeftControl)  && !Input.GetKeyDown (KeyCode.RightControl)  && !Input.GetKeyDown (KeyCode.LeftShift) && !Input.GetKeyDown (KeyCode.RightShift)) { // KeyBoard mode
 					if (vacant) {
@@ -195,9 +193,7 @@ public class keyboardControlls : MonoBehaviour {
 					if(!bgmR.isPlaying) bgmR.Play();
 					if(!bgmL.isPlaying) bgmL.Play();
 				}
-
 				//print (this.name);
-	
 			}
 			/*if (Input.GetKeyUp (KeyCode.LeftControl)) {
 				leftEyeOverlay.color = new Color (0f, 0f, 0f, 0.0f); 
@@ -206,7 +202,6 @@ public class keyboardControlls : MonoBehaviour {
 			if (Input.GetKeyUp (KeyCode.RightControl)) {
 				rightEyeOverlay.color = new Color (0f, 0f, 0f, 0.0f);
 				//if(rightEyeOverlay.color.a>.02f)rightEyeOverlay.color = new Color (0f, 0f, 0f, rightEyeOverlay.color.a-.02f);
-
 			}*/
 			if (Input.GetKeyUp (KeyCode.LeftShift)) {
 				openLeftEar();
