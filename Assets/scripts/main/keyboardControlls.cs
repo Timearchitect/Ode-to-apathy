@@ -17,11 +17,26 @@ public class keyboardControlls : MonoBehaviour {
 	private Animation animation;
 	private AnimationClip typing,drawing;
 	public AudioSource[] aS;
-
+	//private keyboardControlls visualLKey ='2',visualRKey='9',audioRKey='1', audioLKey='0';
+	private KeyCode visualLKey,visualRKey,audioRKey, audioLKey;
 	Vector3 pastMousePos = new Vector3();
 	// Use this for initialization
 	void Start () {
 		try{
+			if(SystemInfo.operatingSystemFamily==OperatingSystemFamily.Windows){
+				visualLKey=KeyCode.LeftControl;
+				visualRKey=KeyCode.RightControl;
+				audioLKey=KeyCode.LeftShift;
+				audioRKey=KeyCode.RightShift;
+			}
+			if(SystemInfo.operatingSystemFamily==OperatingSystemFamily.MacOSX){
+				visualLKey=KeyCode.LeftCommand;
+				visualRKey=KeyCode.RightCommand;
+				audioLKey=KeyCode.LeftAlt;
+				audioRKey=KeyCode.RightAlt;
+
+			}
+			print(SystemInfo.operatingSystemFamily);
 			animation = GameObject.FindGameObjectWithTag ("Player").GetComponent<Animation>();
 				print (animation.name +" found");
 			typing= animation.GetClip ("Typing");
@@ -62,6 +77,10 @@ public class keyboardControlls : MonoBehaviour {
 	}*/
 	// Update is called once per frame
 	void Update () {
+		if (Input.GetKeyDown (KeyCode.F12)) {
+			print ("CHEATMODE ENABLED!!!!!!!!!!!!!!!!!!!!!!!!!!!1");
+			Game.enableCheatMode();
+		}
 	/*	float hVal = Input.GetAxis ("Horizontal"); 
 		float vVal = Input.GetAxis ("Vertical"); 
 
@@ -99,14 +118,14 @@ public class keyboardControlls : MonoBehaviour {
 			if(rv)increaseBlinds(rightEyeOverlay);
 			else decreaseBlinds(rightEyeOverlay);
 
-			if (Input.GetKeyDown (KeyCode.LeftControl)) {
+			if (Input.GetKeyDown (visualLKey)) { 
 				lv=true;
 				//leftEyeOverlay.color = new Color (0f, 0f, 0f, leftEyeOverlay.color.a+.02f); 
 				//leftEyeOverlay.color = new Color (0f, 0f, 0f, 0.35f); 
 				//increaseBlinds(leftEyeOverlay);
 			}
 
-			if (Input.GetKeyDown (KeyCode.RightControl)) {
+			if (Input.GetKeyDown (visualRKey)) {
 				rv=true;
 				//rightEyeOverlay.color = new Color (0f, 0f, 0f, rightEyeOverlay.color.a+.02f); 
 				//rightEyeOverlay.color = new Color (0f, 0f, 0f, 0.35f);
@@ -120,12 +139,12 @@ public class keyboardControlls : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.RightShift)&& cafeR.bypassEffects) {
 			coverRightEar ();
 		}*/
-			if (Input.GetKeyUp (KeyCode.LeftControl)) {			
+			if (Input.GetKeyUp (visualLKey)) {			
 				lv = false;
 			//leftEyeOverlay.color = new Color (0f, 0f, 0f, leftEyeOverlay.color.a-.02f); 
 			//decreaseBlinds(leftEyeOverlay);
 			}
-			if (Input.GetKeyUp (KeyCode.RightControl)) {
+			if (Input.GetKeyUp (visualRKey)) {
 				rv = false;
 			//rightEyeOverlay.color = new Color (0f, 0f, 0f, rightEyeOverlay.color.a-.02f);
 		//	decreaseBlinds(rightEyeOverlay);
@@ -164,16 +183,16 @@ public class keyboardControlls : MonoBehaviour {
 					rightEyeOverlay.color = new Color (0f, 0f, 0f, 0.35f);
 				}*/
 
-				if (Input.GetKeyDown (KeyCode.LeftShift) && cafeL.bypassEffects ) {
+				if (Input.GetKeyDown (audioLKey) && cafeL.bypassEffects ) {
 					coverLeftEar();
 				}
 
-				if (Input.GetKeyDown (KeyCode.RightShift)&& cafeR.bypassEffects) {
+				if (Input.GetKeyDown (audioRKey)&& cafeR.bypassEffects) {
 					coverRightEar ();
 				}
 		
 				//Debug.Log ("KeyCode down: " + kcode+ " count: "+wordCount +"  time:"+timer );
-				if (Stats.workMode == 0  && !Input.GetKeyDown (KeyCode.LeftControl)  && !Input.GetKeyDown (KeyCode.RightControl)  && !Input.GetKeyDown (KeyCode.LeftShift) && !Input.GetKeyDown (KeyCode.RightShift)) { // KeyBoard mode
+				if (Stats.workMode == 0  && !Input.GetKeyDown (audioLKey)  && !Input.GetKeyDown (audioRKey)  && !Input.GetKeyDown (visualLKey) && !Input.GetKeyDown (visualLKey)) { // KeyBoard mode
 					if (vacant) {
 						Stats.wordCount += Stats.typeSpeed;
 						Stats.codeProgess += Stats.typeSpeed;
@@ -203,10 +222,10 @@ public class keyboardControlls : MonoBehaviour {
 				rightEyeOverlay.color = new Color (0f, 0f, 0f, 0.0f);
 				//if(rightEyeOverlay.color.a>.02f)rightEyeOverlay.color = new Color (0f, 0f, 0f, rightEyeOverlay.color.a-.02f);
 			}*/
-			if (Input.GetKeyUp (KeyCode.LeftShift)) {
+			if (Input.GetKeyUp (audioLKey)) {
 				openLeftEar();
 			}
-			if (Input.GetKeyUp (KeyCode.RightShift)) {
+			if (Input.GetKeyUp (audioRKey)) {
 				openRightEar ();
 			}
 		}

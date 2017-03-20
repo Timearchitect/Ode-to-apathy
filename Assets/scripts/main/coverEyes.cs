@@ -16,20 +16,20 @@ public class coverEyes : MonoBehaviour {
 	private AnimationClip coverAnim;
 	private GameObject[] enemies;
 	private static BlurOptimized filter;
-	private float audioFadeAmount= 0.05f;
+	private float audioFadeAmount = 0.05f;
 	public static bool fadeIn,fadeOut;
 	//private Camera camera;
 	private Color transp = new Color (1,1,1,.4f);  
 	// Use this for initialization
 	void Start () {
 		try{
-
 			cafeL = GameObject.Find ("Cafe bgm Left").GetComponent<AudioSource> ();
 			bgmL = GameObject.Find ("maching Left").GetComponent<AudioSource> ();
 			disL = GameObject.Find ("distraction Left").GetComponent<AudioSource> ();
 			cafeR = GameObject.Find ("Cafe bgm Left").GetComponent<AudioSource> ();
 			bgmR = GameObject.Find ("maching Left").GetComponent<AudioSource> ();
 			disR = GameObject.Find ("distraction Left").GetComponent<AudioSource> ();
+
 
 			whiteFade = GameObject.Find ("whiteFade").GetComponent<Image> ();
 			print(whiteFade.name);
@@ -55,11 +55,13 @@ public class coverEyes : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetMouseButtonDown (1)) {
-			FadeOut ();
-		}
-		if (Input.GetMouseButtonDown (0)) {
-			FadeIn ();
+		if (Game.cheatMode) {
+			if (Input.GetMouseButtonDown (1)) {
+				FadeOut ();
+			}
+			if (Input.GetMouseButtonDown (0)) {
+				FadeIn ();
+			}
 		}
 		//print(leftEye.GetComponent<Image> ().color.a + "   blackness");
 		//print(rightEye.GetComponent<Image> ().color.a + "   blackness");

@@ -18,7 +18,7 @@ public class circleTimer : MonoBehaviour {
 	void Start () {
 		try{	
 			ps = GameObject.FindObjectOfType<ParticleSystem>();
-			//ps = GameObject.Find("CircleTimerParticeSystem") as ParticleSystem;
+				//ps = GameObject.Find("CircleTimerParticeSystem") as ParticleSystem;
 			lineRenderer = gameObject.AddComponent<LineRenderer>();
 				print(lineRenderer.name);
 			icon = GetComponent<SpriteRenderer> ();

@@ -100,7 +100,7 @@ public class progressBar : MonoBehaviour {
 		Stats.regenApathy ();
 	}
 	public static void highlight(){
-				percentBlend = 0.3f;
+		percentBlend = 0.3f;
 	}
 	public static void highlightApathy(){
 		asizeLerp =(float) Math.PI;

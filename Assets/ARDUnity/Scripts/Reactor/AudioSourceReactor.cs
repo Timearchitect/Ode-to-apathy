@@ -80,7 +80,7 @@ namespace Ardunity
 					return;
 				if (node.objectTarget != null) {
 					if (node.objectTarget.Equals (_digitalInput))
-						return;
+					return;
 				}
                 
 				if (_digitalInput != null)

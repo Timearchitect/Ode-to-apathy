@@ -12,9 +12,7 @@ public class apathyDeath : MonoBehaviour {
 		apathyAudio = GetComponent<AudioSource> ();
 		AudioClip apathyClip = Resources.Load ("apathy_ending_"+level,typeof(AudioClip)) as AudioClip;
 		apathyAudio.clip = apathyClip;
-
 		apathyAudio.Play ();
-
 	}
 	
 	// Update is called once per frame

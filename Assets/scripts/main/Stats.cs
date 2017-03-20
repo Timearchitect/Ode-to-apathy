@@ -31,17 +31,17 @@ public class Stats  {
 		//UnityEngine.Debug.Log ("difficulty based on level: "+Stats.currentLevel);
 		switch(currentLevel){
 			case 1:
-				maxWordCount = 80;
+				maxWordCount = 800;
 				totalTime =110;
 				apathyRegen=0.05f;
 				break;
 			case 2:
-				maxWordCount = 90;
+				maxWordCount = 900;
 				totalTime =100;
 				apathyRegen=0.045f;
 				break;
 			case 3:
-				maxWordCount = 100;
+				maxWordCount = 1000;
 				totalTime = 90;
 				apathyRegen = 0.04f;
 				break;

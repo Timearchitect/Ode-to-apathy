@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public static class Game  {
 	public static AsyncOperation aos;
-	public static bool cheatMode=true,pause, lose, win , cutscene;
+	public static bool cheatMode=false,pause, lose, win , cutscene;
 	public static GameObject statScreen,panel;
 	public static Image panelImage;
 	public enum Conditions : short {visualLeft=0,visualRight=1,audioLeft=2,audioRight=3};
@@ -154,5 +154,35 @@ public static class Game  {
 		if (obj == null)
 			throw new Exception ("can't find :"+name);
 	}
+	public static void 	enableCheatMode (){
+		cheatMode=!cheatMode;
+		if (cheatMode) {
+			switch (Stats.currentLevel) {
+			case 1:
+				Stats.maxWordCount = 80;
+				Stats.totalTime = 1100;
+				Stats.apathyRegen = 0.05f;
+				break;
+			case 2:
+				Stats.maxWordCount = 90;
+				Stats.totalTime = 1000;
+				Stats.apathyRegen = 0.045f;
+				break;
+			case 3:
+				Stats.maxWordCount = 100;
+				Stats.totalTime = 900;
+				Stats.apathyRegen = 0.04f;
+				break;
+			default:
+				Stats.maxWordCount = 100;
+				Stats.totalTime = 900;
+				break;
+			}
+			Stats.apathy = 1000;
+		} else {
+			Stats.difficultyBasedOnLevel ();
+			Stats.apathy = 100;
+		}
 
+	}
 }

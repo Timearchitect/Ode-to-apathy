@@ -148,7 +148,6 @@ public class follow : MonoBehaviour {
 		pause = s;
 	}
 	public void move(){
-		
 		dist = Vector3.Distance (point [currentPoint].position, this.transform.position);
 		this.transform.position = Vector3.MoveTowards (transform.position, point [currentPoint].position, Time.deltaTime * speed);
 	
@@ -164,7 +163,6 @@ public class follow : MonoBehaviour {
 	
 	}
 	public void reset(){
-
 			enemyscript.randomize ();
 			enemyscript.firstDialog = true;
 			enemyscript.satisfied = false;
@@ -172,13 +170,11 @@ public class follow : MonoBehaviour {
 			//float dist = Vector3.Distance (point [currentPoint].position, this.transform.position);
 			currentPoint = startIndex;
 			this.transform.position = point [startIndex].position;
-		
 	}
 	public void setPath(GameObject temp){
 		//print ("setPath");
 		path = temp;
 		point = path.GetComponentsInChildren <Transform>();
-
 		/*Transform[] comps = path.GetComponentsInChildren<Transform>();
 		foreach (Transform comp in comps)
 		{
@@ -187,7 +183,6 @@ public class follow : MonoBehaviour {
 				point.
 			}
 		}*/
-
 		currentPoint = startIndex;
 		//print (point[startIndex].name+" starting point");
 		this.transform.position =point[startIndex].position;

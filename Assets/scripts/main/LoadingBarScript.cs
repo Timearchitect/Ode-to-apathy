@@ -27,14 +27,11 @@ public class LoadingBarScript : MonoBehaviour {
 	}
 	public void loadLevel01(){
 		print ("build index +1: " + (SceneManager.GetActiveScene ().buildIndex + 1));
-
 		//loadingScreenBG.SetActive (true);
-
 		//progBar.gameObject.SetActive (true);
 		loadingText.gameObject.SetActive (true);
 		loadingText.text="Loading...";
 		Game.setCurrentlevelBasedOnbuildIndex (SceneManager.GetActiveScene ().buildIndex + 1);
-
 
 		if (!isFakeLoadingBar) {
 			StartCoroutine (LoadLevelWithRealProgress());
