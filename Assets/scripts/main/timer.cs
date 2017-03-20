@@ -22,7 +22,7 @@ public class timer : MonoBehaviour {
 	
 	//	Update is called once per frame
 	void Update () {
-		if (resetSoundNoArduino && Time.timeSinceLevelLoad > 1) {
+		if (resetSoundNoArduino && Time.timeSinceLevelLoad > 0.5f) {
 			resetSoundNoArduino = false;
 			AudioSource[] As = GameObject.FindObjectsOfType<AudioSource> ();
 			foreach (AudioSource a in As) {

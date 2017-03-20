@@ -9,13 +9,16 @@ public class circleTimer : MonoBehaviour {
 	private Sprite codingIcon,drawingIcon; 
 	private Vector3[] vertex = new Vector3[360],vertexPen = new Vector3[360];
 	private int range=30,xoffset=70,yoffset=200;
+	private ParticleSystem ps;
 	LineRenderer lineRenderer;
 	SpriteRenderer icon;
 	private static float strokeWidth=10;
 	Vector3 keyboardPos,penPos;
 
 	void Start () {
-		try{
+		try{	
+			ps = GameObject.FindObjectOfType<ParticleSystem>();
+			//ps = GameObject.Find("CircleTimerParticeSystem") as ParticleSystem;
 			lineRenderer = gameObject.AddComponent<LineRenderer>();
 				print(lineRenderer.name);
 			icon = GetComponent<SpriteRenderer> ();
@@ -55,10 +58,6 @@ public class circleTimer : MonoBehaviour {
 	void Update () {
 		if (!Game.pause) {
 			if (Stats.workMode == 0) {
-				if (Stats.pWorkMode != Stats.workMode) {
-					this.transform.position = keyboardPos;
-					icon.sprite = codingIcon;
-				}
 				if (Stats.codeProgess <= 100) {
 					lineRenderer.numPositions = Mathf.CeilToInt (360 - Stats.codeProgess * 3.6f);
 					for (int i = 0; i < Mathf.CeilToInt (360 - Stats.codeProgess * 3.6f); i += 1) {
@@ -67,10 +66,7 @@ public class circleTimer : MonoBehaviour {
 				}
 			} else {
 				if (Stats.drawProgess <= 100) {
-					if (Stats.pWorkMode != Stats.workMode) {
-						this.transform.position = penPos;
-						icon.sprite = drawingIcon;
-					}
+			
 					lineRenderer.numPositions = Mathf.CeilToInt (360 - Stats.drawProgess * 3.6f);
 					for (int i = 0; i < Mathf.CeilToInt (360 - Stats.drawProgess * 3.6f); i += 1) {
 						lineRenderer.SetPosition (i, vertexPen [i]);
@@ -80,6 +76,21 @@ public class circleTimer : MonoBehaviour {
 			retract ();
 		}
 	}
+	public void startDrawing(){
+		this.transform.position = penPos;
+		ps.transform.position = penPos;
+		print (Time.time+ " ps is : "+ ps.isPlaying);
+		if(!ps.isPlaying)ps.Play();
+		icon.sprite = drawingIcon;
+	}
+	public void startCoding(){
+		this.transform.position = keyboardPos;
+		ps.transform.position = keyboardPos;
+		if(!ps.isPlaying)ps.Play();
+		icon.sprite = codingIcon;
+	}
+
+
 	public static void pop(){
 		strokeWidth=30;
 	}

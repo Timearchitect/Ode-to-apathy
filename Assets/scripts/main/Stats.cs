@@ -42,8 +42,14 @@ public  class Stats  {
 				break;
 			case 3:
 				maxWordCount = 1000;
-				totalTime =90;
-				apathyRegen=0.035f;
+				totalTime = 90;
+				apathyRegen = 0.035f;
+				AudioSource cafeR = UnityEngine.GameObject.Find ("Cafe bgm Right").GetComponent<AudioSource> ();
+				AudioSource cafeL = UnityEngine.GameObject.Find ("Cafe bgm Left").GetComponent<AudioSource> ();
+				cafeR.mute = true;
+				cafeL.mute = true;
+				UnityEngine.Debug.Log ("MUTE!!!!");
+
 				break;
 			default:
 				maxWordCount = 1000;
@@ -67,11 +73,13 @@ public  class Stats  {
 			workMode = 1;
 			Game.machL.clip = Resources.Load ("pecil",typeof(AudioClip)) as AudioClip;
 			Game.machR.clip = Resources.Load ("pecil",typeof(AudioClip)) as AudioClip;
+			UnityEngine.GameObject.FindObjectOfType<circleTimer> ().startDrawing();
 		}
 		else{
 			workMode = 0;
 			Game.machL.clip = Resources.Load ("tangentbord",typeof(AudioClip)) as AudioClip;
 			Game.machR.clip = Resources.Load ("tangentbord",typeof(AudioClip)) as AudioClip;
+			UnityEngine.GameObject.FindObjectOfType<circleTimer> ().startCoding();
 		}
 	}
 	public static void randomMode(){

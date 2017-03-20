@@ -92,10 +92,13 @@ public static class Game  {
 	}
 
 	public static void refresh(){
-		UnityEngine.Debug.Log ("refresh!!"+Time.timeSinceLevelLoad);
 		pause=false;
 		Time.timeScale = 1;
 		//Time.timeSinceLevelLoad;
+		//print ("build index +1: " + ());
+
+		UnityEngine.Debug.Log ("refresh!!"+Time.timeSinceLevelLoad+" current LVL:"+Stats.currentLevel);
+
 		Stats.difficultyBasedOnLevel();
 		Stats.wordCount = 0;
 		Stats.timeleft = Stats.totalTime;
@@ -105,7 +108,19 @@ public static class Game  {
 		Stats.apathy = Stats.maxApathy;
 		timer.resetSoundNoArduino = true;
 	}
-
+	public static void setCurrentlevelBasedOnbuildIndex(){		
+		switch(SceneManager.GetActiveScene ().buildIndex ){
+		case 2:
+			Stats.currentLevel = 1;
+			break;
+		case 4:
+			Stats.currentLevel = 2;
+			break;
+		case 6:
+			Stats.currentLevel = 3;
+			break;
+		}
+	}
 
 	[System.Diagnostics.DebuggerStepThrough]
 	public static void check(UnityEngine.Object obj,String name){
