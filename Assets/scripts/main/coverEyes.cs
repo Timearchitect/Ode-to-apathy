@@ -40,6 +40,15 @@ public class coverEyes : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		if (Input.GetMouseButtonDown (1)) {
+		
+			Game.pause = !Game.pause;
+			if (!Game.pause) {
+				filter.enabled =false;
+				filter.blurSize = 0;
+				filter.blurIterations = 1;
+			}
+		}
 		//print(leftEye.GetComponent<Image> ().color.a + "   blackness");
 		//print(rightEye.GetComponent<Image> ().color.a + "   blackness");
 		//if (leftEye.GetComponent<Image> ().color.a > 0.25f || rightEye.GetComponent<Image> ().color.a > 0.25f) { // transparent effect
@@ -56,6 +65,7 @@ public class coverEyes : MonoBehaviour {
 			}
 		}
 		if (Game.pause) {
+			
 			filter.enabled = true;
 			filter.blurSize += 0.4f;
 			filter.blurIterations = Mathf.RoundToInt(filter.blurSize*.5f);
