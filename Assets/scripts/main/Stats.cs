@@ -16,7 +16,6 @@ public  class Stats  {
 	public static float penSpeed=0.7f;
 	public static float panStereo=0.0f;
 	public static float apathyLost;
-	public static float volumeLimit= 0.8f;
 	public static float distractionPenalty=-0.9f;
 	public static float apathyPenalty=-0.2f;
 	public static float apathyRegen=0.03f;
@@ -32,20 +31,13 @@ public  class Stats  {
 		UnityEngine.Debug.Log ("difficulty based on level: "+Stats.currentLevel);
 		switch(currentLevel){
 			case 1:
-<<<<<<< Updated upstream
 				maxWordCount = 800;
 				totalTime =100;
 				apathyRegen=0.05f;
-=======
-				maxWordCount = 850;
-				totalTime =100;
-				apathyRegen=0.045f;
->>>>>>> Stashed changes
 				break;
 			case 2:
 				maxWordCount = 900;
 				totalTime =100;
-<<<<<<< Updated upstream
 				apathyRegen=0.04f;
 				break;
 			case 3:
@@ -58,14 +50,6 @@ public  class Stats  {
 				cafeL.mute = true;
 				UnityEngine.Debug.Log ("MUTE!!!!");
 
-=======
-				apathyRegen=0.045f;
-				break;
-			case 3:
-				maxWordCount = 1200;
-				totalTime =100;
-				apathyRegen=0.04f;
->>>>>>> Stashed changes
 				break;
 			default:
 				maxWordCount = 1000;

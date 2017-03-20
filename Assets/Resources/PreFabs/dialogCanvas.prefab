@@ -102,11 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d38957574badb034db4d651fd0ca6035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   fileSource: Dialogues
-=======
-  fileSource: Child
->>>>>>> Stashed changes
 --- !u!114 &114669696760619858
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -215,15 +211,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1278149303514428}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-<<<<<<< Updated upstream
   m_LocalPosition: {x: 0, y: 0, z: 41.787918}
-=======
-<<<<<<< Updated upstream
-  m_LocalPosition: {x: 0, y: 0, z: 52.247665}
-=======
-  m_LocalPosition: {x: 0, y: 0, z: 59.578}
->>>>>>> Stashed changes
->>>>>>> Stashed changes
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224837263903727108}
@@ -233,15 +221,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-<<<<<<< Updated upstream
   m_AnchoredPosition: {x: 136.33504, y: 170.0393}
-=======
-<<<<<<< Updated upstream
-  m_AnchoredPosition: {x: -115.2292, y: 315.32956}
-=======
-  m_AnchoredPosition: {x: -81.89029, y: 82.14984}
->>>>>>> Stashed changes
->>>>>>> Stashed changes
   m_SizeDelta: {x: 120, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224546478352339544
