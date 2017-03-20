@@ -52,7 +52,7 @@ public class dialogs : MonoBehaviour {
 			magnitude *=0.9f;
 		}
 
-		if (timer+2.5<Time.time  && !Game.pause) { //Input.anyKeyDown
+		if (timer+3.5<Time.time  && !Game.pause) { //Input.anyKeyDown
 			timer=Time.time;
 			if (line < textLines.Length - 1) {
 				line++;
