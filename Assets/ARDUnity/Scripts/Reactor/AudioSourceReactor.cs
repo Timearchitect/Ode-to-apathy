@@ -155,7 +155,7 @@ namespace Ardunity
 						disR = GameObject.Find ("distraction Right").GetComponent<AudioSource> ();
 					}
 					//print (_analogInput.input + "  A0 VALUE audio");
-					cafeR.volume = _analogInput.input * .04F;
+					cafeR.volume = _analogInput.input * Stats.volumeLimit;
 					//AudioSource[] aS = (AudioSource[])GameObject.FindObjectsOfType (typeof(AudioSource));
 					if (_analogInput.input <= 0.6f) {
 						cafeR.bypassEffects = false;
@@ -199,7 +199,7 @@ namespace Ardunity
 						disL = GameObject.Find ("distraction Left").GetComponent<AudioSource> ();
 					}
 					//print (_analogInput.input + "  A0 VALUE audio");
-					cafeL.volume = _analogInput.input * .04F;
+					cafeL.volume = _analogInput.input * Stats.volumeLimit;
 
 					//AudioSource[] aS = (AudioSource[])GameObject.FindObjectsOfType (typeof(AudioSource));
 					if (_analogInput.input <= 0.6f) {
