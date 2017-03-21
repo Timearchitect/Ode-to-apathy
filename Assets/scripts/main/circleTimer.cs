@@ -50,8 +50,10 @@ public class circleTimer : MonoBehaviour {
 			startCoding();
 		}catch(Exception ex ){
 			UnityEngine.Debug.LogError ("Error in "+this.name +" please check row "+ex.ToString ().Split (':') [3]+" in script: ");
+			#if UNITY_EDITOR
 			UnityEditor.EditorApplication.isPlaying = false;
 			UnityEditor.EditorApplication.isPaused = true;
+			#endif
 		}
 	}
 

@@ -12,7 +12,7 @@ public class keyboardControlls : MonoBehaviour {
 	public float timer=0,duration;
 	private bool vacant=true;
 	private bool lv,rv,la,ra;
-	public AudioSource bgmR,cafeR,bgmL,cafeL,disL,disR;
+	public AudioSource workR,cafeR,workL,cafeL,disL,disR;
 	private UnityEngine.UI.Text t;
 	private Animation animation;
 	private AnimationClip typing,drawing;
@@ -45,12 +45,12 @@ public class keyboardControlls : MonoBehaviour {
 				print(drawing.name);
 			debugContent = GameObject.FindGameObjectWithTag("debug");
 				//print(debugContent.name);
-			bgmR =GameObject.Find("maching Right").GetComponent<AudioSource> ();
-				print(bgmR.name);
+			workR =GameObject.Find("maching Right").GetComponent<AudioSource> ();
+				print(workR.name);
 			cafeR = GameObject.Find("Cafe bgm Right").GetComponent<AudioSource> ();
 				print(cafeR.name);
-			bgmL =GameObject.Find("maching Left").GetComponent<AudioSource> ();
-				print(bgmL.name);
+			workL =GameObject.Find("maching Left").GetComponent<AudioSource> ();
+				print(workL.name);
 			cafeL = GameObject.Find("Cafe bgm Left").GetComponent<AudioSource> ();
 				print(cafeL.name);
 			disR = GameObject.Find("distraction Right").GetComponent<AudioSource> ();
@@ -67,8 +67,10 @@ public class keyboardControlls : MonoBehaviour {
 			print(aS);
 		}catch(Exception ex ){
 			UnityEngine.Debug.LogError ("Error in "+this.name +" please check row "+ex.ToString ().Split (':') [3]+" in script: ");			
+			#if UNITY_EDITOR
 			UnityEditor.EditorApplication.isPlaying = false;
 			UnityEditor.EditorApplication.isPaused = true;
+			#endif
 		}
 	}
 /*	void Awake () {
@@ -98,11 +100,11 @@ public class keyboardControlls : MonoBehaviour {
 		}
 */
 		if (timer + duration < Time.time) {
-			if (bgmL.isPlaying) {
-				bgmL.Pause ();
+			if (workL.isPlaying) {
+				workL.Pause ();
 			}
-			if (bgmR.isPlaying) {
-				bgmR.Pause ();
+			if (workR.isPlaying) {
+				workR.Pause ();
 			}
 		}
 		if(!Game.pause){
@@ -209,8 +211,8 @@ public class keyboardControlls : MonoBehaviour {
 					if (animation.IsPlaying (drawing.name))animation.Stop (drawing.name);
 					animation.Play (typing.name);
 					timer = Time.time;
-					if(!bgmR.isPlaying) bgmR.Play();
-					if(!bgmL.isPlaying) bgmL.Play();
+					if(!workR.isPlaying) workR.Play();
+					if(!workL.isPlaying) workL.Play();
 				}
 				//print (this.name);
 			}
@@ -233,7 +235,7 @@ public class keyboardControlls : MonoBehaviour {
 	}
 	public void detectMouseMovement(){
 		if (Stats.workMode == 1) { //Mouse Mode
-			if (Vector3.Distance (Input.mousePosition, pastMousePos) > 10) {
+			if (Vector3.Distance (Input.mousePosition, pastMousePos) > Stats.mouseRegisterDist) {
 				Stats.wordCount += Stats.penSpeed;
 				Stats.drawProgess += Stats.penSpeed;
 				circleTimer.render ();
@@ -241,8 +243,8 @@ public class keyboardControlls : MonoBehaviour {
 				pastMousePos = Input.mousePosition;
 				animation.Play (drawing.name);
 				timer = Time.time;
-				if(!bgmR.isPlaying) bgmR.Play(); 
-				if(!bgmL.isPlaying) bgmL.Play();
+				if(!workR.isPlaying) workR.Play(); 
+				if(!workL.isPlaying) workL.Play();
 				if(Stats.drawProgess >= Stats.maxDrawProgress){
 					Stats.shiftMode ();
 				}
@@ -259,10 +261,10 @@ public class keyboardControlls : MonoBehaviour {
 		
 	public void coverLeftEar(){
 		cafeL.volume = 0.005f;
-		bgmL.volume = 0.01f;
+		workL.volume = 0.01f;
 		disL.volume = 0.01f;
 		cafeL.bypassEffects = false;
-		bgmL.bypassEffects = false;
+		workL.bypassEffects = false;
 		disL.bypassEffects = false;
 			/*foreach (AudioSource a in aS) {
 				a.GetComponent<AudioSource> ().bypassEffects = false;
@@ -271,10 +273,10 @@ public class keyboardControlls : MonoBehaviour {
 	}
 	public void coverRightEar(){
 		cafeR.volume = 0.005f;
-		bgmR.volume = 0.01f;
+		workR.volume = 0.01f;
 		disR.volume = 0.01f;
 		cafeR.bypassEffects = false;
-		bgmR.bypassEffects = false;
+		workR.bypassEffects = false;
 		disR.bypassEffects = false;
 		/*foreach (AudioSource a in aS) {
 			a.GetComponent<AudioSource> ().bypassEffects = false;
@@ -283,10 +285,10 @@ public class keyboardControlls : MonoBehaviour {
 	}
 	public void openRightEar(){
 		cafeR.volume = 0.1f;
-		bgmR.volume = 1f;
+		workR.volume = 1f;
 		disR.volume = 1f;
 		cafeR.bypassEffects = true;
-		bgmR.bypassEffects = true;
+		workR.bypassEffects = true;
 		disR.bypassEffects = true;
 		/*foreach (AudioSource a in aS) {
 			a.GetComponent<AudioSource> ().bypassEffects = true;
@@ -295,10 +297,10 @@ public class keyboardControlls : MonoBehaviour {
 	}
 	public void openLeftEar(){
 		cafeL.volume = 0.1f;
-		bgmL.volume = 1f;
+		workL.volume = 1f;
 		disL.volume = 1f;
 		cafeL.bypassEffects = true;
-		bgmL.bypassEffects = true;
+		workL.bypassEffects = true;
 		disL.bypassEffects = true;
 		/*foreach (AudioSource a in aS) {
 			a.GetComponent<AudioSource> ().bypassEffects = true;

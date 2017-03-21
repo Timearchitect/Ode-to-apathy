@@ -34,20 +34,20 @@ public static class Game  {
 	}
 
 	public static void gameover(){
-		aos = SceneManager.LoadSceneAsync(8);
+		aos = SceneManager.LoadSceneAsync(7);
 		aos.allowSceneActivation = true;
 	}
 	public static void apathyDeath(){
-		aos = SceneManager.LoadSceneAsync(9);
+		aos = SceneManager.LoadSceneAsync(8);
 		aos.allowSceneActivation = true;
 	}
 
 	public static void end () {
 		if (!pause) {
-			GameObject gui;
-			GameObject reviewPanel;
-			gui = GameObject.Find ("GUI");
-			reviewPanel = GameObject.Find ("ReviewPanel");
+//			GameObject gui;
+///			GameObject reviewPanel;
+//			gui = GameObject.Find ("GUI");
+		//	reviewPanel = GameObject.Find ("ReviewPanel");
 			//reviewPanel = GameObject.FindGameObjectWithTag("reviewPanel");
 			//statScreen = GameObject.Find ("dialogCanvas");
 			statScreen = GameObject.Instantiate((GameObject)Resources.Load("PreFabs/dialogCanvas", typeof(GameObject)));
@@ -110,13 +110,13 @@ public static class Game  {
 	}
 	public static void setCurrentlevelBasedOnbuildIndex(int biuldIndex){	
 		switch(biuldIndex ){
-		case 2:
+		case 1:
 			Stats.currentLevel = 1;
 			break;
-		case 4:
+		case 3:
 			Stats.currentLevel = 2;
 			break;
-		case 6:
+		case 5:
 			Stats.currentLevel = 3;
 			break;
 		default:
