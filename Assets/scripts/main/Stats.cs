@@ -10,7 +10,7 @@ public class Stats  {
 	public static float apathy=maxApathy;
 	public static float averageTypeSpeed;
 	public static float typeSpeed = 2;
-	public static float mouseRegisterDist= 250f;
+	public static float mouseRegisterDist= 150f;
 	public static float visualCoverMax = .6f;
 	public static float fadeRate=0.08f;
 	public static float distractedTime;
