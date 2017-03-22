@@ -15,6 +15,8 @@ public class timer : MonoBehaviour {
 		timeStyle.fontSize = Mathf.FloorToInt(Screen.width*.04f);
 		timeStyle.alignment = TextAnchor.MiddleCenter;
 		timeStyle.font = (Font)Resources.Load("helvetica-normal-58c53b4136502");
+		GUI.backgroundColor = new Color (1, 1, 1, 0.1f);
+		GUI.color = Color.white;
 		//	currentStyle = new GUIStyle( GUI.skin.box );
 		//	currentStyle.normal.background = MakeTex( 2, 2, new Color( 0f, 1f, 0f, 0.5f ) );
 	}

@@ -91,7 +91,7 @@ public class progressBar : MonoBehaviour {
 			val = ( (float)Stats.apathy / Stats.maxApathy);
 			//Debug.Log (Stats.maxApathy+ " of " + Stats.apathy +" %"+val);
 			if (val <= 0.01f) {
-				print ("LEVEL CLEAR!!!");   
+				//print ("LEVEL CLEAR!!!");   
 				//Game.end();
 				if(!coverEyes.fadeOut)coverEyes.FadeOut();
 				if(Game.pause)Game.apathyDeath ();

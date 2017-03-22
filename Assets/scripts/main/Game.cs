@@ -22,14 +22,14 @@ public static class Game  {
 	public static GameObject player;
 
 	public static void loadStaticReferences(){
-		disR = GameObject.Find("distraction Right").GetComponent<AudioSource> ();
+		 disR = GameObject.Find("distraction Right").GetComponent<AudioSource> ();
 		 disL = GameObject.Find("distraction Left").GetComponent<AudioSource> ();
-		cafeR = GameObject.Find ("Cafe bgm Right").GetComponent<AudioSource> ();
-		cafeL = GameObject.Find ("Cafe bgm Left").GetComponent<AudioSource> ();
-		machL= GameObject.Find ("maching Left").GetComponent<AudioSource> ();
+		 cafeR = GameObject.Find ("Cafe bgm Right").GetComponent<AudioSource> ();
+		 cafeL = GameObject.Find ("Cafe bgm Left").GetComponent<AudioSource> ();
+		 machL= GameObject.Find ("maching Left").GetComponent<AudioSource> ();
 		 machR = GameObject.Find ("maching Right").GetComponent<AudioSource> ();
-		leftEye = GameObject.Find ("leftEye").GetComponent<Image> ();
-		rightEye = GameObject.Find ("rightEye").GetComponent<Image> ();
+		 leftEye = GameObject.Find ("leftEye").GetComponent<Image> ();
+		 rightEye = GameObject.Find ("rightEye").GetComponent<Image> ();
 		 player= GameObject.FindGameObjectWithTag("Player");
 	}
 
