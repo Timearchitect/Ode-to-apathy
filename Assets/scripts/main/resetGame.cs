@@ -6,11 +6,10 @@ using UnityEngine.SceneManagement;
 public class resetGame : MonoBehaviour {
 	public static AsyncOperation ao;
 	// Use this for initialization
-	void Awake () {
+	void Start () {
 		ao = SceneManager.LoadSceneAsync(0);
 		Game.setCurrentlevelBasedOnbuildIndex (0);
 		ao.allowSceneActivation = false;
-
 		StartCoroutine (LoadLevelWithRealProgress());
 	}
 	
@@ -49,19 +48,18 @@ public class resetGame : MonoBehaviour {
 
 		}
 		/*
-		ao.allowSceneActivation = false;
-		print("loadReal");
-		while(!ao.isDone && ao.progress <0.9f){
-			print("reset "+ao.progress);
-			yield return null;
-		}
-		print("finish!!");
+			ao.allowSceneActivation = false;
+			print("loadReal");
+			while(!ao.isDone && ao.progress <0.9f){
+				print("reset "+ao.progress);
+				yield return null;
+			}
+			print("finish!!");
 
-		if(Input.GetAxis ("Retry") > 0 ){
-			SceneManager.LoadScene (0);
-			ao.allowSceneActivation = true;
-		}
-
+			if(Input.GetAxis ("Retry") > 0 ){
+				SceneManager.LoadScene (0);
+				ao.allowSceneActivation = true;
+			}
 		*/
 	}
 		/*IEnumerator LoadLevelWithFakeProgress(){

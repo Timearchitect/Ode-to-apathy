@@ -15,7 +15,7 @@ public class timer : MonoBehaviour {
 		timeStyle.fontSize = Mathf.FloorToInt(Screen.width*.04f);
 		timeStyle.alignment = TextAnchor.MiddleCenter;
 		timeStyle.font = (Font)Resources.Load("helvetica-normal-58c53b4136502");
-		GUI.backgroundColor = new Color (1, 1, 1, 0.1f);
+		GUI.backgroundColor = new Color (1, 1, 1, 0.2f);
 		GUI.color = Color.white;
 		//	currentStyle = new GUIStyle( GUI.skin.box );
 		//	currentStyle.normal.background = MakeTex( 2, 2, new Color( 0f, 1f, 0f, 0.5f ) );
@@ -51,7 +51,7 @@ public class timer : MonoBehaviour {
 		if (!Game.pause) {
 			Rect r = new Rect (Screen.width * .5f, Screen.height * .02f, Screen.width * .25f, Screen.height * .1f);
 			r.center = new Vector2 (Screen.width * .5f, Screen.height * .1f);
-			GUI.backgroundColor = new Color (1, 1, 1, 0.1f);
+			GUI.backgroundColor = new Color (1, 1, 1, 0.2f);
 			GUI.color = Color.white;
 			GUI.Box (r, " " + minutes.ToString ("00") + ":" + seconds.ToString ("00"), timeStyle);
 		}
