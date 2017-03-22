@@ -79,6 +79,9 @@ public class keyboardControlls : MonoBehaviour {
 	}*/
 	// Update is called once per frame
 	void Update () {
+		if(Input.GetAxis("Escape")>0){
+			Application.Quit ();
+		}
 		if (Input.GetKeyDown (KeyCode.F12)) {
 			print ("CHEATMODE ENABLED!!!!!!!!!!!!!!!!!!!!!!!!!!!1");
 			Game.enableCheatMode();

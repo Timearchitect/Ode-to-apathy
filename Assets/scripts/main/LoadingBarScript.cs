@@ -17,7 +17,7 @@ public class LoadingBarScript : MonoBehaviour {
 	public float fakeTiming = 0f;
 	// Use this for initialization
 	void Start () {
-		loadLevel01 ();
+		loadLevel ();
 		Game.refresh ();
 	}
 	
@@ -25,7 +25,7 @@ public class LoadingBarScript : MonoBehaviour {
 	void Update () {
 		
 	}
-	public void loadLevel01(){
+	public void loadLevel(){
 		print ("build index +1: " + (SceneManager.GetActiveScene ().buildIndex + 1));
 		//loadingScreenBG.SetActive (true);
 		//progBar.gameObject.SetActive (true);
