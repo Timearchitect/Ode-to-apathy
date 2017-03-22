@@ -14,6 +14,7 @@ public class follow : MonoBehaviour {
 	public int currentPoint;
 	public int startIndex=0;
 	public int startTime;
+	[SerializeField]
 	public static int stopDistance= 150;
 	public static int stopDistanceCafe= 30;
 	public bool loop=true;

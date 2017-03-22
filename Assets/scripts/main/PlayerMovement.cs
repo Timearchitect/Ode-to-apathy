@@ -3,6 +3,9 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 public class PlayerMovement : MonoBehaviour {
 	GameObject go;
 	GameObject player;
@@ -37,6 +40,14 @@ public class PlayerMovement : MonoBehaviour {
 			UnityEditor.EditorApplication.isPaused = true;
 			#endif
 		}
+	}
+	void OnDrawGizmos(){
+		#if UNITY_EDITOR
+
+		Gizmos.color = new Color(0,0,1,0.1f);
+		Gizmos.DrawSphere (GameObject.FindGameObjectWithTag("Player").transform.position, 150);
+
+		#endif
 	}
 	void Awake () {
 		print ("Awake PLAYER");
