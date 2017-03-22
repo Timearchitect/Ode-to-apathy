@@ -31,16 +31,16 @@ public class dialogs : MonoBehaviour {
 			}
 			content = GetComponentsInChildren<Text> ()[0]; 
 			print(content.name);
-
 			if (content != null) {
 				content.text = textLines [0];
 			} else
 				print (fileSource+".txt is missing");
 		}catch(Exception ex ){
 			UnityEngine.Debug.LogError ("Error in "+this.name +" please check row "+ex.ToString ().Split (':') [3]+" in script: ");			
+			#if UNITY_EDITOR
 			UnityEditor.EditorApplication.isPlaying = false;
 			UnityEditor.EditorApplication.isPaused = true;
-
+			#endif
 		}
 	}
 	
@@ -49,12 +49,12 @@ public class dialogs : MonoBehaviour {
 		if(transform.localScale.x>0)transform.localScale =new Vector2 (1,1);
 		else transform.localScale =new Vector2 (-1,1);
 		transform.localScale = new Vector2 ((float)(transform.localScale.x+Math.Sin(angle)*magnitude),(float)(transform.localScale.y+Math.Sin(angle)*magnitude));
-		if (magnitude > 0.01f){
+
+		if(!skip &&magnitude > 0.01f){
 			angle += 0.1f;
 			magnitude *=0.9f;
 		}
-
-		if (timer+2.5<Time.time  && !Game.pause) { //Input.anyKeyDown
+		if (timer+3.5<Time.time  && !Game.pause) { //Input.anyKeyDown
 			timer=Time.time;
 			if (line < textLines.Length - 1) {
 				line++;
@@ -65,14 +65,17 @@ public class dialogs : MonoBehaviour {
 			}
 		}
 		if ( skip ) {
-			Destroy (gameObject);
+			
+			magnitude -= 0.09f;
+			angle += 0.3f;
+			if(magnitude<=-1.2f)Destroy (gameObject);
 			print (this.gameObject+"destroy!!!");
-		}
+		}	
 	}
 
 	public void destroy(){
 		print("destroy?");
-		line = textLines.Length;
+		//line = textLines.Length;
 		skip = true;
 		//Destroy (this.gameObject);
 	}

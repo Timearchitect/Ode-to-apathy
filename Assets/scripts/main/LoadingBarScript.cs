@@ -28,14 +28,12 @@ public class LoadingBarScript : MonoBehaviour {
 	public void loadLevel01(){
 		print ("build index +1: " + (SceneManager.GetActiveScene ().buildIndex + 1));
 		//loadingScreenBG.SetActive (true);
-
 		//progBar.gameObject.SetActive (true);
 		loadingText.gameObject.SetActive (true);
 		loadingText.text="Loading...";
-
+		Game.setCurrentlevelBasedOnbuildIndex (SceneManager.GetActiveScene ().buildIndex + 1);
 
 		if (!isFakeLoadingBar) {
-
 			StartCoroutine (LoadLevelWithRealProgress());
 
 		} else {
@@ -58,13 +56,11 @@ public class LoadingBarScript : MonoBehaviour {
 				loadingText.text = "Press 'F' to continue" ;
 				if(Input.GetKeyDown(KeyCode.F)){
 					ao.allowSceneActivation = true;
-
 				}
 			}
 
 			yield return null;
 		
-
 		}
 	}
 
@@ -80,7 +76,6 @@ public class LoadingBarScript : MonoBehaviour {
 			loadingText.text = "Done Loading";
 			if (Input.GetKeyDown (KeyCode.F)) {
 				SceneManager.LoadScene ((SceneManager.GetActiveScene ().buildIndex + 1));
-				Game.setCurrentlevelBasedOnbuildIndex ();
 				Game.refresh ();
 			}
 			yield return null;

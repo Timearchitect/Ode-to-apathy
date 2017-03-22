@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public  class Stats  {
+public class Stats  {
 	//public static float wordSpeed;
 	public static int maxWordCount=400,maxDrawProgress=100,maxCodeProgress=100;
 	public static float wordCount,drawProgess,codeProgess;
@@ -10,6 +10,7 @@ public  class Stats  {
 	public static float apathy=maxApathy;
 	public static float averageTypeSpeed;
 	public static float typeSpeed = 2;
+	public static float mouseRegisterDist= 250f;
 	public static float visualCoverMax = .6f;
 	public static float fadeRate=0.08f;
 	public static float distractedTime;
@@ -28,28 +29,22 @@ public  class Stats  {
 	public static int workDuration = 10;
 
 	public static void difficultyBasedOnLevel(){
-		UnityEngine.Debug.Log ("difficulty based on level: "+Stats.currentLevel);
+		//UnityEngine.Debug.Log ("difficulty based on level: "+Stats.currentLevel);
 		switch(currentLevel){
 			case 1:
 				maxWordCount = 800;
-				totalTime =100;
+				totalTime =110;
 				apathyRegen=0.05f;
 				break;
 			case 2:
 				maxWordCount = 900;
 				totalTime =100;
-				apathyRegen=0.04f;
+				apathyRegen=0.045f;
 				break;
 			case 3:
 				maxWordCount = 1000;
 				totalTime = 90;
-				apathyRegen = 0.035f;
-				AudioSource cafeR = UnityEngine.GameObject.Find ("Cafe bgm Right").GetComponent<AudioSource> ();
-				AudioSource cafeL = UnityEngine.GameObject.Find ("Cafe bgm Left").GetComponent<AudioSource> ();
-				cafeR.mute = true;
-				cafeL.mute = true;
-				UnityEngine.Debug.Log ("MUTE!!!!");
-
+				apathyRegen = 0.04f;
 				break;
 			default:
 				maxWordCount = 1000;

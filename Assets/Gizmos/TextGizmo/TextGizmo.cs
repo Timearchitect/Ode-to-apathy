@@ -8,7 +8,6 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-
 public class TextGizmo
 {
 	private static TextGizmo tg = null;

@@ -11,7 +11,6 @@ public class timer : MonoBehaviour {
 	public static bool resetSoundNoArduino=true;
 	// Use this for initialization
 	void Start () { 
-
 		timeStyle  = new GUIStyle("box");
 		timeStyle.fontSize = Mathf.FloorToInt(Screen.width*.04f);
 		timeStyle.alignment = TextAnchor.MiddleCenter;
@@ -29,6 +28,8 @@ public class timer : MonoBehaviour {
 				a.volume = 1;
 				a.bypassEffects = true;
 			}
+			Game.audioBasedOnLevel ();
+		
 		}
 		//	gametimer -= Time.deltaTime;
 		minutes = Mathf.FloorToInt(Stats.timeleft / 60);
@@ -45,11 +46,13 @@ public class timer : MonoBehaviour {
 	}
 
 	void OnGUI(){
-		Rect r = new Rect(Screen.width*.5f, Screen.height*.02f,Screen.width*.25f, Screen.height*.1f);
-		r.center = new Vector2 (Screen.width*.5f, Screen.height*.1f);
-		GUI.backgroundColor = new Color (1,1,1,0.1f);
-		GUI.color = Color.white;
-		GUI.Box(r, " "+ minutes.ToString("00") +":"+seconds.ToString("00"),timeStyle);
+		if (!Game.pause) {
+			Rect r = new Rect (Screen.width * .5f, Screen.height * .02f, Screen.width * .25f, Screen.height * .1f);
+			r.center = new Vector2 (Screen.width * .5f, Screen.height * .1f);
+			GUI.backgroundColor = new Color (1, 1, 1, 0.1f);
+			GUI.color = Color.white;
+			GUI.Box (r, " " + minutes.ToString ("00") + ":" + seconds.ToString ("00"), timeStyle);
+		}
 	}
 }
 

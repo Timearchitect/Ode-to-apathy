@@ -70,7 +70,6 @@ namespace Ardunity
 			nodes.Add (new Node ("setVolume", "Set Volume", typeof(IWireInput<float>), NodeType.WireFrom, "Input<float>"));
 			nodes.Add (new Node ("setBypassFilterR", "Set Bypass Right", typeof(IWireInput<float>), NodeType.WireFrom, "Input<bool>"));
 			nodes.Add (new Node ("setBypassFilterL", "Set Bypass Left", typeof(IWireInput<float>), NodeType.WireFrom, "Input<bool>"));
-
 		}
 
 		protected override void UpdateNode (Node node)
@@ -79,10 +78,9 @@ namespace Ardunity
 				node.updated = true;
 				if (node.objectTarget == null && _digitalInput == null)
 					return;
-                
 				if (node.objectTarget != null) {
 					if (node.objectTarget.Equals (_digitalInput))
-						return;
+					return;
 				}
                 
 				if (_digitalInput != null)

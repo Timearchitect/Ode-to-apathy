@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 public class follow : MonoBehaviour {
 	[SerializeField]
 	public GameObject path;
@@ -18,7 +20,7 @@ public class follow : MonoBehaviour {
 
 	//stopPoints
 	private GameObject player;
-	private GameObject stopPoint_cafe;
+	//private GameObject stopPoint_cafe;
 	public bool pause;
 	private bool started;
 	private float dist;
@@ -54,8 +56,10 @@ public class follow : MonoBehaviour {
 			enemyscript.satisfied = false;
 		}catch(Exception ex ){
 			UnityEngine.Debug.LogError ("Error in "+this.name +" please check row "+ex.ToString ().Split (':') [3]+" in script: ");				
+			#if UNITY_EDITOR
 			UnityEditor.EditorApplication.isPlaying = false;
 			UnityEditor.EditorApplication.isPaused = true;
+			#endif
 		}
 	}
 
@@ -93,7 +97,7 @@ public class follow : MonoBehaviour {
 
 	}
 
-	void stopPoint_cafeCounter(){
+	/*void stopPoint_cafeCounter(){
 		if (Vector3.Distance (stopPoint_cafe.transform.position, this.transform.position) < stopDistanceCafe) {
 			if(!enemyscript.satisfied)Stats.reduceHealth ();
 			if (!pause) {
@@ -101,15 +105,15 @@ public class follow : MonoBehaviour {
 				print ("STOP!! " + Time.fixedTime);
 			//	enemyscript.spawnDialogBox ();
 			   enemyscript.spawnDistraction ();
-
 			}
 		} else {
 			pause = false;
 		}
-	}
+	}*/
 
 
 	void OnDrawGizmos(){
+		#if UNITY_EDITOR
 		TextGizmo.Draw (transform.position, "time "+startTime);
 		if (Selection.Contains (gameObject)) {
 			Gizmos.color = Color.red;
@@ -135,6 +139,7 @@ public class follow : MonoBehaviour {
 			else
 				Gizmos.DrawCube (point [point.Length - 1].position, new Vector3 (reachDist * 2, reachDist * 2, reachDist * 2));
 		}
+		#endif
 	}
 	public bool isPaused(){
 		return pause;
@@ -149,7 +154,6 @@ public class follow : MonoBehaviour {
 		pause = s;
 	}
 	public void move(){
-		
 		dist = Vector3.Distance (point [currentPoint].position, this.transform.position);
 		this.transform.position = Vector3.MoveTowards (transform.position, point [currentPoint].position, Time.deltaTime * speed);
 	
@@ -165,7 +169,6 @@ public class follow : MonoBehaviour {
 	
 	}
 	public void reset(){
-
 			enemyscript.randomize ();
 			enemyscript.firstDialog = true;
 			enemyscript.satisfied = false;
@@ -173,13 +176,11 @@ public class follow : MonoBehaviour {
 			//float dist = Vector3.Distance (point [currentPoint].position, this.transform.position);
 			currentPoint = startIndex;
 			this.transform.position = point [startIndex].position;
-		
 	}
 	public void setPath(GameObject temp){
 		//print ("setPath");
 		path = temp;
 		point = path.GetComponentsInChildren <Transform>();
-
 		/*Transform[] comps = path.GetComponentsInChildren<Transform>();
 		foreach (Transform comp in comps)
 		{
@@ -188,7 +189,6 @@ public class follow : MonoBehaviour {
 				point.
 			}
 		}*/
-
 		currentPoint = startIndex;
 		//print (point[startIndex].name+" starting point");
 		this.transform.position =point[startIndex].position;

@@ -34,21 +34,20 @@ public static class Game  {
 	}
 
 	public static void gameover(){
-		aos = SceneManager.LoadSceneAsync(8);
+		aos = SceneManager.LoadSceneAsync(7);
 		aos.allowSceneActivation = true;
 	}
 	public static void apathyDeath(){
-		aos = SceneManager.LoadSceneAsync(9);
+		aos = SceneManager.LoadSceneAsync(8);
 		aos.allowSceneActivation = true;
 	}
 
 	public static void end () {
 		if (!pause) {
-	
-			GameObject gui;
-			GameObject reviewPanel;
-			gui = GameObject.Find ("GUI");
-			reviewPanel = GameObject.Find ("ReviewPanel");
+//			GameObject gui;
+///			GameObject reviewPanel;
+//			gui = GameObject.Find ("GUI");
+		//	reviewPanel = GameObject.Find ("ReviewPanel");
 			//reviewPanel = GameObject.FindGameObjectWithTag("reviewPanel");
 			//statScreen = GameObject.Find ("dialogCanvas");
 			statScreen = GameObject.Instantiate((GameObject)Resources.Load("PreFabs/dialogCanvas", typeof(GameObject)));
@@ -96,11 +95,12 @@ public static class Game  {
 		Time.timeScale = 1;
 		//Time.timeSinceLevelLoad;
 		//print ("build index +1: " + ());
-
+		win=false;
 		UnityEngine.Debug.Log ("refresh!!"+Time.timeSinceLevelLoad+" current LVL:"+Stats.currentLevel);
 
 		Stats.difficultyBasedOnLevel();
 		Stats.wordCount = 0;
+		Stats.workMode = 0;
 		Stats.timeleft = Stats.totalTime;
 		Stats.drawProgess = 0;
 		Stats.codeProgess = 0;
@@ -108,16 +108,43 @@ public static class Game  {
 		Stats.apathy = Stats.maxApathy;
 		timer.resetSoundNoArduino = true;
 	}
-	public static void setCurrentlevelBasedOnbuildIndex(){		
-		switch(SceneManager.GetActiveScene ().buildIndex ){
-		case 2:
+	public static void setCurrentlevelBasedOnbuildIndex(int biuldIndex){	
+		switch(biuldIndex ){
+		case 1:
 			Stats.currentLevel = 1;
 			break;
-		case 4:
+		case 3:
 			Stats.currentLevel = 2;
 			break;
-		case 6:
+		case 5:
 			Stats.currentLevel = 3;
+			break;
+		default:
+			UnityEngine.Debug.Log(biuldIndex);
+			break;
+		}
+		UnityEngine.Debug.Log ("setCurrentlevelBasedOnbuildIndex!!: "+biuldIndex+" current LVL:"+Stats.currentLevel);
+
+	}
+	public static void audioBasedOnLevel(){
+	
+		switch(Stats.currentLevel){
+		case 1:
+			break;
+		case 2:
+			break;
+		case 3:
+			AudioSource cafeR = UnityEngine.GameObject.Find ("Cafe bgm Right").GetComponent<AudioSource> ();
+			AudioSource cafeL = UnityEngine.GameObject.Find ("Cafe bgm Left").GetComponent<AudioSource> ();
+			AudioSource machR = UnityEngine.GameObject.Find ("maching Right").GetComponent<AudioSource> ();
+			AudioSource machL = UnityEngine.GameObject.Find ("maching Left").GetComponent<AudioSource> ();
+			cafeR.mute = true;
+			cafeL.mute = true;
+			machR.bypassReverbZones = true;
+			machL.bypassReverbZones = true;
+			UnityEngine.Debug.Log ("MUTE!!!!");
+			break;
+		default:
 			break;
 		}
 	}
@@ -127,5 +154,35 @@ public static class Game  {
 		if (obj == null)
 			throw new Exception ("can't find :"+name);
 	}
+	public static void 	enableCheatMode (){
+		cheatMode=!cheatMode;
+		if (cheatMode) {
+			switch (Stats.currentLevel) {
+			case 1:
+				Stats.maxWordCount = 80;
+				Stats.totalTime = 1100;
+				Stats.apathyRegen = 0.05f;
+				break;
+			case 2:
+				Stats.maxWordCount = 90;
+				Stats.totalTime = 1000;
+				Stats.apathyRegen = 0.045f;
+				break;
+			case 3:
+				Stats.maxWordCount = 100;
+				Stats.totalTime = 900;
+				Stats.apathyRegen = 0.04f;
+				break;
+			default:
+				Stats.maxWordCount = 100;
+				Stats.totalTime = 900;
+				break;
+			}
+			Stats.apathy = 1000;
+		} else {
+			Stats.difficultyBasedOnLevel ();
+			Stats.apathy = 100;
+		}
 
+	}
 }
