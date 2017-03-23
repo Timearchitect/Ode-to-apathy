@@ -10,11 +10,11 @@ public class Stats  {
 	public static float apathy=maxApathy;
 	public static float averageTypeSpeed;
 	public static float typeSpeed = 2;
-	public static float mouseRegisterDist= 150f;
+	public static float mouseRegisterDist= 80f;
 	public static float visualCoverMax = .6f;
 	public static float fadeRate=0.08f;
 	public static float distractedTime;
-	public static float penSpeed=0.7f;
+	public static float penSpeed=0.95f;
 	public static float panStereo=0.0f;
 	public static float apathyLost;
 	public static float distractionPenalty=-0.9f;
@@ -43,7 +43,7 @@ public class Stats  {
 				break;
 			case 3:
 				maxWordCount = 1000;
-				totalTime = 90;
+				totalTime = 100;
 				apathyRegen = 0.04f;
 				break;
 			default:
