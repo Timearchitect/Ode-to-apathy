@@ -11,6 +11,9 @@ public class timer : MonoBehaviour {
 	public static bool resetSoundNoArduino=true;
 	// Use this for initialization
 	void Start () { 
+		Ardunity.ArdunityApp arduino = GameObject.Find ("Ardunity").GetComponent<Ardunity.ArdunityApp>();
+		arduino.Connect ();
+		//print (arduino.GetType().ToString()+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 		timeStyle  = new GUIStyle("box");
 		timeStyle.fontSize = Mathf.FloorToInt(Screen.width*.04f);
 		timeStyle.alignment = TextAnchor.MiddleCenter;

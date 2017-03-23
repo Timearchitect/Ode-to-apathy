@@ -13,7 +13,7 @@ namespace Ardunity
 		private IWireInput<Trigger> _triggerInput;
 		private IWireInput<float> _analogInput;
 		public Image _imageSource;
-		const float maxDarkness=0.4f;
+		const float maxDarkness=0.6f;
 		protected override void Awake ()
 		{
 			base.Awake ();

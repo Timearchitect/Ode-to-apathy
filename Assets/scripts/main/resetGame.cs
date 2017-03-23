@@ -13,22 +13,18 @@ public class resetGame : MonoBehaviour {
 		StartCoroutine (LoadLevelWithRealProgress());
 	}
 	
-	// Update is called once per frame
 	void Update () {
 		if(Input.GetAxis ("Escape")>0){
 			Application.Quit ();
 		}
 		//if(Input.GetAxis ("Retry")>0){
-
 			//aos = SceneManager.LoadSceneAsync(0);
 			//aos.allowSceneActivation = true;
-
 		//}
 	}
 
 
 	IEnumerator LoadLevelWithRealProgress(){
-
 		ao.allowSceneActivation = false;
 		print("loadReal");
 		while(!ao.isDone){
@@ -43,9 +39,7 @@ public class resetGame : MonoBehaviour {
 					ao.allowSceneActivation = true;
 				}
 			}
-
 			yield return null;
-
 		}
 		/*
 			ao.allowSceneActivation = false;
