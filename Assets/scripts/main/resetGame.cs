@@ -15,6 +15,9 @@ public class resetGame : MonoBehaviour {
 	
 	void Update () {
 		if(Input.GetAxis ("Escape")>0){
+			#if UNITY_EDITOR
+			UnityEditor.EditorApplication.isPlaying = false;
+			#endif
 			Application.Quit ();
 		}
 		//if(Input.GetAxis ("Retry")>0){

@@ -43,10 +43,8 @@ public class PlayerMovement : MonoBehaviour {
 	}
 	void OnDrawGizmos(){
 		#if UNITY_EDITOR
-
 		Gizmos.color = new Color(0,0,1,0.1f);
 		Gizmos.DrawSphere (GameObject.FindGameObjectWithTag("Player").transform.position, 150);
-
 		#endif
 	}
 	void Awake () {
@@ -84,6 +82,8 @@ public class PlayerMovement : MonoBehaviour {
 			}
 
 		}
+		offset = new Vector3(offset.x,offset.y,Stats.apathy*.5f-280); // camera offset
+
 		finishpos = player.transform.position + offset;
 		go.transform.position = Vector3.Lerp (go.transform.position, finishpos, lerpSpeed);
 		rotateBack ();

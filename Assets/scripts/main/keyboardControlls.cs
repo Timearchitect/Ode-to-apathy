@@ -80,6 +80,9 @@ public class keyboardControlls : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(Input.GetAxis("Escape")>0){
+			#if UNITY_EDITOR
+			UnityEditor.EditorApplication.isPlaying = false;
+			#endif
 			Application.Quit ();
 		}
 		if (Input.GetKeyDown (KeyCode.F12)) {

@@ -1792,7 +1792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endTransform: {fileID: 0}
-  startTime: 0
+  startTime: 2
 --- !u!1 &2024832422
 GameObject:
   m_ObjectHideFlags: 0

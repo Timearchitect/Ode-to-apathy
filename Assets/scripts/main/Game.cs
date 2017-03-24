@@ -159,26 +159,26 @@ public static class Game  {
 		if (cheatMode) {
 			switch (Stats.currentLevel) {
 			case 1:
-				Stats.maxWordCount = 80;
+				Stats.maxWordCount = 400;
 				Stats.totalTime = 1100;
 				Stats.apathyRegen = 0.05f;
 				break;
 			case 2:
-				Stats.maxWordCount = 90;
+				Stats.maxWordCount = 450;
 				Stats.totalTime = 1000;
 				Stats.apathyRegen = 0.045f;
 				break;
 			case 3:
-				Stats.maxWordCount = 100;
+				Stats.maxWordCount = 500;
 				Stats.totalTime = 900;
 				Stats.apathyRegen = 0.04f;
 				break;
 			default:
-				Stats.maxWordCount = 100;
+				Stats.maxWordCount = 400;
 				Stats.totalTime = 900;
 				break;
 			}
-			Stats.apathy = 1000;
+			Stats.apathy = 200;
 		} else {
 			Stats.difficultyBasedOnLevel ();
 			Stats.apathy = 100;
