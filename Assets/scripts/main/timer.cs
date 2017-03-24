@@ -14,6 +14,7 @@ public class timer : MonoBehaviour {
 		Ardunity.ArdunityApp arduino = GameObject.Find ("Ardunity").GetComponent<Ardunity.ArdunityApp>();
 		arduino.Connect ();
 		//print (arduino.GetType().ToString()+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
 		timeStyle  = new GUIStyle("box");
 		timeStyle.fontSize = Mathf.FloorToInt(Screen.width*.04f);
 		timeStyle.alignment = TextAnchor.MiddleCenter;
@@ -24,7 +25,6 @@ public class timer : MonoBehaviour {
 		//	currentStyle.normal.background = MakeTex( 2, 2, new Color( 0f, 1f, 0f, 0.5f ) );
 	}
 	
-	//	Update is called once per frame
 	void Update () {
 		if (resetSoundNoArduino && Time.timeSinceLevelLoad > 0.5f) {
 			resetSoundNoArduino = false;

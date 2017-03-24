@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class resetGame : MonoBehaviour {
-	public static AsyncOperation ao;
+	private static AsyncOperation ao;
 	// Use this for initialization
 	void Start () {
-		ao = SceneManager.LoadSceneAsync(0);
-		Game.setCurrentlevelBasedOnbuildIndex (0);
-		ao.allowSceneActivation = false;
+		//ao = SceneManager.LoadSceneAsync(0);
+		Game.setCurrentlevelBasedOnbuildIndex (1);
+		//ao.allowSceneActivation = false;
 		StartCoroutine (LoadLevelWithRealProgress());
 	}
 	
@@ -26,20 +26,46 @@ public class resetGame : MonoBehaviour {
 		//}
 	}
 
+/*	IEnumerator LoadLevelWithRealProgress(){
+
+		ao = SceneManager.LoadSceneAsync((SceneManager.GetActiveScene ().buildIndex + 1));
+		ao.allowSceneActivation = false;
+
+		while(!ao.isDone){
+			//progBar.value = ao.progress;
+
+			//done yo
+			if(ao.progress == 0.9f){
+				//progBar.value = 1f;
+				loadingText.text = "Press 'F' to continue" ;
+				if(Input.GetKeyDown(KeyCode.F)){
+					ao.allowSceneActivation = true;
+				}
+			}
+
+			yield return null;
+
+		}
+	}*/
 
 	IEnumerator LoadLevelWithRealProgress(){
+		ao = SceneManager.LoadSceneAsync (0);
+		//ao =Application.LoadLevelAsync ("scenes/loading1");
+		//ao = SceneManager.LoadSceneAsync(SceneManager.GetSceneAt(0).ToString());
 		ao.allowSceneActivation = false;
 		print("loadReal");
 		while(!ao.isDone){
 			//progBar.value = ao.progress;
 			print("yo "+ao.progress);
 			//done yo
-			if(ao.progress >=0.9f){
+			if(ao.progress == 0||ao.progress == 0.9f){
 				//progBar.value = 1f;
-				print("finish!!");
-				if(Input.GetAxis ("Retry")>0){
-					SceneManager.LoadScene (0);
+				//print("finish!!");
+				if(Input.GetAxis ("Retry")>0) {
+					//SceneManager.LoadScene (0);
+					print("pressed ENTER or Return!!");
 					ao.allowSceneActivation = true;
+					SceneManager.LoadScene (0);
 				}
 			}
 			yield return null;
@@ -59,6 +85,7 @@ public class resetGame : MonoBehaviour {
 			}
 		*/
 	}
+
 		/*IEnumerator LoadLevelWithFakeProgress(){
 		//while (progBar.value != 1f) {
 		//progBar.value += fakeIncrement;
@@ -75,4 +102,5 @@ public class resetGame : MonoBehaviour {
 			}
 		}
 		*/
+
 }
