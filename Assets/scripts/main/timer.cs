@@ -56,6 +56,7 @@ public class timer : MonoBehaviour {
 			r.center = new Vector2 (Screen.width * .5f, Screen.height * .1f);
 			GUI.backgroundColor = new Color (1, 1, 1, 0.2f);
 			GUI.color = Color.white;
+			GUI.contentColor = Color.white;
 			GUI.Box (r, " " + minutes.ToString ("00") + ":" + seconds.ToString ("00"), timeStyle);
 		}
 	}

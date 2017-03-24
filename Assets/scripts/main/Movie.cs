@@ -24,6 +24,14 @@ public class Movie : MonoBehaviour {
 			QualitySettings.vSyncCount = quality;
 			this.gameObject.SetActive (false);
 		}
+		if(Input.GetAxis ("Retry")>0) {
+			movie.Pause();
+			try{
+				GameObject.FindObjectOfType<shiftImage> ().startTime=Time.timeSinceLevelLoad;
+			}catch{
+				print("fail");
+			}
+		}
 		/*if (Input.GetKeyDown (KeyCode.Space) && movie.isPlaying)
 			movie.Pause ();
 		else if (Input.GetKeyDown (KeyCode.Space) && !movie.isPlaying)
