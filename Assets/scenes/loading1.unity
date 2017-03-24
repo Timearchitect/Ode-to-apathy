@@ -898,6 +898,7 @@ GameObject:
   - component: {fileID: 834878211}
   - component: {fileID: 834878210}
   - component: {fileID: 834878209}
+  - component: {fileID: 834878212}
   m_Layer: 5
   m_Name: LoadingScreenBG
   m_TagString: Untagged
@@ -957,6 +958,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &834878212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 834878208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8110a3d32aeafa43ac378be43861319, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  macImage:
+  - {fileID: 21300000, guid: 032692e47a8b95d4b9012a9a55b43c0b, type: 3}
+  - {fileID: 21300000, guid: d66754e2415a2644b8f38f40ee5955df, type: 3}
+  winImage:
+  - {fileID: 21300000, guid: 032692e47a8b95d4b9012a9a55b43c0b, type: 3}
+  - {fileID: 21300000, guid: 53043de0ff5c1bb43ada0acacc615640, type: 3}
+  Shiftduration: 6
 --- !u!1 &866006280
 GameObject:
   m_ObjectHideFlags: 0

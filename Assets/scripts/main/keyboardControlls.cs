@@ -30,10 +30,10 @@ public class keyboardControlls : MonoBehaviour {
 				audioRKey=KeyCode.RightShift;
 			}
 			if(SystemInfo.operatingSystemFamily==OperatingSystemFamily.MacOSX){
-				visualLKey=KeyCode.LeftCommand;
-				visualRKey=KeyCode.RightCommand;
-				audioLKey=KeyCode.LeftAlt;
-				audioRKey=KeyCode.RightAlt;
+				visualLKey=KeyCode.LeftAlt;
+				visualRKey=KeyCode.RightAlt;
+				audioLKey=KeyCode.LeftCommand;
+				audioRKey=KeyCode.RightCommand;
 
 			}
 			print(SystemInfo.operatingSystemFamily);
